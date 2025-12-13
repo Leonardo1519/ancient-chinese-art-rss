@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>非遗文创资讯 - Popup</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="popup">
+      <header class="popup-header">
+        <div>
+          <div class="popup-title">设计视界 | 思政融新</div>
+          <div class="popup-subtitle">
+            一站式整合国内外最新设计资讯，
+            <br />
+            自动更新、收藏与提醒。
+            <br />
+            以思想之光引领设计创新。
+          </div>
+        </div>
+        <span id="popup-unread" class="popup-badge">--</span>
+      </header>
+
+      <label class="popup-field popup-field-offset" for="popup-source">
+        <span>选择 RSS 频道</span>
+        <select id="popup-source"></select>
+      </label>
+
+      <div id="popup-loading" class="popup-message">加载中...</div>
+      <div id="popup-empty" class="popup-message hidden"></div>
+
+      <div id="popup-list" class="popup-list"></div>
+
+      <button id="view-more" class="popup-button">查看更多</button>
+    </div>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>
+

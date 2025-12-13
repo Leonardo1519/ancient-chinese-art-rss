@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "设计视界 · 思政融新",
+  "description": "一站式整合国内外最新设计资讯，自动更新、收藏与提醒。以思想之光引领设计创新。",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "设计视界 · 思政融新",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*.ihchina.cn/*",
+    "*://www.mct.gov.cn/*",
+    "*://en.chinaculture.org/*",
+    "*://*.jsfybh.cn/*",
+    "*://www.zjich.cn/*",
+    "*://www.gtn9.com/*",
+    "*://www.zcool.com.cn/*",
+    "*://rsshub.app/*",
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "optional_permissions": [
+    "tabs"
+  ]
+}
+
+

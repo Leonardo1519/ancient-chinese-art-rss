@@ -1,0 +1,2606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="baidu-site-verification" content="OLJg0QMvs2" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta name="SiteName" content="涓崕浜烘皯鍏卞拰鍥芥枃鍖栧拰鏃呮父閮?>
+    <meta name="SiteDomain" content="www.mct.gov.cn">
+    <meta name="SiteIDcode" content="bm23000001">
+    <meta name="Keywords" content="涓崕浜烘皯鍏卞拰鍥芥枃鍖栧拰鏃呮父閮ㄣ€佹枃鍖栧拰鏃呮父閮ㄣ€佹枃鍖栥€佹梾娓搞€佹枃鍖栧拰鏃呮父銆佹枃鍖栭儴銆佸浗瀹舵梾娓稿眬銆佹梾娓稿眬銆佹枃鏃呴儴銆佹枃鏃?>
+    <link type="text/css" href="./images/hanweb.css" rel="stylesheet">
+    <link type="text/css" href="./images/sy_culture-20180320.css" rel="stylesheet">
+    <script type="text/javascript" src="./images/bt-js-tab.js"></script>
+    <script src="./images/jquery.min.js"></script>
+    <script src="./images/device.min.js"></script>
+    <title>涓崕浜烘皯鍏卞拰鍥芥枃鍖栧拰鏃呮父閮?/title>
+    <script language="javascript">
+        //涓诲鑸珮浜?        $(document).ready(function() {
+            var nav_len = $(".nav_sub").length;
+            for (var i = 0; i < 10; i++) {
+                var tw_word = $(".local").eq(i).text();
+                for (var n = 0; n < nav_len; n++) {
+                    var nav_word = $(".nav_sub").eq(n).text();
+                    if (nav_word == tw_word) {
+                        $(".nav_sub").eq(n).css({
+                            'color': '#fff',
+                            'background-color': '#b92121'
+                        }).siblings().css({
+                            'color': '#fff'
+                        });
+                    }
+                }
+            }
+            $.ajax({
+                url: 'https://www.gov.cn/pushinfo/v150203/pushinfo.jsonp',
+                dataType: "jsonp",
+                jsonp: "pushInfoJsonpCallBack",
+                jsonpCallback: "pushInfoJsonpCallBack",
+                success: function(data) {
+
+                    for (var i = 0; i < 8; i++) {
+                        var pubdate = data[i].pubDate;
+
+                        //pubdate=pubdate.substr(5,10);
+                        var title = data[i].title;
+                        if (title.length > 20) {
+                            title = title.substring(0, 20) + "...";
+                        }
+                        $(".govpushinfo150203").append('<li><a href="' + data[i].link + '" target="_blank">' + title + '</a><span>' + pubdate + '</span></li>');
+
+
+                    }
+                },
+                error: function() {
+                    //alert('fail');
+                }
+
+            });
+        });
+
+        // function uaredirect(f) {
+        //     try {
+        //         if (document.getElementById("bdmark") != null) {
+        //             return
+        //         }
+        //         var b = false;
+        //         if (arguments[1]) {
+        //             var e = window.location.host;
+        //             var a = window.location.href;
+        //             if (isSubdomain(arguments[1], e) == 1) {
+        //                 f = f + "/#m/" + a;
+        //                 b = true
+        //             } else {
+        //                 if (isSubdomain(arguments[1], e) == 2) {
+        //                     f = f + "/#m/" + a;
+        //                     b = true
+        //                 } else {
+        //                     f = a;
+        //                     b = false
+        //                 }
+        //             }
+        //         } else {
+        //             b = true
+        //         }
+        //         if (b) {
+        //             var c = window.location.hash;
+        //             if (!c.match("fromapp")) {
+        //                 if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i))) {
+        //                     location.replace(f)
+        //                 }
+        //             }
+        //         }
+        //     } catch (d) {}
+        // }
+
+        // function isSubdomain(c, d) {
+        //     this.getdomain = function(f) {
+        //         var e = f.indexOf("://");
+        //         if (e > 0) {
+        //             var h = f.substr(e + 3)
+        //         } else {
+        //             var h = f
+        //         }
+        //         var g = /^www\./;
+        //         if (g.test(h)) {
+        //             h = h.substr(4)
+        //         }
+        //         return h
+        //     };
+        //     if (c == d) {
+        //         return 1
+        //     } else {
+        //         var c = this.getdomain(c);
+        //         var b = this.getdomain(d);
+        //         if (c == b) {
+        //             return 1
+        //         } else {
+        //             c = c.replace(".", "\\.");
+        //             var a = new RegExp("\\." + c + "$");
+        //             if (b.match(a)) {
+        //                 return 2
+        //             } else {
+        //                 return 0
+        //             }
+        //         }
+        //     }
+        // };
+
+        // function getRequest(id) {
+        //     var url = location.search,
+        //         Request = new Object();
+        //     if (url.indexOf("?") != -1) {
+        //         var str = url.substr(1);
+        //         strs = str.split("&");
+        //         for (var i = 0; i < strs.length; i++) {
+        //             Request[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1])
+        //         }
+        //     }
+        //     return Request[id]
+        // };
+        // if (getRequest('from') != 'pc') {
+        //     uaredirect('/wlbphone/')
+        // }
+        // var aa = window.location.href;
+        // var bb = aa.split("=");
+        // var cc = bb[1];
+        // $(function() {
+        //     if (cc == "pc") {
+        //         $("#tophone").show();
+        //         $("#toolbarCtrl").hide();
+        //     }
+        // })
+        if (window.location.toString().indexOf('pref=padindex') != -1) {} else {
+            if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+                if (window.location.href.indexOf("?pc") < 0) {
+                    try {
+                        if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                            window.location.href = "/wlbphone/";
+                        } else if (/iPad/i.test(navigator.userAgent)) {
+                            window.location.href = "/"
+                        } else {
+                            window.location.href = "/"
+                        }
+                    } catch (e) {}
+                }
+            }
+        }
+
+
+                       
+                   
+    </script>
+    <style>
+        /*20200403鏁翠釜椤甸潰鍙樼伆
+        html{
+  -webkit-filter: grayscale(100%);  -moz-filter: grayscale(100%);  -ms-filter: grayscale(100%);  -o-filter: grayscale(100%);  filter: grayscale(100%);  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  filter: gray;}
+        */
+        #part3 li {
+            padding-top: 16px;
+            line-height: 0!important
+        }
+        
+        .bt-mod-wzpb-05 li {
+            position: relative
+        }
+        
+        #titqh_cont_1 li .bt-prefix img {
+            margin-top: 18px!important;
+            margin-right: 12px!important
+        }
+        
+        #titqh_cont_1 li {
+            height: auto!important
+        }
+        
+        #titqh_cont_1 li span {
+            bottom: 0;
+            line-height: 38px!important;
+            height: auto!important;
+            display: inline
+        }
+        
+        #titqh_cont_1 a {
+            line-height: 39px!important;
+            white-space: normal!important
+        }
+        
+        #titqh_cont_0 a {
+            padding-left: 15px;
+            background: url(/images/dian.gif) no-repeat left center
+        }
+        
+        #titqh_cont_0 span,
+        .list_time_h {
+            position: absolute;
+            right: 0;
+            display: block;
+            height: 40px;
+            color: #999;
+            line-height: 40px;
+            font-size: 12px
+        }
+        
+        .bt-mod-wzpb-05 li a {
+            width: 75%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden
+        }
+        
+        @media only screen and (max-width:768px) {
+            .bt-head {
+                width: 100%;
+                height: auto!important;
+                min-height: 0;
+                background: #fff!important
+            }
+            .bt-head-cen {
+                width: 1000px!important;
+                height: 117px!important;
+                position: relative;
+                overflow: hidden;
+                margin: 0 auto
+            }
+            .bt-footer,
+            .bt-nav-y,
+            .top_left,
+            .top_right {
+                display: block!important
+            }
+            .bt-head,
+            .bt-nav-y,
+            .footer_box {
+                min-width: 1000px!important
+            }
+        }
+        
+        .rmzt_list a {
+            margin-top: 18px!important
+        }
+        
+        .link_czgz,
+        .link_rsxx,
+        .link_xzxk {
+            width: 119px!important
+        }
+        
+        .link_xzxk {
+            background: url(images/wstsg.jpg) no-repeat!important
+        }
+        
+        .link_xzxk:hover {
+            background: url(images/wstsg_1.jpg) no-repeat!important
+        }
+        
+        .link_rsxx {
+            background: url(images/cxts.jpg) no-repeat!important
+        }
+        
+        .link_rsxx:hover {
+            background: url(images/cxts_1.jpg) no-repeat!important
+        }
+        
+        .link_czgz {
+            background: url(images/lyml.jpg) no-repeat!important
+        }
+        
+        .link_czgz:hover {
+            background: url(images/lyml_1.jpg) no-repeat!important
+        }
+        /*绂佹澶村拰灏惧搷搴斿紡甯冨眬鐢熸晥缁撴潫*/
+        /*20190807鍙充晶瀵艰埅*/
+        
+        .clearFix:after {
+            display: block;
+            content: "";
+            clear: both;
+            overflow: hidden
+        }
+        
+        .FloatL {
+            float: left
+        }
+        
+        .FloatR {
+            float: right
+        }
+        
+        .InFixUl {
+            position: fixed;
+            top: 200px;
+            /*margin-top:-164px;*/
+            right: 1px;
+            width: 38px;
+            z-index: 99999999
+        }
+        
+        .InFixUl>li {
+            position: relative;
+            float: left;
+            margin-top: 1px;
+            width: 37px;
+            height: 40px;
+            background: rgba(0, 0, 0, .7)
+        }
+        
+        .InFixUl>li.InFixUl_mor {
+            background: rgba(215, 4, 22, .7);
+            cursor: pointer
+        }
+        
+        .InFixUl>li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url("/whzx/bnsj/ltxgbj/201603/W020190807398617193483.png") no-repeat
+        }
+        
+        .InFixUl>li:first-child a {
+            background-position: 6px -78px
+        }
+        
+        .InFixUl>li:first-child+li a {
+            background-position: -74px -78px
+        }
+        
+        .InFixUl>li:first-child+li+li a {
+            background-position: -34px -78px
+        }
+        
+        .InFixUl>li:first-child+li+li+li a {
+            background-position: -113px -78px
+        }
+        
+        .InFixUl>li.InFixUl_mob a {
+            background-position: -154px -78px
+        }
+        
+        .InFixUl>li.InFixUl_weC a {
+            background-position: -34px -111px
+        }
+        
+        .InFixUl>li.InFixUl_aiP a {
+            background-position: 6px -110px
+        }
+        
+        .InFixUl>li.InFixUl_mor a {
+            background-position: -74px -111px
+        }
+        
+        .InFixUl>li p {
+            position: absolute;
+            top: -10px;
+            right: 38px;
+            width: 0;
+            height: 40px;
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+            overflow: hidden
+        }
+        
+        .InFixUl>li:hover p {
+            width: 186px;
+            transition: all .2s ease-out 0s
+        }
+        
+        .InFixUlMax_wm,
+        .InFixUl_wm {
+            position: relative
+        }
+        
+        .InFixUl_wm div {
+            display: none;
+            position: absolute;
+            right: 37px;
+            top: -38px;
+            width: 124px;
+            height: 114px;
+            background: url("/whzx/bnsj/ltxgbj/201603/W020190807398617155888.png") no-repeat
+        }
+        
+        .InFixUlMax_wm div {
+            display: none;
+            position: absolute;
+            right: 84px;
+            top: -13px;
+            width: 124px;
+            height: 114px;
+            background: url("/whzx/bnsj/ltxgbj/201603/W020190807398617155888.png") no-repeat
+        }
+        
+        .InFixUlMax_wm div>img,
+        .InFixUl_wm div>img {
+            margin-left: 2px;
+            margin-top: 2px;
+            width: 111px;
+            height: 110px
+        }
+        
+        .InFixUlMax {
+            position: fixed;
+            /*top:50%;margin-top:-318px;*/
+            bottom: 0px;
+            right: 1px;
+            width: 88px;
+            z-index: 99999999
+        }
+        
+        .InFixUlMax>li {
+            float: left;
+            margin-top: 1px;
+            width: 88px;
+            background: rgba(0, 0, 0, .7)
+        }
+        
+        .InFixUlMax>li>a {
+            display: block;
+            margin: 15px auto 0;
+            width: 38px;
+            height: 38px;
+            overflow: hidden;
+            background: url("/whzx/bnsj/ltxgbj/201603/W020190807398617193483.png") no-repeat
+        }
+        
+        .InFixUlMax>li:first-child>a {
+            background-position: 2px -146px
+        }
+        
+        .InFixUlMax>li:first-child+li>a {
+            background-position: -89px -146px
+        }
+        
+        .InFixUlMax>li:first-child+li+li>a {
+            background-position: -45px -146px
+        }
+        
+        .InFixUlMax>li:first-child+li+li+li>a {
+            background-position: -133px -146px
+        }
+        
+        .InFixUlMax>li.InFixUlMax_mob a {
+            background-position: -1px -188px
+        }
+        
+        .InFixUlMax>li.InFixUlMax_weC a {
+            background-position: -43px -188px
+        }
+        
+        .InFixUlMax>li.InFixUlMax_aiP a {
+            background-position: -90px -190px
+        }
+        
+        .InFixUlMax>li.InFixUlMax_mor {
+            height: 35px;
+            background: rgba(215, 4, 22, .7);
+            cursor: pointer
+        }
+        
+        .InFixUlMax>li.InFixUlMax_mor a {
+            margin-top: 6px;
+            height: 30px;
+            width: 55px;
+            color: #fff;
+            background-position: -130px -195px
+        }
+        
+        .InFixUlMax>li p,
+        .InFixUlMax>li p>a {
+            display: block;
+            text-align: center;
+            line-height: 1.5em;
+            color: #fff;
+            width: 100%;
+            font-size: 14px;
+            margin: 0;
+            cursor: default;
+        }
+        
+        .InFixUlMax>li p>a:hover {
+            color: #fff;
+            cursor: pointer
+        }
+        
+        .InFixUlMax_wm div {
+            display: none
+        }
+        
+        @media screen and (max-width:1440px) {
+            .InFixUlMax {
+                margin-top: -260px
+            }
+            .InFixUlMax>li {
+                height: 68px
+            }
+            .InFixUlMax>li>a {
+                margin: 3px auto 0
+            }
+        }
+        
+        @media screen and (max-width: 1440px) {
+            .InFixUlMax>li {
+                height: auto !important;
+            }
+        }
+        /*20190807鍙充晶瀵艰埅end*/
+        
+        .news-left {
+            float: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .part2_left_shu1 {
+            width: 200px;
+            height: 100%;
+        }
+        
+        .part2_left_shu2 {
+            width: 360px;
+            height: auto;
+        }
+        
+        .part2_left_shu2 {
+            width: 360px;
+            height: auto;
+            margin-left: 20px;
+        }
+        
+        .part2_left_shu1 .gzly {
+            width: 200px;
+            height: 220px;
+        }
+        
+        .part2_left_shu1 .video_tit a,
+        .part2_left_shu1 .gzly_tit a {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .part2_left_shu1 .gzly_list .link1,
+        .part2_left_shu1 .gzly_list .link2 {
+            background-position: -42px 0 !important;
+            font-size: 13px;
+        }
+        
+        .part2_left_shu1 .gzly_list .link1 {
+            background: url(.//images/wyly.jpg) no-repeat;
+            padding-left: 25px;
+        }
+        
+        .part2_left_shu1 .gzly_list .link2 {
+            background: url(.//images/ckly.jpg) no-repeat;
+            padding-left: 25px;
+        }
+        
+        .part2_left_shu1 .gzly_list .link3 {
+            background-color: #cc4b4b;
+            color: #fff;
+            font-size: 13px;
+        }
+        
+        .part2_left_shu1 .gzly_list a {
+            width: 200px;
+            height: 80px;
+            line-height: 50px;
+            display: block;
+            margin-top: 17px;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        .part2_left_shu2 .gzly_tit a,
+        .part2_left_shu2 .video_tit a {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .part2_left_shu2 .zxbs_box .zxbs_link {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 6px;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link1 {
+            width: 100px;
+            height: 60px;
+            padding-top: 38px;
+            text-align: center;
+            float: left;
+            background: url(.//images/bsdt.png) center top no-repeat;
+            margin: 0 10px;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link2 {
+            width: 100px;
+            height: 60px;
+            padding-top: 38px;
+            text-align: center;
+            float: left;
+            background: url(.//images/bszn.png) center top no-repeat;
+            margin: 0 10px;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link3 {
+            width: 100px;
+            height: 60px;
+            padding-top: 38px;
+            text-align: center;
+            float: left;
+            background: url(.//images/bgxz.png) center top no-repeat;
+            margin: 0 10px;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link1:hover {
+            background: url(.//images/bsdt1.png) center top no-repeat;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link2:hover {
+            background: url(.//images/bszn1.png) center top no-repeat;
+        }
+        
+        .part2_left_shu2 .zxbs_link .zxbs_link3:hover {
+            background: url(.//images/bgxz1.png) center top no-repeat;
+        }
+        
+        .part2_left_shu2 .gzfw_list a {
+           
+            height: 70px;
+            display: block;
+            margin-top: 12px;
+        }
+        
+
+        
+        .part2_left_shu2 .zxbs_box {
+            margin-top: 10px;
+        }
+     .gcdcl100zn{background-image: url(.//images/gcdcl100zn.jpg);background-position: center 0;background-repeat: no-repeat;padding-top:120px;}
+     @media only screen and (max-width:768px) { 
+     .gcdcl100zn{background-image: url(.//images/gcdcl100zn.jpg);background-position: center 0;background-repeat: no-repeat;padding-top:120px;min-width:1000px;}
+	 
+	 .xwfbh_list li {
+    margin-top: 20px;}
+	.link5{}
+	
+	
+	
+	
+    </style>
+</head>
+
+<body style="background:#f5f5f5 url(/images/ershidasybg.jpg) no-repeat center 0;">
+
+<div>
+
+    <script type="text/javascript" language="javascript">
+        var timetbg = 500;
+        var htbg = 0;
+        var adsobj = document.getElementById("ads");
+
+        function addCount() {
+            if (timetbg > 0) {
+                timetbg--;
+                htbg = htbg + 5;
+            } else {
+                return;
+            }
+            if (htbg > 300) //楂樺害
+            {
+                return;
+            }
+            adsobj.style.display = "block";
+            adsobj.style.height = htbg + "px";
+            setTimeout("addCount()", 10);
+        }
+
+        function showAds() {
+            addCount();
+            setTimeout("noneAds()", 7000); //鍋滅暀鏃堕棿鑷繁閫傚綋璋冩暣
+        }
+        var Ttbg = 500;
+        var Ntbg = 300; //楂樺害
+        function noneAds() {
+            if (Ttbg > 0) {
+                Ttbg--;
+                Ntbg = Ntbg - 5;
+            } else {
+                return;
+            }
+            if (Ntbg < 0) {
+                adsobj.style.display = "none";
+                return;
+            }
+            adsobj.style.height = Ntbg + "px";
+            setTimeout("noneAds()", 10);
+        }
+        if (adsobj) {
+            setTimeout("showAds()", 5000)
+        }
+    </script>
+
+    <!-- 宸︿晶鍥剧墖鍥哄畾s -->
+
+    <div id="floatWindow" style="width:200px; height:130px;position: fixed;z-index: 99999;top:230px; left:20px;">
+        <div class="pic_flt">
+            
+        </div>
+        <div class="pic_flt">
+            
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        var x = 0;
+        var y = 0;
+        var xin = true,
+            yin = true;
+        var step = 1;
+        var delay = 10;
+        var obj = document.getElementById("floatWindow");
+
+        function floatAD() {
+            var L = T = 0;
+            var R = document.documentElement.clientWidth - obj.offsetWidth;
+            var B = document.documentElement.clientHeight - obj.offsetHeight;
+            obj.style.left = x + document.body.scrollLeft + "px";
+            obj.style.top = y + document.body.scrollTop + "px";
+            x = x + step * (xin ? 1 : -1)
+            if (x < L) {
+                xin = true;
+                x = L
+            }
+            if (x > R) {
+                xin = false;
+                x = R
+            }
+            y = y + step * (yin ? 1 : -1)
+            if (y < T) {
+                yin = true;
+                y = T
+            }
+            if (y > B) {
+                yin = false;
+                y = B
+            }
+        }
+        var itl;
+
+        if (obj) {
+            itl = setInterval("floatAD()", delay);
+            obj.onmouseover = function() {
+                clearInterval(itl)
+            }
+            obj.onmouseout = function() {
+                itl = setInterval("floatAD()", delay)
+            }
+        } else {
+            clearInterval(itl);
+        }
+
+        function floatClose() {
+            clearInterval(itl);
+            obj.style.display = "none";
+        }
+    </script>
+
+    <!-- 宸︿晶鍥剧墖鍥哄畾e -->
+
+    <!-- 鍙充晶鑿滃崟s -->
+    <div class="InFix">
+        <ul class="InFixUl" style="display: block;">
+            <li>
+                <a href="http://gjzwfw.www.gov.cn/" target="_blank"></a>
+                <p>鍥藉鏀垮姟鏈嶅姟骞冲彴璇曡繍琛?/p>
+            </li>
+            <li class="InFixUl_wm InFixUl_mob" id="InFixUl_mob">
+                <a></a>
+                <div style="display: none;">
+                    <img src="./images/1.png" />
+                </div>
+            </li>
+            <li class="InFixUl_wm InFixUl_mob" id="InFixUl_mob">
+                <a></a>
+                <div style="display: none;">
+                    <img src="./images/2.png" />
+                </div>
+            </li>
+            <li class="InFixUl_wm InFixUl_mob" id="InFixUl_mob">
+                <a></a>
+                <div style="display: none;">
+                    <img src="./images/W020190807546720071357.png" />
+                </div>
+            </li>
+            <li class="InFixUl_wm InFixUl_mob" id="InFixUl_mob">
+                <a></a>
+                <div style="display: none;">
+                    <img src="./images/xcxm.jpg" />
+                </div>
+            </li>
+            <li class="InFixUl_wm InFixUl_weC" id="InFixUl_weC">
+                <a></a>
+                <div style="display: none;">
+                    <img src="./images/W020190306325998426873.jpg" />
+                </div>
+            </li>
+            <li class="InFixUl_wm InFixUl_aiP" id="InFixUl_aiP">
+                <a href="https://weibo.com/wenhuabu0?topnav=1&wvr=6&topsug=1&is_hot=1" target="_blank"></a>
+                <p>鏂囧寲鍜屾梾娓搁儴瀹樻柟寰崥</p>
+            </li>
+            <li class="InFixUl_mor" id="Click_s">
+                <a></a>
+            </li>
+        </ul>
+
+        <ul class="InFixUlMax" style="display: none;">
+            <li>
+                <a href="http://gjzwfw.www.gov.cn/" target="_blank"></a>
+                <p>
+                    <a href="http://gjzwfw.www.gov.cn/" target="_blank">鍥藉鏀垮姟鏈嶅姟骞冲彴璇曡繍琛?/a>
+                </p>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_mob" id="nFixUlMax_mob">
+                <a></a>
+                <p>鏀垮姟鏈嶅姟鎶曡瘔寰俊灏忕▼搴?/p>
+                <div style="display: none;">
+                    <img src="./images/1.png" />
+                </div>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_mob" id="nFixUlMax_mob">
+                <a></a>
+                <p>鏀垮姟鏈嶅姟鎶曡瘔鏀粯瀹濆皬绋嬪簭</p>
+                <div style="display: none;">
+                    <img src="./images/2.png" />
+                </div>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_mob" id="nFixUlMax_mob">
+                <a></a>
+                <p>鍥藉姟闄㈠鎴风</p>
+                <div style="display: none;">
+                    <img src="./images/W020190807546720071357.png" />
+                </div>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_mob" id="nFixUlMax_mob">
+                <a></a>
+                <p>鍥藉姟闄?br>浜掕仈缃?鐫ｆ煡</p>
+                <div style="display: none;">
+                    <img src="./images/xcxm.jpg" />
+                </div>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_weC" id="nFixUlMax_weC">
+                <a></a>
+                <p>鏂囧寲鍜屾梾娓搁儴瀹樻柟寰俊</p>
+                <div style="display: none;">
+                    <img src="./images/W020190306325998426873.jpg" />
+                </div>
+            </li>
+            <li class="InFixUlMax_wm InFixUlMax_aiP" id="nFixUlMax_aiP">
+                <a href="https://weibo.com/wenhuabu0?topnav=1&wvr=6&topsug=1&is_hot=1" target="_blank"></a>
+                <p><a href="https://weibo.com/wenhuabu0?topnav=1&wvr=6&topsug=1&is_hot=1" target="_blank">鏂囧寲鍜屾梾娓搁儴瀹樻柟寰崥</a></p>
+            </li>
+            <li class="InFixUlMax_mor" id="Click">
+                <a>鏀惰捣</a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var obj_max = $('.InFixUlMax_wm')
+        var obj_min = $('.InFixUl_wm')
+        for (var i = 0; i < obj_max.length; i++) {
+            obj_max.hover(function() {
+                $(this).children('div').css("display", "block")
+            }, function() {
+                $(this).children('div').css("display", "none")
+            })
+        }
+        for (var i = 0; i < obj_min.length; i++) {
+            obj_min.hover(function() {
+                $(this).children('div').css("display", "block")
+            }, function() {
+                $(this).children('div').css("display", "none")
+            })
+        }
+        $('#Click').click(function() {
+            $('.InFixUl').css("display", "block")
+            $('.InFixUlMax').css("display", "none")
+        })
+        $('#Click_s').click(function() {
+            $('.InFixUl').css("display", "none")
+            $('.InFixUlMax').css("display", "block")
+        })
+    </script>
+    <!-- 鍙充晶鑿滃崟e -->
+    <!--澶撮儴寮€濮?->
+	<div style="margin:0px auto; width:1000px; text-align:right; padding:15px 0px;">
+	
+	<!--<a href="http://www.gov.cn/zhuanti/zggcddescqgdbdh/index.htm" target="_blank">
+	<img src="/images/danghuiicon.png" />
+	</a>-->
+	</div>
+    <!doctype html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+<link type="text/css" href="./images/hanweb.css" rel="stylesheet">
+<link type="text/css" href="./images/sy_culture-20180320.css" rel="stylesheet">
+<script src="./images/jquery.min.js"></script>
+<script src="./images/getdate.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="https://auth.mangren.com/boots/mct.gov.cn/esdToolsInit.js" charset="UTF-8"></script>-->
+<script id="initwzaTools" src="https://zwfw.mct.gov.cn/resource/site/bm23000001/wza/wza.js"></script>
+<!--<link rel="icon" type="image/png" href="./images/guohui.png" />-->
+<title>2019骞存枃鍖栭儴banner宓屽叆</title>
+<script language="javascript">
+//涓诲鑸珮浜?$(document).ready(function(){
+    var nav_len = $(".nav_sub").length;
+    for(var i=0; i<10; i++)
+    {
+        var tw_word = $(".local").eq(i).text();
+        for(var n=0; n<nav_len; n++)
+        {
+            var nav_word = $(".nav_sub").eq(n).text();
+            if(nav_word == tw_word)
+            {
+                $(".nav_sub").eq(n).css({'color':'#fff','background-color':'#b92121'}).siblings().css({'color':'#fff'});
+            }
+        }
+    }
+
+});
+
+function openToolbar(){ /*鏃犻殰纰?/
+	if(window.location==top.location){
+		var str_location = window.location.href;
+		window.location.href = "/wca.html?wcaUrl=" +  str_location;
+	}
+}
+
+function checkForm(){
+	var temp = searchForm.temp.value;
+	if(temp==null || temp==''){
+		alert('璇疯緭鍏ユ绱㈡潯浠?);
+	}
+	else{
+		//var url='http://so.mct.gov.cn/s?siteCode=bm23000001&qt='+encodeURIComponent(temp);
+var url='http://www.mct.gov.cn/mctso/s?qt='+encodeURIComponent(temp);	
+                window.open(url);
+	}
+}
+function getKey() {
+
+        if(event.keyCode == "13") {
+
+            checkForm();
+
+        } 
+
+    }
+</script>
+
+
+</head>
+
+<body>
+<!--鏃犻殰纰嶅祵鍏ュ紑濮?-->
+
+<!--鏃犻殰纰嶅祵鍏ョ粨鏉?-->
+<style>
+.t_chglf{float: left;font-size: 13px;color: #333333;}
+.top_change{width: 1000px;margin: 0 auto;height: 35px;overflow: hidden;line-height:35px;position: relative;}
+.top_right .top_link_box a{line-height:16px;}
+</style>
+<!--澶撮儴寮€濮?->
+<div class="bt-head" style="width:1000px;">
+	<div class="top_chgwrp" style="background: #ebebeb;">
+	<div class="top_change">
+		<div class="t_chglf" id="weather"></div>
+		<div class="top_right" style="width: auto;top:8px;">
+		<div class="top_link_box">
+                   <!--<a href="https://mail.mct.gov.cn/index.php" target="_blank"><span>宸ヤ綔閭</span></a>-->
+                   <a href="https://mail.mct.gov.cn/portal/#!/login" target="_blank"><span>鏂囨梾鍔炲叕</span></a>
+                   <span>|</span>
+                   <a href="https://www.mct.gov.cn/" target="_blank"><span>绠€</span></a>
+                   <span>|</span>
+                   <a href="https://www.mct.gov.cn/gtb/index.jsp?url=https://www.mct.gov.cn"><span>绻?/span></a>
+                   <span>|</span>
+				   <a href="javascript:void(0);" class="showwza" id="toolbarSwitch"><span>鏃犻殰纰嶆祻瑙?/span></a>
+                   <a href="/whbphone/" id="tophone" style="display:none;position: relative;top: -2px;">杩斿洖鎵嬫満鐗?/a> </div>
+	</div>
+		</div>
+		</div>
+  <div class="bt-head-cen">
+    <div class="top_left" style="z-index:999; width:735px;"><a href="./"><img src="./images/logo-20210128.jpg" width="735" style="width:735px;" height="117" alt="" /></a></div>
+    <div class="top_right" style="width:260px;">
+      <div class="sosu_box" style="float:right;width:210px;margin-top:20px;">
+        <form method='get' onsubmit="return false" target='_blank' name='searchForm'>
+							<div style='width:37px;height:30px;float:right;background:url(./images/sosuo_s.jpg);'>
+								<input name='searchButton' type='button' id='searchButton' value='鎼滅储' onclick='checkForm();' style='width: 37px; height:30px; outline:none; font-size: 14px;' />
+							</div>
+         <div style='width:168px; height:30px; float:right;backgro
+und-image:url(./images/sosuo_box.jpg);background-repeat: no-repeat;'>
+								<input maxlength='55' onkeypress="getKey();" id="searchinput" size='30' style='width: 168px; height: 30px; line-height:30px; font-size: 13px; border: none; padding-left:10px;color:#8c8b8b; outline:none;background-image: url(./images/sosuo_box.jpg);background-repeat: no-repeat;' name='temp' type='text' />
+							
+							</div>
+          <div class="clear"></div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--澶撮儴缁撴潫--> 
+<!--瀵艰埅寮€濮?->
+<div class="bt-nav-y" style=" background:#9d1515; width:1000px; margin:0px auto;">
+  <ul class="nav">
+    <li class="nav_sub"><a href="./" title="棣栭〉">棣栥€€銆€椤?/a></li>
+    <li class="nav_sub"><a style="width: 160px;" href="/gywhb/bld/" target="_blank" title="鏈烘瀯绠€浠?>鏈烘瀯绠€浠?/a>
+      <ul class="xl_long">
+        
+           <li class="sub_nav1"><a href="./gywhb/bld/" target="_blank" title="閮ㄩ瀵?>閮ㄩ瀵?/a></li>
+
+        
+           <li class="sub_nav1"><a href="./gywhb/zyzz/" target="_blank" title="涓昏鑱岃矗">涓昏鑱岃矗</a></li>
+
+        
+           <li class="sub_nav1"><a href="./gywhb/lxwm/" target="_blank" title="鑱旂郴鎴戜滑">鑱旂郴鎴戜滑</a></li>
+
+        
+           <li class="sub_nav1"><a href="./gywhb/jgsz/" target="_blank" title="鏈烘瀯璁剧疆">鏈烘瀯璁剧疆</a></li>
+
+        
+      </ul>
+    </li>
+     <li class="nav_sub"><a href="./whzx/" title="淇℃伅鍙戝竷" target="_blank">淇℃伅鍙戝竷</a>
+      <ul>
+        
+            <li class="sub_nav1"><a href="./whzx/szyw/" target="_blank" title="鏃舵斂瑕侀椈">鏃舵斂瑕侀椈</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/whyw/" target="_blank" title="鐒︾偣鏂伴椈">鐒︾偣鏂伴椈</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/ldhd/" target="_blank" title="棰嗗娲诲姩">棰嗗娲诲姩</a></li>
+        
+	<li class="sub_nav1"><a href="https://zwgk.mct.gov.cn/zfxxgkml/" target="_blank" title="鍏憡閫氱煡">鍏憡閫氱煡</a></li>
+        <li class="sub_nav1"><a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/" target="_blank" title="鏀跨瓥娉曡">鏀跨瓥娉曡</a></li>
+        <li class="sub_nav1"><a href="https://zwgk.mct.gov.cn/zfxxgkml/447/463/index_3081.html" target="_blank" title="鏀跨瓥瑙ｈ">鏀跨瓥瑙ｈ</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/bnsj/" target="_blank" title="宸ヤ綔淇℃伅">宸ヤ綔淇℃伅</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/djgz/" target="_blank" title="鍏氬缓宸ヤ綔">鍏氬缓宸ヤ綔</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/zsdw/" target="_blank" title="鐩村睘鍗曚綅">鐩村睘鍗曚綅</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/qgwhxxlb/" target="_blank" title="鍏ㄥ浗鑱旀挱">鍏ㄥ浗鑱旀挱</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/rdzt/" target="_blank" title="鐑偣涓撻">鐑偣涓撻</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/tpxw/" target="_blank" title="鍥剧墖鏂伴椈">鍥剧墖鏂伴椈</a></li>
+        
+            <li class="sub_nav1"><a href="./whzx/zxgz/" target="_blank" title="涓撻」宸ヤ綔">涓撻」宸ヤ綔</a></li>
+        
+            <li class="sub_nav1"><a href="./zwhcjz/" target="_blank" title="娲鹃┗鏈烘瀯">娲鹃┗鏈烘瀯</a></li>
+        
+      </ul>
+    </li>
+    <li class="nav_sub"><a href="./zwgk/" title="鏀垮姟鍏紑" target="_blank">鏀垮姟鍏紑</a>
+      <!--<ul>
+        
+            <li class="sub_nav1"><a href="./zwgk/zwgk/" target="_blank" title="鏀垮姟姒傚喌">鏀垮姟姒傚喌</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/zcfg/" target="_blank" title="鏀跨瓥娉曡">鏀跨瓥娉曡</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/rsgz/" target="_blank" title="浜轰簨宸ヤ綔">浜轰簨宸ヤ綔</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/cwgz/" target="_blank" title="璐㈠姟宸ヤ綔">璐㈠姟宸ヤ綔</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/tjsj/" target="_blank" title="缁熻鏁版嵁">缁熻鏁版嵁</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/whyw/" target="_blank" title="鏂囧寲涓氬姟">鏂囧寲涓氬姟</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/lyyw/" target="_blank" title="鏃呮父涓氬姟">鏃呮父涓氬姟</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/rdjy_zxta/" target="_blank" title="鍏ㄥ浗浜哄ぇ寤鸿銆佹斂鍗忔彁妗堢瓟澶?>鍏ㄥ浗浜哄ぇ寤鸿銆?..</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/xzxk/" target="_blank" title="琛屾斂璁稿彲">琛屾斂璁稿彲</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/sjccsx/" target="_blank" title="闅忔満鎶芥煡浜嬮」">闅忔満鎶芥煡浜嬮」</a></li>
+        
+            <li class="sub_nav1"><a href="./zwgk/qt/" target="_blank" title="鍏朵粬">鍏朵粬</a></li>
+        
+      </ul>-->
+    </li>
+ <li class="nav_sub"><a href="https://zwfw.mct.gov.cn/" title="鏀垮姟鏈嶅姟">鏀垮姟鏈嶅姟</a>
+            <ul>
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#wycx"
+                        title="鐑棬鏌ヨ">鎴戣鏌ヨ</a></li>
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#bssx"
+                        title="鍔炰簨浜嬮」">鍔炰簨浜嬮」</a></li>
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#bsdt"
+                        title="鍔炰簨澶у巺">鍔炰簨澶у巺</a></li>
+              
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#zwsj"
+                        title="鏀垮姟鏁版嵁">鏀垮姟鏁版嵁</a></li>
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#ywlj"
+                        title="涓氬姟閾炬帴">涓氬姟閾炬帴</a></li>
+                <li class="sub_nav1"><a href="https://zwfw.mct.gov.cn/#zxwhysfw"
+                        title="鍦ㄧ嚎鏂囧寲鑹烘湳鏈嶅姟">鍦ㄧ嚎鏂囧寲鑹烘湳鏈嶅姟</a></li>
+            </ul>
+</li>
+    <li class="nav_sub"><a title="鍏叡鏈嶅姟" style="cursor:pointer;">鍏叡鏈嶅姟</a>
+    <ul>
+                  <li class="sub_nav1"><a href="https://whzg.mct.gov.cn/epl"
+                        title="灞曟紨璁插骇" target="_blank">灞曟紨璁插骇</a></li>
+                <li class="sub_nav1"><a href="https://whzg.mct.gov.cn/#home7"
+                        title="鏁板瓧璧勬簮" target="_blank">鏁板瓧璧勬簮</a></li>
+                  <li class="sub_nav1"><a href="https://www.mct.gov.cn/zxbs/cxts/" target="_blank" title="鍑鸿鎻愮ず">鍑鸿鎻愮ず</a></li>
+           <li class="sub_nav1"><a href="https://lyfw.mct.gov.cn/site/special/scenic"
+                        title="5A绾ф梾娓告櫙鍖哄ぉ姘? target="_blank">5A绾ф梾娓告櫙鍖哄ぉ姘?/a></li>
+              
+            </ul>
+    </li>
+    <li class="nav_sub"><a href="./hdjl/" title="浜掑姩浜ゆ祦" target="_blank">浜掑姩浜ゆ祦</a>
+      <ul>
+        
+            <li class="sub_nav1"><a href="./hdjl/xwfbh/" target="_blank" title="鏂伴椈鍙戝竷浼?>鏂伴椈鍙戝竷浼?/a></li>
+        
+            <li class="sub_nav1"><a href="./hdjl/zxft/" target="_blank" title="鍦ㄧ嚎璁胯皥">鍦ㄧ嚎璁胯皥</a></li>
+        
+            <li class="sub_nav1"><a href="./hdjl/gzly/" target="_blank" title="鍏紬鐣欒█">鍏紬鐣欒█</a></li>
+        
+            <li class="sub_nav1"><a href="./hdjl/yjzj/" target="_blank" title="鎰忚寰侀泦">鎰忚寰侀泦</a></li>
+        
+            <li class="sub_nav1"><a href="./hdjl/12318whscjb/" target="_blank" title="鍏ㄥ浗鏂囧寲鍜屾梾娓稿競鍦虹綉涓婁妇鎶ユ姇璇夊鐞嗙郴缁?>鍏ㄥ浗鏂囧寲鍜屾梾娓?..</a></li>
+        
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--瀵艰埅缁撴潫-->
+
+<!--寰俊鍒嗕韩鍥惧姛鑳?->
+<div class="share-title" style="display:none"></div>
+  <div class="share-substr" style="display:none"></div>
+  <img class="share-img" style="display:none" src="./images/wxzftb.jpg" width="300" height="300" /> 
+  <script src="./images/jweixin-1.0.0.js"></script> 
+  <script src="./images/20191226wxShare.js"></script> 
+  <!--寰俊鍒嗕韩鍥惧姛鑳?-> 
+</body>
+</html>
+    <!--澶撮儴缁撴潫-->
+    <div class="bt-note-15">
+        <!--鍒嗗壊绾垮姞娓呴櫎娴姩-->
+    </div>
+    <!--鍐呭鍖哄煙寮€濮?->
+    <div class="bt-main">
+        <div id="main_box">
+            <!--绗竴閮ㄥ垎寮€濮?->
+            <div id="part1">
+                <!--婊氬姩鍥剧墖鏂伴椈寮€濮?->
+                <div class="part1_left fLeft bt-margin-right-20" style="width:480px;">
+                    <!--婊氬姩鍥剧墖鏂伴椈鏁堟灉寮€濮?->
+                    <div class="sc_imgnew">
+                        <div class="imgnew_img_list">
+                           
+
+                            
+                                <div class="imgnew_img">
+                                    <a href="./whzx/whyw/202512/t20251202_963518.htm" target='_blank'>
+            <IMG src="./whzx/whyw/202512/W020251202425749377560.jpg" width='580' border=0 />
+        </a>
+                                </div>
+                            
+                                <div class="imgnew_img">
+                                    <a href="./whzx/whyw/202511/t20251104_963089.htm" target='_blank'>
+            <IMG src="./whzx/whyw/202511/W020251104831590305972.png" width='580' border=0 />
+        </a>
+                                </div>
+                            
+                                <div class="imgnew_img">
+                                    <a href="./whzx/whyw/202511/t20251104_963088.htm" target='_blank'>
+            <IMG src="./whzx/whyw/202511/W020251104624929804355.jpg" width='580' border=0 />
+        </a>
+                                </div>
+                            
+                                <div class="imgnew_img">
+                                    <a href="./whzx/whyw/202509/t20250926_962431.htm" target='_blank'>
+            <IMG src="./whzx/whyw/202509/W020250926549415775478.jpg" width='580' border=0 />
+        </a>
+                                </div>
+                            
+                                <div class="imgnew_img">
+                                    <a href="./whzx/whyw/202509/t20250905_962066.htm" target='_blank'>
+            <IMG src="./whzx/whyw/202509/W020250905462720809470.jpg" width='580' border=0 />
+        </a>
+                                </div>
+                            
+
+
+
+                        </div>
+                        <div class="imgnew_title_list">
+                            
+                                <div class="imgnew_title" style="color:#fff;line-height:40px;" title="2025骞村叏鍥解€滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄥ湪骞夸笢闊跺叧涓惧姙">
+                                    2025骞村叏鍥解€滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄥ湪骞夸笢闊跺叧涓惧姙
+                                </div>
+
+                            
+                                <div class="imgnew_title" style="color:#fff;line-height:40px;" title="绗崄鍥涘眾涓浗鑹烘湳鑺傚湪閲嶅簡闂箷">
+                                    绗崄鍥涘眾涓浗鑹烘湳鑺傚湪閲嶅簡闂箷
+                                </div>
+
+                            
+                                <div class="imgnew_title" style="color:#fff;line-height:40px;" title="鈥滃ぇ鍦版儏娣扁€濃€斺€斿叏鍥戒紭绉€缇や紬鏂囪壓浣滃搧灞曟紨鍦ㄩ噸搴嗕妇琛?>
+                                    鈥滃ぇ鍦版儏娣扁€濃€斺€斿叏鍥戒紭绉€缇や紬鏂囪壓浣滃搧灞曟紨鍦ㄩ噸搴嗕妇琛?                                </div>
+
+                            
+                                <div class="imgnew_title" style="color:#fff;line-height:40px;" title="绗叚灞婂叏鍥藉娓稿ぇ璧涙€诲喅璧涘渾婊¤惤骞?>
+                                    绗叚灞婂叏鍥藉娓稿ぇ璧涙€诲喅璧涘渾婊¤惤骞?                                </div>
+
+                            
+                                <div class="imgnew_title" style="color:#fff;line-height:40px;" title="2025骞翠腑鍥藉浘涔﹂骞翠細鍦ㄩ檿瑗挎鏋椾妇鍔?>
+                                    2025骞翠腑鍥藉浘涔﹂骞翠細鍦ㄩ檿瑗挎鏋椾妇鍔?                                </div>
+
+                            
+                        </div>
+
+                        <div class="imgnew_point_list" style="bottom:50px !important;right:175px !important;">
+                            <a class="imgnew_point"></a>
+                            <a class="imgnew_point"></a>
+                            <a class="imgnew_point"></a>
+                            <a class="imgnew_point"></a>
+                            <a class="imgnew_point"></a>
+
+                        </div>
+                    </div>
+                    <style>
+                        #part1 .part1_left,
+                        .sc_imgnew,
+                        .imgnew_img_list,
+                        .imgnew_img,
+                        .imgnew_title {
+                            width: 480px !important;
+                        }
+                        
+                        a.imgnew_point {
+                            width: 15px !important;
+                        }
+                    </style>
+                    <script>
+                        $(document).ready(function() {
+                            //棣栭〉婊氬姩鍥剧墖
+                            //鍥剧墖姣斾緥鑷€傚簲
+                            var imgnew_W = $(".imgnew_img_list").width();
+                            var imgnew_H = $(".imgnew_img_list").height();
+                            var imgnew_WH = imgnew_W / imgnew_H;
+                            $(".imgnew_img_list img").each(function() {
+                                var fimg_W = $(this).width();
+                                var fimg_H = $(this).height();
+                                var fimg_WH = fimg_W / fimg_H;
+                                if (fimg_WH > imgnew_WH) {
+                                    $(this).css({
+                                        width: "480px",
+                                        height: imgnew_H
+                                    });
+                                } else {
+                                    $(this).css({
+                                        width: imgnew_W,
+                                        height: "320px"
+                                    });
+                                }
+                            });
+
+                            var imgnew_i = 0;
+                            var imgnew_len = $('.imgnew_img_list .imgnew_img').length;
+
+                            function fun_imgnew() {
+                                $('.imgnew_img_list .imgnew_img').eq(imgnew_i).stop(true, true).fadeIn(500).siblings().fadeOut(400);
+                                $('.imgnew_title_list .imgnew_title').eq(imgnew_i).stop(true, true).fadeIn(500).siblings().hide();
+                                $('.imgnew_point_list .imgnew_point').eq(imgnew_i).addClass("On").siblings().removeClass("On");
+                            }
+                            fun_imgnew();
+
+                            function imgnew_auto() {
+                                imgnew_i++;
+                                imgnew_i %= imgnew_len;
+                                fun_imgnew();
+                            }
+                            var imgnew_play = setInterval(imgnew_auto, 5000);
+
+                            $('.imgnew_point_list .imgnew_point').mouseover(function() {
+                                imgnew_i = $(this).index();
+                                fun_imgnew();
+                            });
+                            $(".sc_imgnew").hover(function() {
+                                clearInterval(imgnew_play);
+                            }, function() {
+                                imgnew_play = setInterval(imgnew_auto, 5000);
+                            });
+
+                        });
+                    </script>
+                    <!--婊氬姩鍥剧墖鏂伴椈鏁堟灉缁撴潫-->
+                </div>
+                <!--婊氬姩鍥剧墖鏂伴椈缁撴潫-->
+                <!--鍥藉姟闄㈣闂讳笌鏂囧寲瑕侀椈鍒囨崲寮€濮?->
+                <div class="part1_right fLeft" style="width:460px;">
+                    <!--//鍒囨崲 -->
+                    <ul class="tit_part1">
+                        <li class="titqh" id="titqh_tab_0" onmousemove="Show('titqh','titqh',0,2,1);"><a href="./whzx/szyw/" title="鏃舵斂瑕侀椈" target="_blank">鏃舵斂瑕侀椈</a> </li>
+                        <li class="sx">|</li>
+                        <li class="titqhOn" id="titqh_tab_1" onmousemove="Show('titqh','titqh',1,2,1);"><a href="./whzx/whyw/" title="鐒︾偣鏂伴椈" target="_blank">鐒︾偣鏂伴椈</a> </li>
+                        <li class="titqh_more">
+                            <div class="more_qh" id="titqh_more_0">
+                                <a href=""></a>
+                            </div>
+                            <div class="more_qhOn" id="titqh_more_1">
+                                <a href=""></a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="list_qh" id="titqh_cont_0">
+                        <div class="list_part1">
+                            <div class="bt-mod-wzpb-05" style="padding: 0;">
+                               <ul class="titqh_cont_1">
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050963.htm" target="_blank" title="涓ぎ缁忔祹宸ヤ綔浼氳鍦ㄥ寳浜妇琛?涔犺繎骞冲彂琛ㄩ噸瑕佽璇?>涓ぎ缁忔祹宸ヤ綔浼氳鍦ㄥ寳浜妇琛?涔犺繎骞冲彂琛ㄩ噸瑕?..</a><span class="list_time_h">2025-12-12</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050615.htm" target="_blank" title="寰佹眰瀵圭粡娴庡伐浣滅殑鎰忚鍜屽缓璁?涓叡涓ぎ鍙紑鍏氬浜哄＋搴ц皥浼?涔犺繎骞充富鎸佸苟鍙戣〃閲嶈璁茶瘽">寰佹眰瀵圭粡娴庡伐浣滅殑鎰忚鍜屽缓璁?涓叡涓ぎ鍙紑鍏?..</a><span class="list_time_h">2025-12-09</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050601.htm" target="_blank" title="涓叡涓ぎ鏀挎不灞€鍙紑浼氳 鍒嗘瀽鐮旂┒2026骞寸粡娴庡伐浣?瀹¤銆婁腑鍥藉叡浜у厷棰嗗鍏ㄩ潰渚濇硶娌诲浗宸ヤ綔鏉′緥銆?涓叡涓ぎ鎬讳功璁颁範杩戝钩涓绘寔浼氳">涓叡涓ぎ鏀挎不灞€鍙紑浼氳 鍒嗘瀽鐮旂┒2026骞寸粡娴?..</a><span class="list_time_h">2025-12-08</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050562.htm" target="_blank" title="鈥滅‘淇濇垜鍥界粡娴庤埅鑸逛箻椋庣牬娴€佽绋宠嚧杩溾€濃€斺€斾範杩戝钩鎬讳功璁板紩棰嗏€滃崄鍥涗簲鈥濈粡娴庨珮璐ㄩ噺鍙戝睍杩堜笂鏂板彴闃?>鈥滅‘淇濇垜鍥界粡娴庤埅鑸逛箻椋庣牬娴€佽绋宠嚧杩溾€濃€?..</a><span class="list_time_h">2025-12-08</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050390.htm" target="_blank" title="涔犺繎骞冲悓娉曞浗鎬荤粺椹厠榫欏湪鎴愰兘杩涜鍙嬪ソ浜ゆ祦">涔犺繎骞冲悓娉曞浗鎬荤粺椹厠榫欏湪鎴愰兘杩涜鍙嬪ソ浜ゆ祦</a><span class="list_time_h">2025-12-05</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050271.htm" target="_blank" title="涔犺繎骞冲嚭甯腑娉曚紒涓氬濮斿憳浼氱涓冩浼氳闂箷寮忓苟鑷磋緸">涔犺繎骞冲嚭甯腑娉曚紒涓氬濮斿憳浼氱涓冩浼氳闂箷...</a><span class="list_time_h">2025-12-05</span></li>
+                                    
+                                        <li>
+                                            <a href="https://www.gov.cn/yaowen/liebiao/202512/content_7050267.htm" target="_blank" title="涔犺繎骞冲悓娉曞浗鎬荤粺椹厠榫欏叡鍚屼細瑙佽鑰?>涔犺繎骞冲悓娉曞浗鎬荤粺椹厠榫欏叡鍚屼細瑙佽鑰?/a><span class="list_time_h">2025-12-05</span></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="bt-clear"></div>
+                        </div>
+                    </div>
+                    <div class="list_qhOn" id="titqh_cont_1">
+                        <div class="list_part1" style="padding: 0;">
+                            <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                <ul class="titqh_cont_1">
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202512/t20251212_963678.htm" target="_blank" title="2025涓浗鏃呮父闆嗗洟鍖栧彂灞曡鍧涘湪浜妇鍔?>2025涓浗鏃呮父闆嗗洟鍖栧彂灞曡鍧涘湪浜妇鍔?/a><span class="list_time_h">2025-12-12</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202512/t20251211_963662.htm" target="_blank" title="涓浗鈥滆但鍝叉棌浼婄帥鍫€濋」鐩浆鍏ヤ汉绫婚潪鐗╄川鏂囧寲閬椾骇浠ｈ〃浣滃悕褰?>涓浗鈥滆但鍝叉棌浼婄帥鍫€濋」鐩浆鍏ヤ汉绫婚潪鐗╄川鏂?..</a><span class="list_time_h">2025-12-11</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202512/t20251202_963518.htm" target="_blank" title="2025骞村叏鍥解€滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄥ湪骞夸笢闊跺叧涓惧姙">2025骞村叏鍥解€滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄥ湪骞夸笢...</a><span class="list_time_h">2025-12-02</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202512/t20251202_963503.htm" target="_blank" title="鍥藉鑹烘湳鍩洪噾绗笁灞婄悊浜嬩細鎴愮珛浼氳鍦ㄤ含鍙紑">鍥藉鑹烘湳鍩洪噾绗笁灞婄悊浜嬩細鎴愮珛浼氳鍦ㄤ含鍙紑</a><span class="list_time_h">2025-12-02</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202511/t20251127_963456.htm" target="_blank" title="浜氭床鏂囧寲閬椾骇淇濇姢鑱旂洘绗簩灞婂ぇ浼氭毃鐞嗕簨浼氱涓夋浼氳鍦ㄩ噸搴嗗彫寮€">浜氭床鏂囧寲閬椾骇淇濇姢鑱旂洘绗簩灞婂ぇ浼氭毃鐞嗕簨浼氱...</a><span class="list_time_h">2025-11-27</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202511/t20251125_963416.htm" target="_blank" title="2026骞粹€滄涔愭槬鑺傗€濆悏绁ョ墿鈥滃悏绁ラ┈鈥濆彂甯?>2026骞粹€滄涔愭槬鑺傗€濆悏绁ョ墿鈥滃悏绁ラ┈鈥濆彂甯?/a><span class="list_time_h">2025-11-25</span></li>
+                                    
+                                        <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                            <a href="./whzx/whyw/202511/t20251123_963379.htm" target="_blank" title="2025骞撮潪鐗╄川鏂囧寲閬椾骇淇濇姢宸ヤ綔浼氬湪浜戝崡澶х悊鍙紑">2025骞撮潪鐗╄川鏂囧寲閬椾骇淇濇姢宸ヤ綔浼氬湪浜戝崡澶х悊鍙紑</a><span class="list_time_h">2025-11-23</span></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="bt-clear"></div>
+                        </div>
+                    </div>
+                    <!--//鍒囨崲end -->
+                </div>
+                <!--鍥藉姟闄㈣闂讳笌鏂囧寲瑕侀椈鍒囨崲缁撴潫-->
+            </div>
+			  <div class="bt-clear"></div>
+            <!--绗竴閮ㄥ垎缁撴潫-->
+            <!-- 绗簩閮ㄥ垎寮€濮?-->
+			<div style="margin-top:20px; height:620px;">
+                        <!--        棰嗗銆佹満鏋勬鍐电瓑-->
+                   <div id="part2" style="width:200px; float:left; min-height:620px;">
+				        <div class="left_box fLeft" style="">
+                            <ul>
+                                <li class="tit_bld">閮ㄩ瀵?/li>
+                            </ul>
+                            <ul class="list_bld">
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202311/t20231113_949677.htm" target="_blank">瀛欎笟绀?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202110/t20211011_928259.htm" target="_blank">鐜嬫棴涓?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202110/t20211011_928258.htm" target="_blank">鑵婄繆鍑?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202110/t20211011_928257.htm" target="_blank">鍗㈡槧宸?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202110/t20211011_928255.htm" target="_blank">楗躲€€鏉?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202501/t20250122_958045.htm" target="_blank">楂樸€€鏀?/a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="./gywhb/bld/202506/t20250616_960595.htm" target="_blank">鐜嬪缓鍗?/a>
+                                    </li>
+                                
+                            </ul>
+                            <ul>
+                                <li class="tit_bld">鏈烘瀯姒傝</li>
+                            </ul>
+                            <ul class="list_bld">
+                                <li><a href="./gywhb/zyzz/" TARGET="_blank" title="涓昏鑱岃矗">涓昏鑱岃矗</a></li>
+                                <li><a href="./gywhb/jgsz/bjg_jgsz/" TARGET="_blank" title="閮ㄦ満鍏?>閮ㄦ満鍏?/a></li>
+                                <li><a href="./gywhb/jgsz/zsdw_jgsz/" TARGET="_blank" title="鐩村睘鍗曚綅">鐩村睘鍗曚綅</a></li>
+                                <li><a href="./gywhb/jgsz/zwwhjg_jgsz/" TARGET="_blank" title="椹诲鏈烘瀯">椹诲鏈烘瀯</a></li>
+                                <li><a href="./gywhb/jgsz/zgxwcbdw_jgsz/" TARGET="_blank" title="涓荤鏂伴椈鍑虹増鍗曚綅">涓荤鏂伴椈鍑虹増鍗曚綅</a></li>
+                                <li><a href="./whzx/zxgz/whbshzzglgz/shzzml/jjh/" TARGET="_blank" title="涓荤绀惧洟">涓荤绀惧洟</a></li>
+
+                            </ul>
+                            <ul>
+                                <li class="tit_bld">娲鹃┗鏈烘瀯</li>
+                            </ul>
+
+                            <ul style="border:1px solid #e5e5e5;">
+
+                                <li><a href="./zwhcjz/" style="font-size:13px;line-height: 26px;">涓ぎ绾鍥藉鐩戝椹绘枃鍖栧拰鏃呮父閮ㄧ邯妫€鐩戝療缁?/a></li>
+                            </ul>
+                        </div>
+				   </div>
+				 
+					<!--   棰嗗銆佹満鏋勬鍐电粨鏉?->
+			 <div class="part2_left fRight" style="width:740px;">
+			 <!--       閫氱煡鍏憡銆佹斂绛栨硶瑙勩€佹斂绛栬В璇诲垏鎹?->
+                  <div class="news_box fLeft">
+                           
+                            <div class="news_box_top" style='height:360px'>
+                                <ul class="tit_box">
+                                    <li class="tzggqhOn" id="tzggqh_tab_0" onmousemove="Show('tzggqh','tzggqh',0,3,1);">
+                                     
+                                        <a href="https://zwgk.mct.gov.cn/" title="鍏憡閫氱煡" target="_blank">鍏憡閫氱煡</a></li>
+                                    <li class="sx">|</li>
+                                    <li class="tzggqh" id="tzggqh_tab_1" onmousemove="Show('tzggqh','tzggqh',1,3,1);">
+                                      
+                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/" title="鏀跨瓥娉曡" target="_blank">鏀跨瓥娉曡</a></li>
+                                    <li class="sx">|</li>
+                                    <li class="tzggqh" id="tzggqh_tab_2" onmousemove="Show('tzggqh','tzggqh',2,3,1);">
+
+                                        <a href="http://zwgk.mct.gov.cn/zfxxgkml/447/463/index_3081.html" target="_blank">鏀跨瓥瑙ｈ</a></li>
+                                    <li class="tzggqh_more">
+                                        <div class="more_qhOn" id="tzggqh_more_0">
+                                            <a href=""></a>
+                                        </div>
+                                        <div class="more_qh" id="tzggqh_more_1">
+                                            <a href=""></a>
+                                        </div>
+                                        <div class="more_qh" id="tzggqh_more_2">
+                                            <a href=""></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="tit_bj"></div>
+                                <div class="list_qhOn" id="tzggqh_cont_0">
+                                    <div class="list_part1">
+                                        <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                            <ul>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/wysy/202512/t20251210_963648.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴鍔炲叕鍘呭叧浜庡叕甯冪鍗佷簲灞婂叏鍥借垶韫堝睍婕斿弬婕斾綔鍝佸悕鍗曟毃灞曟紨鏈夊叧浜嬪疁鐨勯€氱煡">鏂囧寲鍜屾梾娓搁儴鍔炲叕鍘呭叧浜庡叕甯冪鍗佷簲灞婂叏鍥?..</a><span class="list_time_h">2025-12-10</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/cyfz/202512/t20251202_963521.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴 涓浗姘戣埅灞€鍏充簬鍗板彂銆婃枃鍖栧拰鏃呮父涓庢皯鑸笟铻嶅悎鍙戝睍琛屽姩鏂规銆嬬殑閫氱煡">鏂囧寲鍜屾梾娓搁儴 涓浗姘戣埅灞€鍏充簬鍗板彂銆婃枃鍖?..</a><span class="list_time_h">2025-12-03</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/wysy/202512/t20251202_963519.html" target="_blank" title="绗節灞婂叏鍥界敾闄㈢編鏈綔鍝佸睍瑙堢粓璇勭粨鏋?>绗節灞婂叏鍥界敾闄㈢編鏈綔鍝佸睍瑙堢粓璇勭粨鏋?/a><span class="list_time_h">2025-12-02</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/wysy/202511/t20251128_963474.html" target="_blank" title="鍏充簬绗崄浜斿眾鍏ㄥ浗鑸炶箞灞曟紨鍙傛紨浣滃搧鍚嶅崟鐨勫叕绀?>鍏充簬绗崄浜斿眾鍏ㄥ浗鑸炶箞灞曟紨鍙傛紨浣滃搧鍚嶅崟鐨?..</a><span class="list_time_h">2025-11-28</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/kjjy/202511/t20251114_963268.html" target="_blank" title="鍏充簬涓惧姙鏃呮父鑱屼笟鏁欒偛浼氬睍涓撲笟AI鏁板瓧鍖栬兘鍔涙彁鍗囧煿璁椿鍔ㄧ殑閫氱煡">鍏充簬涓惧姙鏃呮父鑱屼笟鏁欒偛浼氬睍涓撲笟AI鏁板瓧鍖栬兘...</a><span class="list_time_h">2025-11-14</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/scgl/202511/t20251112_963228.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴 鍏ㄥ浗鎬诲伐浼氬叡闈掑洟涓ぎ 鍏ㄥ浗濡囪仈鍏充簬鍏竷绗叚灞婂叏鍥藉娓稿ぇ璧涚粨鏋滅殑閫氱煡">鏂囧寲鍜屾梾娓搁儴 鍏ㄥ浗鎬诲伐浼氬叡闈掑洟涓ぎ 鍏ㄥ浗...</a><span class="list_time_h">2025-11-12</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/wysy/202511/t20251111_963212.html" target="_blank" title="鍏充簬2025-2026骞村害涓浗鎴忔洸鍍忛煶鍍忓伐绋嬪綍鍒跺墽鑺傜洰锛堟紨鍛橈級鎷熷叆閫夊悕鍗曠殑鍏ず">鍏充簬2025-2026骞村害涓浗鎴忔洸鍍忛煶鍍忓伐绋嬪綍...</a><span class="list_time_h">2025-11-11</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/kjjy/202511/t20251107_963156.html" target="_blank" title="鍏充簬涓惧姙宕囧痉灏氳壓銆佸畧姝ｅ垱鏂扳€斺€旂浜斿眾鈥滄ⅷ鑺辨澂鈥濆叏鍥介潚灏戝勾鎴忔洸鏁欒偛鏁欏鎴愭灉灞曠ず娲诲姩浼樼鎴愭灉姹囨姤婕斿嚭鐨勯€氱煡">鍏充簬涓惧姙宕囧痉灏氳壓銆佸畧姝ｅ垱鏂扳€斺€旂浜斿眾鈥?..</a><span class="list_time_h">2025-11-07</span></li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="bt-clear"></div>
+                                    </div>
+                                </div>
+                                <div class="list_qh" id="tzggqh_cont_1">
+                                    <div class="list_part1">
+                                        <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                            <ul>
+
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/bmgz/202507/t20250725_961415.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴琛屾斂澶嶈鍜屽簲璇夊姙娉?>鏂囧寲鍜屾梾娓搁儴琛屾斂澶嶈鍜屽簲璇夊姙娉?/a><span class="list_time_h">2025-07-25</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/gfxwj/202503/t20250319_958908.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴鍏充簬鍗板彂銆婂浗鏈夊叕鐩婃€у浘涔﹂銆佺編鏈鍏嶇◣杩涘彛钘忓搧绠＄悊鍔炴硶銆嬬殑閫氱煡">鏂囧寲鍜屾梾娓搁儴鍏充簬鍗板彂銆婂浗鏈夊叕鐩婃€у浘涔﹂...</a><span class="list_time_h">2025-03-28</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/xzfg/202503/t20250311_958787.html" target="_blank" title="浜掕仈缃戜笂缃戞湇鍔¤惀涓氬満鎵€绠＄悊鏉′緥">浜掕仈缃戜笂缃戞湇鍔¤惀涓氬満鎵€绠＄悊鏉′緥</a><span class="list_time_h">2025-03-11</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/fl/202503/t20250311_958788.html" target="_blank" title="涓崕浜烘皯鍏卞拰鍥芥枃鐗╀繚鎶ゆ硶">涓崕浜烘皯鍏卞拰鍥芥枃鐗╀繚鎶ゆ硶</a><span class="list_time_h">2025-03-11</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/gfxwj/202502/t20250207_958277.html" target="_blank" title="鍏充簬鍗板彂銆婁簰鑱旂綉鍐涗簨淇℃伅浼犳挱绠＄悊鍔炴硶銆嬬殑閫氱煡">鍏充簬鍗板彂銆婁簰鑱旂綉鍐涗簨淇℃伅浼犳挱绠＄悊鍔炴硶銆?..</a><span class="list_time_h">2025-02-12</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/bmgz/202501/t20250109_957755.html" target="_blank" title="瀵兼父绛夌骇鑰冩牳绠＄悊鍔炴硶">瀵兼父绛夌骇鑰冩牳绠＄悊鍔炴硶</a><span class="list_time_h">2025-01-09</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/gfxwj/202409/t20240920_955347.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴 澶栦氦閮?绉戞妧閮?鍏畨閮?鍥藉瀹夊叏閮?浜哄姏璧勬簮绀句細淇濋殰閮?娴峰叧鎬荤讲 鍥藉绉绘皯灞€鍏充簬鍗板彂銆婂鍥芥斂搴滄梾娓搁儴闂ㄥ父椹讳腑鍥戒唬琛ㄦ満鏋勭鐞嗗姙娉曘€嬬殑閫氱煡">鏂囧寲鍜屾梾娓搁儴 澶栦氦閮?绉戞妧閮?鍏畨閮?鍥藉...</a><span class="list_time_h">2024-09-20</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/gfxwj/202308/t20230809_946564.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴 鍏畨閮ㄥ叧浜庡姞寮虹數绔為厭搴楃鐞嗕腑鏈垚骞翠汉淇濇姢宸ヤ綔鐨勯€氱煡">鏂囧寲鍜屾梾娓搁儴 鍏畨閮ㄥ叧浜庡姞寮虹數绔為厭搴楃...</a><span class="list_time_h">2023-08-09</span></li>
+                                                
+
+                                            </ul>
+                                        </div>
+                                        <div class="bt-clear"></div>
+                                    </div>
+                                </div>
+                                <div class="list_qh" id="tzggqh_cont_2">
+                                    <div class="list_part1">
+                                        <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                            <ul>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202512/t20251202_963522.html" target="_blank" title="銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婃枃鍖栧拰鏃呮父涓庢皯鑸笟铻嶅悎鍙戝睍琛屽姩鏂规銆?>銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婃枃鍖栧拰鏃呮父涓庢皯鑸?..</a><span class="list_time_h">2025-12-03</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202507/t20250725_961417.html" target="_blank" title="銆愭枃瀛楄В璇汇€戙€婃枃鍖栧拰鏃呮父閮ㄨ鏀垮璁拰搴旇瘔鍔炴硶銆嬫斂绛栬В璇?>銆愭枃瀛楄В璇汇€戙€婃枃鍖栧拰鏃呮父閮ㄨ鏀垮璁拰搴?..</a><span class="list_time_h">2025-07-25</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202505/t20250523_960200.html" target="_blank" title="銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婄爺瀛︽梾娓告湇鍔¤姹傘€?>銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婄爺瀛︽梾娓告湇鍔¤姹傘€?/a><span class="list_time_h">2025-05-23</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202505/t20250523_960199.html" target="_blank" title="銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婄爺瀛︽梾娓歌绋嬩笌绾胯矾璁捐鎸囧崡銆?>銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婄爺瀛︽梾娓歌绋嬩笌绾?..</a><span class="list_time_h">2025-05-23</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202505/t20250523_960197.html" target="_blank" title="銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婂嚭澧冪爺瀛︽梾娓告湇鍔¤姹傘€?>銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婂嚭澧冪爺瀛︽梾娓告湇鍔?..</a><span class="list_time_h">2025-05-23</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202505/t20250523_960198.html" target="_blank" title="銆愭枃瀛楄В璇汇€戝叚椤规枃鍖栧拰鏃呮父琛屼笟鏍囧噯鍙戝竷">銆愭枃瀛楄В璇汇€戝叚椤规枃鍖栧拰鏃呮父琛屼笟鏍囧噯鍙戝竷</a><span class="list_time_h">2025-05-23</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202503/t20250328_959090.html" target="_blank" title="銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婂浗鏈夊叕鐩婃€у浘涔﹂銆佺編鏈鍏嶇◣杩涘彛钘忓搧绠＄悊鍔炴硶銆?>銆愬浘鐗囪В璇汇€戜竴鍥捐鎳傘€婂浗鏈夊叕鐩婃€у浘涔﹂...</a><span class="list_time_h">2025-03-28</span></li>
+                                                
+                                                    <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                        <a href="https://zwgk.mct.gov.cn/zfxxgkml/zcfg/zcjd/202502/t20250207_958278.html" target="_blank" title="銆愯璋堣В璇汇€戙€婁簰鑱旂綉鍐涗簨淇℃伅浼犳挱绠＄悊鍔炴硶銆嬬瓟璁拌€呴棶">銆愯璋堣В璇汇€戙€婁簰鑱旂綉鍐涗簨淇℃伅浼犳挱绠＄悊鍔?..</a><span class="list_time_h">2025-02-10</span></li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="bt-clear"></div>
+                                    </div>
+                                </div>
+                                <div class="bt-clear"></div>
+                            </div>
+                          
+                        </div>
+						  <!--宸ヤ綔淇℃伅銆佺洿灞炲崟浣嶃€佸叏鍥借仈鎾€佸嚭琛屾彁绀哄垏鎹?->
+			 <div class="news_box part2_right fRight">
+    
+                    <div class="part2_right_box_top"  style='height:360px'>
+                        <ul class="tit_box">
+                            <li class="bnsjqhOn" id="bnsjqh_tab_0" onmousemove="Show('bnsjqh','bnsjqh',0,4,0);">
+                                <a href="./whzx/bnsj/" title="宸ヤ綔淇℃伅" target="_blank">宸ヤ綔淇℃伅</a></li>
+                            <li class="sx">|</li>
+                         
+                            <li class="bnsjqh" id="bnsjqh_tab_1" onmousemove="Show('bnsjqh','bnsjqh',1,4,0);">
+                                <a href="./whzx/zsdw/" title="鐩村睘鍗曚綅" target="_blank">鐩村睘鍗曚綅</a></li>
+                            <li class="sx">|</li>
+                            <li class="bnsjqh" id="bnsjqh_tab_2" onmousemove="Show('bnsjqh','bnsjqh',2,4,0);">
+                                <a href="./whzx/qgwhxxlb/" title="鍏ㄥ浗鑱旀挱" target="_blank">鍏ㄥ浗鑱旀挱</a></li>
+							<li class="sx">|</li>
+							<li class="bnsjqh" id="bnsjqh_tab_3" onmousemove="Show('bnsjqh','bnsjqh',3,4,0);">
+                                <a href="./ggfw/cxts/" title="鍑鸿鎻愮ず" target="_blank">鍑鸿鎻愮ず</a></li>
+                        </ul>
+                        <div class="tit_bj"></div>
+                        <div class="list_qhOn" id="bnsjqh_cont_0">
+                            <div class="list_part1">
+                                <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                    <ul>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/yss/202512/t20251212_963670.html" target="_blank" title="绗崄浜斿眾鍏ㄥ浗鑸炶箞灞曟紨涓惧姙">绗崄浜斿眾鍏ㄥ浗鑸炶箞灞曟紨涓惧姙</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/ggwhs/202512/t20251201_963500.html" target="_blank" title="鍏ㄥ浗鈥滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄦ帹鍔ㄢ€滄枃鍖栨祦閲忊€濊浆鍚戔€滄秷璐瑰閲忊€?>鍏ㄥ浗鈥滃洓瀛ｆ潙鏅氣€濈瀛ｄ富鍦烘椿鍔ㄦ帹鍔ㄢ€滄枃鍖?..</a><span class="list_time_h">2025-12-01</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/fwzwhycs/202512/t20251201_963493.html" target="_blank" title="澶氭柟瀵硅瘽鍏卞晢闈為仐鍒涙柊鍙戝睍璺緞">澶氭柟瀵硅瘽鍏卞晢闈為仐鍒涙柊鍙戝睍璺緞</a><span class="list_time_h">2025-12-01</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/whkjs/202511/t20251128_963466.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴寮€灞曟爣鍑嗚捣鑽変汉鍛樹笟鍔″煿璁?>鏂囧寲鍜屾梾娓搁儴寮€灞曟爣鍑嗚捣鑽変汉鍛樹笟鍔″煿璁?/a><span class="list_time_h">2025-11-28</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/cq/202511/t20251124_963387.htm" target="_blank" title="鏂囧寲鍜屾梾娓歌锤鏄撲績杩涙椿鍔?锛堟椂灏氭秷璐逛笓棰橈級璧拌繘閲嶅簡">鏂囧寲鍜屾梾娓歌锤鏄撲績杩涙椿鍔?锛堟椂灏氭秷璐逛笓棰?..</a><span class="list_time_h">2025-11-24</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/whcys/202511/t20251119_963328.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴浜т笟椤圭洰鏈嶅姟骞冲彴绗?4鏈熺簿鍝侀」鐩氦娴佸鎺ユ椿鍔ㄨ蛋杩涙睙瑗胯担宸?>鏂囧寲鍜屾梾娓搁儴浜т笟椤圭洰鏈嶅姟骞冲彴绗?4鏈熺簿鍝?..</a><span class="list_time_h">2025-11-19</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/dwwhllj/202511/t20251118_963310.html" target="_blank" title="闈㈠悜涓滅洘澶у仴搴锋梾娓稿浗闄呰鍧涗妇琛?>闈㈠悜涓滅洘澶у仴搴锋梾娓稿浗闄呰鍧涗妇琛?/a><span class="list_time_h">2025-11-18</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/bnsj/ggwhs/202511/t20251114_963250.html" target="_blank" title="鍥藉鑹烘湳闄㈠洟鍏叡鏂囧寲鏈嶅姟璧勬簮鐩磋揪鍩哄眰浜ゆ祦娲诲姩鍦ㄤ含灞曞紑">鍥藉鑹烘湳闄㈠洟鍏叡鏂囧寲鏈嶅姟璧勬簮鐩磋揪鍩哄眰浜?..</a><span class="list_time_h">2025-11-14</span></li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+                                <div class="bt-clear"></div>
+                            </div>
+                        </div>                    
+                        <div class="list_qh" id="bnsjqh_cont_1">
+                            <div class="list_part1">
+                                <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                    <ul>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zgysyjy/202512/t20251212_963685.html" target="_blank" title="鈥滀笂娴蜂含鍓ч櫌寤洪櫌70鍛ㄥ勾涓撻鐮旇浼氣€濆湪涓浗鑹烘湳鐮旂┒闄妇鍔?>鈥滀笂娴蜂含鍓ч櫌寤洪櫌70鍛ㄥ勾涓撻鐮旇浼氣€濆湪涓?..</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zymzlt/202512/t20251212_963684.html" target="_blank" title="涓ぎ姘戞棌涔愬洟銆婂疂钘忓浗涔愩€嬪鍝嶉綈椴佷笁鍩?>涓ぎ姘戞棌涔愬洟銆婂疂钘忓浗涔愩€嬪鍝嶉綈椴佷笁鍩?/a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zggjbwg/202512/t20251212_963683.html" target="_blank" title="涓浗鍥藉鍗氱墿棣嗕笌娣卞湷鍗氱墿棣嗙缃插睍瑙堝悎浣滃崗璁?>涓浗鍥藉鍗氱墿棣嗕笌娣卞湷鍗氱墿棣嗙缃插睍瑙堝悎浣?..</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/whbltxryfwzx/202512/t20251212_963682.html" target="_blank" title="鏂囧寲鍜屾梾娓搁儴绂婚€€浼戜汉鍛樻湇鍔′腑蹇冨彫寮€鑰佽壓鏈鏂囧寲蹇楁効鏈嶅姟宸ョ▼鈥滄渶缇庡織鎰胯€呪€濊〃褰颁氦娴佷細">鏂囧寲鍜屾梾娓搁儴绂婚€€浼戜汉鍛樻湇鍔′腑蹇冨彫寮€鑰佽壓...</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zglycbs/202512/t20251211_963656.html" target="_blank" title="2025鈥滃搧璇讳腑鍥解€濆悕瀹跺搧閴磋娲诲姩涓惧姙">2025鈥滃搧璇讳腑鍥解€濆悕瀹跺搧閴磋娲诲姩涓惧姙</a><span class="list_time_h">2025-12-11</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zgdfyyjtyxgs/202512/t20251211_963655.html" target="_blank" title="鑸炲墽銆婃案涔愭湭澶€?026骞村叏鍥藉贰婕斿惎骞曞湪鍗?>鑸炲墽銆婃案涔愭湭澶€?026骞村叏鍥藉贰婕斿惎骞曞湪鍗?/a><span class="list_time_h">2025-12-11</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/ggbwy/202512/t20251211_963650.html" target="_blank" title="澶栦氦瀹樻憚褰遍濂栧吀绀兼毃褰卞儚鍒嗕韩浼氬湪鏁呭鍗氱墿闄妇鍔?>澶栦氦瀹樻憚褰遍濂栧吀绀兼毃褰卞儚鍒嗕韩浼氬湪鏁呭鍗?..</a><span class="list_time_h">2025-12-11</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/zsdw/zymzlt/202512/t20251210_963638.html" target="_blank" title="涓ぎ姘戞棌涔愬洟銆婃潮娉卞浗椋庛€嬮煶涔愪細鍔╁姏鈥滈閮藉競姘戦煶涔愬巺鈥濈郴鍒楁紨鍑洪『鍒╂敹瀹?>涓ぎ姘戞棌涔愬洟銆婃潮娉卞浗椋庛€嬮煶涔愪細鍔╁姏鈥滈...</a><span class="list_time_h">2025-12-10</span></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="bt-clear"></div>
+                            </div>
+                        </div>
+                      <div class="list_qh" id="bnsjqh_cont_2">
+                            <div class="list_part1">
+                                <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                    <ul>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/ah/202512/t20251212_963686.htm" target="_blank" title="鈥滈┈鐜嬪爢鈥斺€旇タ姹壜蜂竴涓鏃忕殑鈥樻案鐢熶箣姊︹€欌€濈壒灞曞湪瀹夊窘鍗氱墿闄㈠紑灞?>鈥滈┈鐜嬪爢鈥斺€旇タ姹壜蜂竴涓鏃忕殑鈥樻案鐢熶箣姊?..</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/bj/202512/t20251212_963680.htm" target="_blank" title="鈥滄疆鈥濇湞闃冲桨鏄炬柊娲诲姏">鈥滄疆鈥濇湞闃冲桨鏄炬柊娲诲姏</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/sd/202512/t20251212_963679.htm" target="_blank" title="灞变笢鍚姩鏃呮父椋庢櫙閬撯€滄梾琛?鈥濋┚浜">灞变笢鍚姩鏃呮父椋庢櫙閬撯€滄梾琛?鈥濋┚浜</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/ln/202512/t20251212_963677.htm" target="_blank" title="杈藉畞鎺ㄥ嚭8鏉￠暱鍩庢梾娓哥簿鍝佺嚎璺?>杈藉畞鎺ㄥ嚭8鏉￠暱鍩庢梾娓哥簿鍝佺嚎璺?/a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/fj/202512/t20251212_963675.htm" target="_blank" title="绂忓缓閭€姹熻嫃娓稿寮€鍚€滆嫃绂忊€濅箣鏃?>绂忓缓閭€姹熻嫃娓稿寮€鍚€滆嫃绂忊€濅箣鏃?/a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/gs/202512/t20251212_963673.htm" target="_blank" title="鐢樿們璧村崡鏄屾帹浠嬪啲鏄ュ鏂囨梾璧勬簮">鐢樿們璧村崡鏄屾帹浠嬪啲鏄ュ鏂囨梾璧勬簮</a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/hn_7731/202512/t20251212_963672.htm" target="_blank" title="婀栧崡鈥滈潪閬楀叚杩涒€濆睍绀烘椿鍔ㄨ仛鐒﹀洓澶ф澘鍧?>婀栧崡鈥滈潪閬楀叚杩涒€濆睍绀烘椿鍔ㄨ仛鐒﹀洓澶ф澘鍧?/a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/qgwhxxlb/hn_7734/202512/t20251212_963671.htm" target="_blank" title="涓変簹鐧惧満娲诲姩淇冩枃鏃呭晢鍐滆瀺鍚?>涓変簹鐧惧満娲诲姩淇冩枃鏃呭晢鍐滆瀺鍚?/a><span class="list_time_h">2025-12-12</span></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="bt-clear"></div>
+                            </div>
+                        </div>
+						 <div class="list_qh" id="bnsjqh_cont_3">
+                            <div class="list_part1">
+                                <div class="bt-mod-wzpb-05" style="padding: 0;">
+                                    <ul>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./whzx/whyw/202511/t20251115_963273.htm" target="_blank" title="鎻愰啋涓浗娓稿杩戞湡閬垮厤鍓嶅線鏃ユ湰鏃呮父">鎻愰啋涓浗娓稿杩戞湡閬垮厤鍓嶅線鏃ユ湰鏃呮父</a><span class="list_time_h">2025-11-16</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251211_963661.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?0鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?0鏃ヨ仈...</a><span class="list_time_h">2025-12-11</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251210_963645.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?9鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?9鏃ヨ仈...</a><span class="list_time_h">2025-12-09</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251209_963634.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?8鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?8鏃ヨ仈...</a><span class="list_time_h">2025-12-09</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251208_963610.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?7鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?7鏃ヨ仈...</a><span class="list_time_h">2025-12-08</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251207_963581.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?6鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?6鏃ヨ仈...</a><span class="list_time_h">2025-12-07</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251206_963580.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?5鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?5鏃ヨ仈...</a><span class="list_time_h">2025-12-05</span></li>
+                                        
+                                            <li><span class="bt-prefix"><img src="./images/dian.gif" /></span>
+                                                <a href="./ggfw/cxts/glqxyb/202512/t20251205_963575.htm" target="_blank" title="涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?4鏃ヨ仈鍚堝彂甯冨叏鍥戒富瑕佸叕璺皵璞￠鎶?>涓浗姘旇薄灞€涓庝氦閫氳繍杈撻儴2025骞?2鏈?4鏃ヨ仈...</a><span class="list_time_h">2025-12-05</span></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="bt-clear"></div>
+                            </div>
+                        </div>
+                        <div class="bt-clear"></div>
+                    </div>
+                </div>
+        	 <div class="bt-clear"></div>
+
+                            <!--       鍥藉姟闄?鏂伴椈鍙戝竷浼氥€佸湪绾胯璋堝垏鎹?->
+                            <div class="news_box_bottom" style="margin-top: 12px;">
+                                <ul class="tit_box">
+                                    <li class="zxftqhOn" id="zxftqh_tab_0" onmousemove="Show('zxftqh','zxftqh',0,4,1);">
+                                        <a href="http://www.gov.cn/hudong/ducha/2021-01/26/content_5582430.htm" title="鍥藉姟闄簰鑱旂綉+鐫ｆ煡" target="_blank">鍥藉姟闄?<span style="font-size:14px;">浜掕仈缃?鐫ｆ煡</span></a></li>
+                                    <li class="sx">|</li>
+                                    <li class="zxftqh" id="zxftqh_tab_1" onmousemove="Show('zxftqh','zxftqh',1,4,1);">
+                                        <a href="./hdjl/xwfbh/" title="鏂伴椈鍙戝竷浼? target="_blank">鏂伴椈鍙戝竷浼?/a></li>
+                                    <li class="sx">|</li>
+                                    <li class="zxftqh" id="zxftqh_tab_2" onmousemove="Show('zxftqh','zxftqh',2,4,1);">
+                                        <a href="./hdjl/zxft/" title="鍦ㄧ嚎璁胯皥" target="_blank">鍦ㄧ嚎璁胯皥</a>
+                                    </li>
+
+                                    
+                                    <li class="tzggqh_more">
+                                        <div class="more_qhOn" id="zxftqh_more_0">
+                                            <a href=""></a>
+                                        </div>
+                                        <div class="more_qh" id="zxftqh_more_1">
+                                            <a href=""></a>
+                                        </div>
+                                        <div class="more_qh" id="zxftqh_more_2">
+                                            <a href=""></a>
+                                       
+                                    </li>
+                                </ul>
+                                <div class="tit_bj"></div>
+								     <!--       鍥藉姟闄簰鑱旂綉+鐫ｆ煡-->
+                                <div class="list_qhOn" id="zxftqh_cont_0">
+                                    <div class="list_part1">
+                                        <div class="xwfbh_list" style="padding: 0; width:740px;">
+                                            <ul>
+											  
+                                                    <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.gov.cn/hudong/" target="_blank"><img src="./sygwy/202507/W020250721613065978309.jpg" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.gov.cn/hudong/" target="_blank" title="@鍥藉姟闄?鎴戞潵璇?>@鍥藉姟闄?鎴戞潵璇?/a>
+                                                            </p>
+                                                            <span>2025-03-12</div>
+                      </li>
+                      
+                                                    <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.gov.cn/zhengce/zczhjd/" target="_blank"><img src="./sygwy/202507/W020250721612536274951.png" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.gov.cn/zhengce/zczhjd/" target="_blank" title="閲嶈鏀跨瓥涓炬帾鍙婂疄鏂芥晥鏋?>閲嶈鏀跨瓥涓炬帾鍙婂疄鏂芥晥鏋?/a>
+                                                            </p>
+                                                            <span>2024-07-01</div>
+                      </li>
+                      
+                                                    <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://tousu.www.gov.cn/dc/index.htm" target="_blank"><img src="./sygwy/202507/W020250721422273755670.jpg" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://tousu.www.gov.cn/dc/index.htm" target="_blank" title="鍏充簬2024骞村害鍥藉姟闄㈡帹鍔ㄩ珮璐ㄩ噺鍙戝睍缁煎悎鐫ｆ煡寰侀泦闂绾跨储鐨勫叕鍛?>鍏充簬2024骞村害鍥藉姟闄㈡帹鍔ㄩ珮璐ㄩ噺鍙戝睍缁煎悎鐫ｆ煡寰侀泦闂绾跨储鐨勫叕鍛?/a>
+                                                            </p>
+                                                            <span>2024-10-16</div>
+                      </li>
+                      
+                                                    <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.gov.cn/yaowen/liebiao/202401/content_6929236.htm" target="_blank"><img src="./sygwy/202507/W020250721421924925297.jpg" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.gov.cn/yaowen/liebiao/202401/content_6929236.htm" target="_blank" title="鍏充簬寰侀泦褰卞搷钀ュ晢鐜寤鸿闂绾跨储鐨勫叕鍛?>鍏充簬寰侀泦褰卞搷钀ュ晢鐜寤鸿闂绾跨储鐨勫叕鍛?/a>
+                                                            </p>
+                                                            <span>2024-04-21</div>
+                      </li>
+                      
+                                            </ul>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <!--       鍥藉姟闄簰鑱旂綉+鐫ｆ煡缁撴潫-->
+								  <div class="bt-clear"></div>
+                                <!--       鏂伴椈鍙戝竷浼歭ist-->
+                                <div class="list_qh" id="zxftqh_cont_1">
+                                    <div class="list_part1">
+                                        <div class="xwfbh_list" style="padding: 0; width:740px;">
+                                            <ul>
+                                                
+                                                     <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.mct.gov.cn/vipchat/home/site/2/464/" target="_blank"><img src="./hdjl/xwfbh/202511/W020251127581304286818.png" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.mct.gov.cn/vipchat/home/site/2/464/" target="_blank" title="鍥芥柊鍔炰妇琛屽浗鍔￠櫌鏀跨瓥渚嬭鍚归浼?浠嬬粛澧炲己娑堣垂鍝佷緵闇€閫傞厤鎬ц繘涓€姝ヤ績杩涙秷璐规斂绛栨帾鏂芥湁鍏虫儏鍐?>鍥芥柊鍔炰妇琛屽浗鍔￠櫌鏀跨瓥渚嬭鍚归浼?浠嬬粛澧炲己娑堣垂鍝佷緵闇€閫傞厤鎬ц繘涓€姝ヤ績杩涙秷...</a>
+                                                            </p>
+                                                            <span>2025-11-27</div>
+                      </li>
+                      
+                                                     <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.mct.gov.cn/vipchat/home/site/2/463/" target="_blank"><img src="./hdjl/xwfbh/202509/W020250929620785458931.png" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.mct.gov.cn/vipchat/home/site/2/463/" target="_blank" title="銆愰珮璐ㄩ噺瀹屾垚鈥滃崄鍥涗簲鈥濊鍒掔郴鍒椾富棰樻柊闂诲彂甯冧細銆戜粙缁嶁€滃崄鍥涗簲鈥濇椂鏈熸枃鍖栧拰鏃呮父楂樿川閲忓彂灞曟垚灏?>銆愰珮璐ㄩ噺瀹屾垚鈥滃崄鍥涗簲鈥濊鍒掔郴鍒椾富棰樻柊闂诲彂甯冧細銆戜粙缁嶁€滃崄鍥涗簲鈥濇椂鏈熸枃鍖?..</a>
+                                                            </p>
+                                                            <span>2025-09-29</div>
+                      </li>
+                      
+                                                     <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.mct.gov.cn/vipchat/home/site/2/462/" target="_blank"><img src="./hdjl/xwfbh/202509/W020250922614313542192.jpg" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.mct.gov.cn/vipchat/home/site/2/462/" target="_blank" title="鏂囧寲鍜屾梾娓搁儴2025骞寸涓夊搴︿緥琛屾柊闂诲彂甯冧細">鏂囧寲鍜屾梾娓搁儴2025骞寸涓夊搴︿緥琛屾柊闂诲彂甯冧細</a>
+                                                            </p>
+                                                            <span>2025-09-22</div>
+                      </li>
+                      
+                                                     <li style="float:left; width:370px;">
+                                                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                                                            <a href="https://www.mct.gov.cn/vipchat/home/site/2/461" target="_blank"><img src="./hdjl/xwfbh/202508/W020250828648016671627.jpg" width="120" height="90" alt="" /></a>
+                                                        </div>
+                                                        <div class="xwfbh_tit fLeft">
+                                                            <p>
+                                                                <a href="https://www.mct.gov.cn/vipchat/home/site/2/461" target="_blank" title="涓浗浜烘皯鎶楁棩鎴樹簤鏆ㄤ笘鐣屽弽娉曡タ鏂垬浜夎儨鍒?0鍛ㄥ勾绾康娲诲姩绗竴鍦鸿鑰呮嫑寰呬細">涓浗浜烘皯鎶楁棩鎴樹簤鏆ㄤ笘鐣屽弽娉曡タ鏂垬浜夎儨鍒?0鍛ㄥ勾绾康娲诲姩绗竴鍦鸿鑰呮嫑寰呬細</a>
+                                                            </p>
+                                                            <span>2025-08-28</div>
+                      </li>
+                      
+
+                    </ul>
+                  </div>
+            
+                </div>
+              </div>
+			    <div class="bt-clear"></div>
+              <!--       鏂伴椈鍙戝竷浼歭ist缁撴潫--> 
+              <!--       鍦ㄧ嚎璁胯皥list-->
+              <div class="list_qh" id="zxftqh_cont_2">
+                <div class="list_part1">
+                <div class="xwfbh_list" style="padding: 0; width:740px;">
+                    <ul>
+                      
+                           <li style="float:left; width:370px;">
+                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                          <a href="https://www.mct.gov.cn/vipchat/home/site/1/452/" target="_blank"><img src="./hdjl/zxft/202502/W020250210408487216730.png" width="154" height="90" alt="" /></a>
+                        </div>
+                        <div class="xwfbh_tit fLeft">
+                          <p><a href="https://www.mct.gov.cn/vipchat/home/site/1/452/" target="_blank" title="鍥藉浜掕仈缃戜俊鎭姙鍏銆佷腑澶啗濮旀斂娌诲伐浣滈儴鏈夊叧閮ㄩ棬璐熻矗浜哄氨銆婁簰鑱旂綉鍐涗簨淇℃伅浼犳挱绠＄悊鍔炴硶銆嬬瓟璁拌€呴棶">鍥藉浜掕仈缃戜俊鎭姙鍏銆佷腑澶啗濮旀斂娌诲伐浣滈儴鏈夊叧閮ㄩ棬璐熻矗浜哄氨銆婁簰鑱旂綉鍐涗簨...</a></p>
+                          <span>2025-02-10</span></div>
+                                                    </li>
+                                                
+                           <li style="float:left; width:370px;">
+                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                          <a href="https://www.mct.gov.cn/vipchat/home/site/1/451/" target="_blank"><img src="./hdjl/zxft/202501/W020250107548052988183.jpg" width="154" height="90" alt="" /></a>
+                        </div>
+                        <div class="xwfbh_tit fLeft">
+                          <p><a href="https://www.mct.gov.cn/vipchat/home/site/1/451/" target="_blank" title="鏂囧寲鍜屾梾娓搁儴璧勬簮寮€鍙戝徃璐熻矗浜鸿В璇汇€婄孩鑹叉梾娓歌瀺鍚堝彂灞曞尯绛夌骇鍒掑垎銆?>鏂囧寲鍜屾梾娓搁儴璧勬簮寮€鍙戝徃璐熻矗浜鸿В璇汇€婄孩鑹叉梾娓歌瀺鍚堝彂灞曞尯绛夌骇鍒掑垎銆?/a></p>
+                          <span>2025-01-07</span></div>
+                                                    </li>
+                                                
+                           <li style="float:left; width:370px;">
+                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                          <a href="https://www.mct.gov.cn/vipchat/home/site/1/446/" target="_blank"><img src="./hdjl/zxft/202411/W020241107542024308115.jpg" width="154" height="90" alt="" /></a>
+                        </div>
+                        <div class="xwfbh_tit fLeft">
+                          <p><a href="https://www.mct.gov.cn/vipchat/home/site/1/446/" target="_blank" title="娣卞寲鏂囧寲鍜屾梾娓搁鍩熸敼闈?鍔犲揩寤鸿绀句細涓讳箟鏂囧寲寮哄浗鈥斺€旇鏂囧寲鍜屾梾娓搁儴鍏氱粍涔﹁銆侀儴闀垮瓩涓氱ぜ">娣卞寲鏂囧寲鍜屾梾娓搁鍩熸敼闈?鍔犲揩寤鸿绀句細涓讳箟鏂囧寲寮哄浗鈥斺€旇鏂囧寲鍜屾梾娓搁儴鍏?..</a></p>
+                          <span>2024-09-02</span></div>
+                                                    </li>
+                                                
+                           <li style="float:left; width:370px;">
+                        <div class="xwfbh_pic fLeft bt-margin-right-20">
+                          <a href="https://www.mct.gov.cn/vipchat/home/site/1/438/" target="_blank"><img src="./hdjl/zxft/202407/W020240705394836710318.jpg" width="154" height="90" alt="" /></a>
+                        </div>
+                        <div class="xwfbh_tit fLeft">
+                          <p><a href="https://www.mct.gov.cn/vipchat/home/site/1/438/" target="_blank" title="鍔姏鎺ㄨ繘鏃呮父鍏叡鏈嶅姟楂樿川閲忓彂灞曗€斺€旀枃鍖栧拰鏃呮父閮ㄥ叕鍏辨湇鍔″徃璐熻矗鍚屽織灏便€婂叧浜庢帹杩涙梾娓稿叕鍏辨湇鍔￠珮璐ㄩ噺鍙戝睍鐨勬寚瀵兼剰瑙併€嬬瓟璁拌€呴棶">鍔姏鎺ㄨ繘鏃呮父鍏叡鏈嶅姟楂樿川閲忓彂灞曗€斺€旀枃鍖栧拰鏃呮父閮ㄥ叕鍏辨湇鍔″徃璐熻矗鍚屽織灏便€?..</a></p>
+                          <span>2024-07-05</span></div>
+                                                    </li>
+                                                
+
+                                            </ul>
+                                        </div>
+                                   
+                                    </div>
+                                </div>
+								  <div class="bt-clear"></div>
+                                <!--       鍦ㄧ嚎璁胯皥list缁撴潫-->
+                                     
+                            </div>
+                            <!--       鏂伴椈鍙戝竷浼氥€佸湪绾胯璋堝垏鎹nd-->
+                        </div>
+
+ <div class="bt-clear"></div>
+		</div>
+			<!---绗簩閮ㄥ垎缁撴潫-->
+			
+      <!-- 绗笁閮ㄥ垎 鍏紬鏈嶅姟 鐣欒█寮€濮?-->
+	  
+	  <div class="part2_left_shu2" style="width: 960px;margin-left:0px;">
+	  	   <ul class="tit_box syt10">
+                                    <li class="gzly_tit"><a>鍏叡鏈嶅姟</a></li>
+                                </ul>
+                                <div class="tit_bj syt10"></div>
+								
+								
+									  <div class="part2_left_shu2  fLeft" style="width:470px; margin-left:0px;">
+	  
+	   <div class="gzfw_list"  style="position: relative; ">
+									<a href="https://whzg.mct.gov.cn/" title="鏂囧寲璧勬簮灞曢" target="_blank" style="height:210px;">
+									<img src="./images/sy_whzyzgt.jpg" alt="" width="470" height="210px;" />
+										
+									</a>
+									<style>
+									.syt10{margin-top:10px;}
+									.dzlyfwrk1{position:absolute; top:102px;}
+									.dzlyfwrk1 li{ float: left; width: 65px; margin-right: 30px;}
+									.dzlyfwrk1 img{ width:62px;}
+									.dzlyfwrk1 a{ width:62px;}
+									.dzlyfwrk1 li.dzlyli11 span{background:url(.//images/sywhzyzg1.png); display:block; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli22 span{background:url(/images/sywhzyzg2.png); display:block; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli33 span{background:url(/images/sywhzyzg3.png); display:block; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli44 span{background:url(/images/sywhzyzg4.png); display:block; width:62px; height:77px;}
+
+									.dzlyfwrk1 li.dzlyli11:hover span{background:url(.//images/sywhzyzg01.png) no-repeat; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli22:hover span{background:url(/images/sywhzyzg02.png) no-repeat; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli33:hover span{background:url(/images/sywhzyzg03.png ) no-repeat; width:62px; height:77px;}
+									.dzlyfwrk1 li.dzlyli44:hover span{background:url(/images/sywhzyzg04.png ) no-repeat; width:62px; height:77px;}
+
+									</style>
+								<ul class="dzlyfwrk1">
+											<li class="dzlyli11" style="margin-left:63px;"><a href="https://whzg.mct.gov.cn/epl" title="灞曟紨淇℃伅" target="_blank"><span></span></a></li>
+											<li class="dzlyli22" style="margin-top:0px;"><a href="https://whzg.mct.gov.cn/#home4" title="涓撻灞曡" target="_blank"><span></span></a></li>
+											<li class="dzlyli44" style="margin-top:0px;"><a href="https://whzg.mct.gov.cn/#home7" title="鍓х洰灞曟紨" target="_blank"><span></span></a></li>
+											<li class="dzlyli33" style="margin-top:-2px;"><a href="https://whzg.mct.gov.cn/#home5" title="鍓х洰灞曟紨" target="_blank"><span></span></a></li>
+										
+										</ul>
+                                </div>
+	  
+	  </div>
+								
+								
+	   <div class="fRight" style="width:470px;height:210px;">
+
+                            <!--        鍏紬鏈嶅姟-->
+                            <div class="gzfw" style="position: relative; ">
+                                
+                                <div class="gzfw_list">
+									<a href="https://lyfw.mct.gov.cn/site/special/home" title="澶т紬鏃呮父鏈嶅姟" target="_blank" style="height:155px;"><img src="./images/dzlyfw1.jpg" alt="" width="470" style=" height:210px;" />
+										
+									</a>
+									<style>
+									.dzlyfwrk{position:absolute; top:110px;}
+									.dzlyfwrk li{ float: left; width: 65px; margin-right: 30px;}
+									.dzlyfwrk img{ width:70px;}
+									.dzlyfwrk a{ width:70px;}
+									.dzlyfwrk li.dzlyli1 span{background:url(.//images/dazlyfwrk1.png); display:block; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli2 span{background:url(/images/dazlyfwrk2.png); display:block; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli3 span{background:url(/images/dazlyfwrk3.png); display:block; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli4 span{background:url(/images/dazlyfwrk4.png); display:block; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli5 span{background:url(/images/dazlyfwrk001.png); display:block; width:70px; height:72px;}
+									
+									.dzlyfwrk li.dzlyli1:hover span{background:url(.//images/dazlyfwrk111.png) no-repeat; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli2:hover span{background:url(/images/dazlyfwrk222.png) no-repeat; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli3:hover span{background:url(/images/dazlyfwrk333.png ) no-repeat; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli4:hover span{background:url(/images/dazlyfwrk444.png) no-repeat; width:70px; height:72px;}
+									.dzlyfwrk li.dzlyli5:hover span{background:url(/images/dazlyfwrk0001.png) no-repeat; width:70px; height:72px;}
+									</style>
+									<ul class="dzlyfwrk">
+											<li class="dzlyli5" style="margin-left:55px;"><a href="https://lyfw.mct.gov.cn/site/special/scenic" title="澶т紬鏃呮父鏈嶅姟-鏅尯澶╂皵" target="_blank"><span></span></a></li>
+											<li class="dzlyli2"><a href="https://lyfw.mct.gov.cn/site/special/home#home3" title="澶т紬鏃呮父鏈嶅姟-鏃呮父绾胯矾鎺ㄨ崘" target="_blank"><span></span></a></li>
+											<li class="dzlyli3"><a href="https://www.mct.gov.cn/ggfw/cxts/" title="澶т紬鏃呮父鏈嶅姟-鍑鸿鎻愮ず" target="_blank"><span></span></a></li>
+											<li class="dzlyli4"><a href="https://www.mct.gov.cn/tourism/#/list?drid=4" title="澶т紬鏃呮父鏈嶅姟-鍚嶅綍鏌ヨ" target="_blank"><span></span></a></li>
+										</ul>
+                                </div>
+                            </div>
+                            <!--        鍏紬鏈嶅姟end-->
+                        </div>
+	  
+
+	  <!--        鍏紬鏈嶅姟-->
+	  <div style="clear:both;"></div>
+
+	
+    <script src="./images/jquery.SuperSlide.2.1.1.js"></script>
+	
+       <!---鐑偣涓撻  寮€濮?-->
+	   <div class="sy_rdzt syt10">
+	
+       <div class="rmzt_tit font"><a href="https://www.mct.gov.cn/whzx/rdzt/" target="_blank">鐑偣涓撻</a></div>
+                        <div class="sy_ztzlbox">
+			<div class="sy_ztzl fl">
+				<div class="hd">		
+				</div>
+				<a class="prev"></a>
+				<div class="bd">
+					<ul class="picList">
+					 
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/lygzzyzs.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929376142833972.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/yishujie14.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202510/W020251013634783456434.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/desjqxj.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202511/W020251107330219979467.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/lybkzn.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929373852159825.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/10zgychjyqz.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929389669556250.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/wlbjscxzx/index.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929373279153276.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://www.mct.gov.cn//preview/whhlyqyzcxxfw/" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929518180041947.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://www.mct.gov.cn/preview/special/kygz/" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929403342530565.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://sjfw.mct.gov.cn/site/dataservice/home" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929565566797635.png" border=0 /></a></div>
+						</li>
+                            
+					<li style="">
+							<div class="pic"> <a href="https://zhuanti.mct.gov.cn/2025gjwlaqz.html" target='_blank'><IMG src="./whzx/rdzt/sydbgd/202509/W020250929375641794458.png" border=0 /></a></div>
+						</li>
+                            
+
+					</ul>
+					</div>
+						<a class="next"></a>
+					<style type="text/css">
+
+
+.tempWrap{ margin-left:12px; width:915px;}
+.sy_ztzlbox{height:270px;background:#f5f5f5;margin-top:8px;margin-bottom:3px;}
+.sy_ztzl{  position:relative;width:950px; }
+.sy_ztzl .prev,.sy_ztzl .next{ display:block;  width:15px; height:37px;overflow:hidden;cursor:pointer; position:absolute;top:110px;z-index:2;}
+.sy_ztzl .next{background:url(ztzlright.png) no-repeat; right:0; }
+.sy_ztzl .prev{ background:url(.//images/ztzlleft.png) no-repeat; left:13px; }
+.sy_ztzl .next{ background:url(.//images/ztzlright.png) no-repeat; right:3px; }
+
+.sy_ztzl .bd{ padding:20px 10px;}
+.sy_ztzl .bd ul{ overflow:hidden; zoom:1; height:240px; }
+.sy_ztzl .bd ul li{ margin:0 10px; float:left; _display:inline;overflow:hidden; text-align:center; background:#fff;  padding:0px;}
+.sy_ztzl .bd ul li .pic{ text-align:center; }
+.sy_ztzl .bd ul li .pic img{ display:block; padding:6px; width:163px; height:215px;  border:3px #e7e7e7 solid; border-radius: 6px  }
+.sy_ztzl .bd ul li .pic a:hover img{ border-color:#e8e8e8;  }
+.sy_ztzl .bd ul li .title{ line-height:24px;   }	
+.zcwsgg{width:180px;margin-top: 20px;margin-right:20px;}
+.zcwsgg img{width: 100%;height: 200px;}
+
+		</style>
+					<!----> 
+				<div class="cl"></div>		
+			
+			</div>
+		</div>
+		<script id="jsID" type="text/javascript">
+		 var ary = location.href.split("&");
+		jQuery(".sy_ztzl").slide( { mainCell:".bd ul",autoPlay:true,effect:'leftLoop',vis:5,interTime:5000,opp:false,pnLoop:true,trigger:'click',mouseOverStop:true });
+        if(/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+            if(window.location.href.indexOf("?mobile")<0){
+jQuery(".sy_ztzl").slide( { mainCell:".bd ul",autoPlay:true,effect:'leftLoop',vis:1,interTime:5000,opp:false,pnLoop:true,trigger:'click',mouseOverStop:true });
+}
+        }
+		</script>
+
+		  <div style="clear:both;"></div>
+                  <!-- 绗笁閮ㄥ垎 鐣欒█寮€濮?-->
+	  <ul class="tit_box syt10"> <li class="gzly_tit"><a>鐣欒█涓庢姇璇?/a></li></ul><div class="tit_bj syt10"></div>
+	     <style type="text/css">
+                                  
+                                    .sy_gzly a {
+                                        float: left; height:50px; line-height:50px;color:#333333; text-align:center; background:#;margin-left:2px;}
+										.sy_gzly a:hover{color:#fff;font-weight:bold;}
+
+									.sy_gzly1{width:250px; background:url(.//images/sy_wylya1.png) #e9e9e9 55px no-repeat;}
+									.sy_gzly2{width:250px; background:url(.//images/sy_wylya2.png) #e9e9e9 55px no-repeat;}
+									.sy_gzly3{width:453px; background:url(.//images/sy_wylya2.png) #e9e9e9 40px no-repeat;}
+									
+									.sy_gzly1:hover{width:250px; background:url(.//images/sy_wylya01.png) 54px no-repeat #d05454;;}
+									.sy_gzly2:hover{width:250px; background:url(.//images/sy_wylya02.png) 54px no-repeat #d05454;;}
+									.sy_gzly3:hover{width:453px; background:url(.//images/sy_wylya02.png) 40px no-repeat #d05454;;}
+					              </style>
+								<div class="sy_gzly syt10">
+								<a href="/wlhdjl/hdjl_wyxx.html" target="_blank" class="sy_gzly1" title="鎴戣鐣欒█"><img src="" />鎴戣鐣欒█</a>
+                                <a href="/wlhdjl/dflist.html" target="_blank" class="sy_gzly2" title="鐣欒█閫夌櫥">鐣欒█閫夌櫥</a>
+								<a href="https://jbts.mct.gov.cn/" target="_blank" class="sy_gzly3" title="鍏ㄥ浗鏂囧寲鍜屾梾娓稿競鍦虹綉涓婁妇鎶ユ姇璇夊鐞嗙郴缁?>鍏ㄥ浗鏂囧寲鍜屾梾娓稿競鍦虹綉涓婁妇鎶ユ姇璇夊鐞嗙郴缁?/a>
+								</div>
+
+	  </div>
+	     <div style="clear:both;"></div>
+
+	  <!-- 绗笁閮ㄥ垎 鐣欒█缁撴潫 --> 
+	   </div>
+	   </div>
+       
+	   <!---鐑偣涓撻  缁撴潫--->	
+	   <div style="clear:both;"></div>
+            <!-- 鍙嬫儏閾炬帴閮ㄥ垎-->
+            <div id="part3" class="bt-margin-top-20">
+                <ul style="margin:0px auto;width:1000px;">
+                    <li class="wzdh" style="line-height:57px !important;"><a href="https://www.gov.cn/" target="_blank" style="color: #c44021;">涓浗鏀垮簻缃?/a></li>
+                    <li style="padding-right: 23px;line-height: 55px;padding-top:0;"><img src="./images/yqlj_jg.jpg" style="margin-top: 10px;" /></li>
+
+                    <li>
+
+
+                        <select onchange="MM_jumpMenu('parent',this,1)" style="width:160px;font-size: 13px;">
+            <option selected="selected">鍥藉姟闄㈤儴闂ㄧ綉绔?/option>
+
+              
+             <option value="https://www.fmprc.gov.cn/web/" title="澶栦氦閮?>澶栦氦閮?/option>
+              
+             <option value="http://www.mod.gov.cn/" title="鍥介槻閮?>鍥介槻閮?/option>
+              
+             <option value="https://www.ndrc.gov.cn/" title="鍥藉鍙戝睍鍜屾敼闈╁鍛樹細">鍥藉鍙戝睍鍜屾敼闈╁鍛樹細</option>
+              
+             <option value="http://www.moe.gov.cn/" title="鏁欒偛閮?>鏁欒偛閮?/option>
+              
+             <option value="http://www.most.gov.cn/" title="绉戝鎶€鏈儴">绉戝鎶€鏈儴</option>
+              
+             <option value="https://www.miit.gov.cn/" title="宸ヤ笟鍜屼俊鎭寲閮?>宸ヤ笟鍜屼俊鎭寲閮?/option>
+              
+             <option value="https://www.neac.gov.cn/" title="鍥藉姘戞棌浜嬪姟濮斿憳浼?>鍥藉姘戞棌浜嬪姟濮斿憳浼?/option>
+              
+             <option value="https://www.mps.gov.cn/" title="鍏畨閮?>鍏畨閮?/option>
+              
+             <option value="/" title="鍥藉瀹夊叏閮?>鍥藉瀹夊叏閮?/option>
+              
+             <option value="http://www.mca.gov.cn/" title="姘戞斂閮?>姘戞斂閮?/option>
+              
+             <option value="http://www.moj.gov.cn/" title="鍙告硶閮?>鍙告硶閮?/option>
+              
+             <option value="http://www.mof.gov.cn/index.htm" title="璐㈡斂閮?>璐㈡斂閮?/option>
+              
+             <option value="http://www.mohrss.gov.cn/" title="浜哄姏璧勬簮鍜岀ぞ浼氫繚闅滈儴">浜哄姏璧勬簮鍜岀ぞ浼氫繚闅滈儴</option>
+              
+             <option value="http://www.mnr.gov.cn/" title="鑷劧璧勬簮閮?>鑷劧璧勬簮閮?/option>
+              
+             <option value="http://www.mee.gov.cn/" title="鐢熸€佺幆澧冮儴">鐢熸€佺幆澧冮儴</option>
+              
+             <option value="http://www.mohurd.gov.cn/" title="浣忔埧鍜屽煄涔″缓璁鹃儴">浣忔埧鍜屽煄涔″缓璁鹃儴</option>
+              
+             <option value="http://www.mot.gov.cn/" title="浜ら€氳繍杈撻儴">浜ら€氳繍杈撻儴</option>
+              
+             <option value="http://www.mwr.gov.cn/" title="姘村埄閮?>姘村埄閮?/option>
+              
+             <option value="http://www.moa.gov.cn/" title="鍐滀笟鍐滄潙閮?>鍐滀笟鍐滄潙閮?/option>
+              
+             <option value="http://www.mofcom.gov.cn/" title="鍟嗗姟閮?>鍟嗗姟閮?/option>
+              
+             <option value="https://www.mct.gov.cn/" title="鏂囧寲鍜屾梾娓搁儴">鏂囧寲鍜屾梾娓搁儴</option>
+              
+             <option value="http://www.nhc.gov.cn/" title="鍥藉鍗敓鍋ュ悍濮斿憳浼?>鍥藉鍗敓鍋ュ悍濮斿憳浼?/option>
+              
+             <option value="http://www.mva.gov.cn/" title="閫€褰瑰啗浜轰簨鍔￠儴">閫€褰瑰啗浜轰簨鍔￠儴</option>
+              
+             <option value="http://www.mem.gov.cn/" title="搴旀€ョ鐞嗛儴">搴旀€ョ鐞嗛儴</option>
+              
+             <option value="http://www.pbc.gov.cn/" title="浜烘皯閾惰">浜烘皯閾惰</option>
+              
+             <option value="http://www.audit.gov.cn/" title="瀹¤缃?>瀹¤缃?/option>
+              
+             <option value="http://www.moe.gov.cn/jyb_sy/China_Language/" title="鍥藉璇█鏂囧瓧宸ヤ綔濮斿憳浼?>鍥藉璇█鏂囧瓧宸ヤ綔濮斿憳浼?/option>
+              
+             <option value="http://www.cnsa.gov.cn/" title="鍥藉鑸ぉ灞€">鍥藉鑸ぉ灞€</option>
+              
+             <option value="http://www.caea.gov.cn/" title="鍥藉鍘熷瓙鑳芥満鏋?>鍥藉鍘熷瓙鑳芥満鏋?/option>
+              
+             <option value="/" title="鍥藉澶栧浗涓撳灞€">鍥藉澶栧浗涓撳灞€</option>
+              
+             <option value="/" title="鍥藉娴锋磱灞€">鍥藉娴锋磱灞€</option>
+              
+             <option value="http://nnsa.mee.gov.cn/" title="鍥藉鏍稿畨鍏ㄥ眬">鍥藉鏍稿畨鍏ㄥ眬</option>
+              
+             <option value="https://www.nrra.gov.cn/" title="鍥藉涔℃潙鎸叴灞€">鍥藉涔℃潙鎸叴灞€</option>
+              
+             <option value="http://www.sasac.gov.cn/" title="鍥藉姟闄㈠浗鏈夎祫浜х洃鐫ｇ鐞嗗鍛樹細">鍥藉姟闄㈠浗鏈夎祫浜х洃鐫ｇ鐞嗗鍛樹細</option>
+              
+             <option value="http://www.customs.gov.cn/" title="娴峰叧鎬荤讲">娴峰叧鎬荤讲</option>
+              
+             <option value="http://www.chinatax.gov.cn/" title="鍥藉绋庡姟鎬诲眬">鍥藉绋庡姟鎬诲眬</option>
+              
+             <option value="http://www.samr.gov.cn/" title="鍥藉甯傚満鐩戠潱绠＄悊鎬诲眬">鍥藉甯傚満鐩戠潱绠＄悊鎬诲眬</option>
+              
+             <option value="http://www.cbirc.gov.cn/cn/view/pages/index/index.html" title="鍥藉閲戣瀺鐩戠潱绠＄悊鎬诲眬">鍥藉閲戣瀺鐩戠潱绠＄悊鎬诲眬</option>
+              
+             <option value="http://www.csrc.gov.cn/pub/newsite/" title="涓浗璇佸埜鐩戠潱绠＄悊濮斿憳浼?>涓浗璇佸埜鐩戠潱绠＄悊濮斿憳浼?/option>
+              
+             <option value="http://www.nrta.gov.cn/" title="鍥藉骞挎挱鐢佃鎬诲眬">鍥藉骞挎挱鐢佃鎬诲眬</option>
+              
+             <option value="http://www.sport.gov.cn/" title="鍥藉浣撹偛鎬诲眬">鍥藉浣撹偛鎬诲眬</option>
+              
+             <option value="https://www.gjxfj.gov.cn/gjxfj/index.htm" title="鍥藉淇¤灞€">鍥藉淇¤灞€</option>
+              
+             <option value="http://www.stats.gov.cn/" title="鍥藉缁熻灞€">鍥藉缁熻灞€</option>
+              
+             <option value="http://www.cnipa.gov.cn/" title="鍥藉鐭ヨ瘑浜ф潈灞€">鍥藉鐭ヨ瘑浜ф潈灞€</option>
+              
+             <option value="http://www.cidca.gov.cn/" title="鍥藉鍥介檯鍙戝睍鍚堜綔缃?>鍥藉鍥介檯鍙戝睍鍚堜綔缃?/option>
+              
+             <option value="http://www.nhsa.gov.cn/" title="鍥藉鍖荤枟淇濋殰灞€">鍥藉鍖荤枟淇濋殰灞€</option>
+              
+             <option value="http://www.counsellor.gov.cn/" title="鍥藉姟闄㈠弬浜嬪">鍥藉姟闄㈠弬浜嬪</option>
+              
+             <option value="http://www.ggj.gov.cn/" title="鍥藉鏈哄叧浜嬪姟绠＄悊灞€">鍥藉鏈哄叧浜嬪姟绠＄悊灞€</option>
+              
+             <option value="/" title="鍥藉鍙嶅瀯鏂眬">鍥藉鍙嶅瀯鏂眬</option>
+              
+             <option value="http://www.cnca.gov.cn/" title="鍥藉璁よ瘉璁ゅ彲鐩戠潱绠＄悊濮斿憳浼?>鍥藉璁よ瘉璁ゅ彲鐩戠潱绠＄悊濮斿憳浼?/option>
+              
+             <option value="http://www.sac.gov.cn/" title="鍥藉鏍囧噯鍖栫鐞嗗鍛樹細">鍥藉鏍囧噯鍖栫鐞嗗鍛樹細</option>
+              
+             <option value="http://www.ncac.gov.cn/" title="鍥藉鏂伴椈鍑虹増缃诧紙鍥藉鐗堟潈灞€锛?>鍥藉鏂伴椈鍑虹増缃诧紙鍥藉鐗堟潈灞€锛?/option>
+              
+             <option value="https://www.sara.gov.cn/" title="鍥藉瀹楁暀浜嬪姟灞€">鍥藉瀹楁暀浜嬪姟灞€</option>
+              
+             <option value="http://www.gov.cn/guoqing/2018-06/22/content_5300522.htm" title="鍥藉姟闄㈢爺绌跺">鍥藉姟闄㈢爺绌跺</option>
+              
+             <option value="http://www.gqb.gov.cn/" title="鍥藉姟闄鲸鍔″姙鍏">鍥藉姟闄鲸鍔″姙鍏</option>
+              
+             <option value="https://www.hmo.gov.cn/" title="鍥藉姟闄㈡腐婢充簨鍔″姙鍏">鍥藉姟闄㈡腐婢充簨鍔″姙鍏</option>
+              
+             <option value="http://www.gwytb.gov.cn/" title="鍥藉姟闄㈠彴婀句簨鍔″姙鍏">鍥藉姟闄㈠彴婀句簨鍔″姙鍏</option>
+              
+             <option value="http://www.cac.gov.cn/" title="鍥藉浜掕仈缃戜俊鎭姙鍏">鍥藉浜掕仈缃戜俊鎭姙鍏</option>
+              
+             <option value="http://www.scio.gov.cn/index.htm" title="鍥藉姟闄㈡柊闂诲姙鍏">鍥藉姟闄㈡柊闂诲姙鍏</option>
+              
+             <option value="http://203.192.6.89/xhs/" title="鏂板崕閫氳绀?>鏂板崕閫氳绀?/option>
+              
+             <option value="http://www.cas.cn/" title="涓浗绉戝闄?>涓浗绉戝闄?/option>
+              
+             <option value="http://www.cass.cn/" title="涓浗绀句細绉戝闄?>涓浗绀句細绉戝闄?/option>
+              
+             <option value="http://www.cae.cn/" title="涓浗宸ョ▼闄?>涓浗宸ョ▼闄?/option>
+              
+             <option value="https://www.drc.gov.cn/default.aspx" title="鍥藉姟闄㈠彂灞曠爺绌朵腑蹇?>鍥藉姟闄㈠彂灞曠爺绌朵腑蹇?/option>
+              
+             <option value="/" title="涓ぎ骞挎挱鐢佃鎬诲彴">涓ぎ骞挎挱鐢佃鎬诲彴</option>
+              
+             <option value="http://www.cma.gov.cn/" title="涓浗姘旇薄灞€">涓浗姘旇薄灞€</option>
+              
+             <option value="https://www.ccps.gov.cn/" title="鍥藉琛屾斂瀛﹂櫌">鍥藉琛屾斂瀛﹂櫌</option>
+              
+             <option value="http://www.lswz.gov.cn/" title="鍥藉绮鍜岀墿璧勫偍澶囧眬">鍥藉绮鍜岀墿璧勫偍澶囧眬</option>
+              
+             <option value="http://www.nea.gov.cn/" title="鍥藉鑳芥簮灞€">鍥藉鑳芥簮灞€</option>
+              
+             <option value="/" title="鍥藉鏁版嵁灞€">鍥藉鏁版嵁灞€</option>
+              
+             <option value="http://www.sastind.gov.cn/" title="鍥藉鍥介槻绉戞妧宸ヤ笟灞€">鍥藉鍥介槻绉戞妧宸ヤ笟灞€</option>
+              
+             <option value="http://www.tobacco.gov.cn/html/" title="鍥藉鐑熻崏涓撳崠灞€">鍥藉鐑熻崏涓撳崠灞€</option>
+              
+             <option value="https://www.nia.gov.cn/" title="鍥藉绉绘皯绠＄悊灞€">鍥藉绉绘皯绠＄悊灞€</option>
+              
+             <option value="http://www.forestry.gov.cn/" title="鍥藉鏋椾笟鍜岃崏鍘熷眬">鍥藉鏋椾笟鍜岃崏鍘熷眬</option>
+              
+             <option value="http://www.nra.gov.cn/" title="鍥藉閾佽矾灞€">鍥藉閾佽矾灞€</option>
+              
+             <option value="http://www.caac.gov.cn/index.html" title="涓浗姘戠敤鑸┖灞€">涓浗姘戠敤鑸┖灞€</option>
+              
+             <option value="http://www.spb.gov.cn/" title="鍥藉閭斂灞€">鍥藉閭斂灞€</option>
+              
+             <option value="http://www.ncha.gov.cn/" title="鍥藉鏂囩墿灞€">鍥藉鏂囩墿灞€</option>
+              
+             <option value="http://www.natcm.gov.cn/" title="鍥藉涓尰鑽鐞嗗眬">鍥藉涓尰鑽鐞嗗眬</option>
+              
+             <option value="/" title="鍥藉鐤剧梾棰勯槻鎺у埗灞€">鍥藉鐤剧梾棰勯槻鎺у埗灞€</option>
+              
+             <option value="https://www.chinamine-safety.gov.cn" title="鍥藉鐭垮北瀹夊叏鐩戝療灞€">鍥藉鐭垮北瀹夊叏鐩戝療灞€</option>
+              
+             <option value="https://www.119.gov.cn/" title="鍥藉娑堥槻鏁戞彺灞€">鍥藉娑堥槻鏁戞彺灞€</option>
+              
+             <option value="http://www.safe.gov.cn/" title="鍥藉澶栨眹绠＄悊灞€">鍥藉澶栨眹绠＄悊灞€</option>
+              
+             <option value="https://www.nmpa.gov.cn/" title="鍥藉鑽搧鐩戠潱绠＄悊灞€">鍥藉鑽搧鐩戠潱绠＄悊灞€</option>
+              
+          </select>
+                    </li>
+
+                    <li>
+                        <select onchange="MM_jumpMenu('parent',this,1)" style="width:160px;font-size: 13px;">
+            <option selected="selected">鍦版柟鍘呭眬缃戠珯</option>
+              
+             <option value="http://whlyj.beijing.gov.cn/" title="鍖椾含甯傛枃鍖栧拰鏃呮父灞€">鍖椾含甯傛枃鍖栧拰鏃呮父灞€</option>
+              
+             <option value="http://whly.tj.gov.cn/" title="澶╂触甯傛枃鍖栧拰鏃呮父灞€">澶╂触甯傛枃鍖栧拰鏃呮父灞€</option>
+              
+             <option value="https://whly.hebei.gov.cn/" title="娌冲寳鐪佹枃鍖栧拰鏃呮父鍘?>娌冲寳鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://wlt.shanxi.gov.cn/" title="灞辫タ鐪佹枃鍖栧拰鏃呮父鍘?>灞辫タ鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://wlt.nmg.gov.cn/" title="鍐呰挋鍙よ嚜娌诲尯鏂囧寲鍜屾梾娓稿巺">鍐呰挋鍙よ嚜娌诲尯鏂囧寲鍜屾梾娓稿巺</option>
+              
+             <option value="http://whly.ln.gov.cn/" title="杈藉畞鐪佹枃鍖栧拰鏃呮父鍘?>杈藉畞鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://whhlyt.jl.gov.cn/" title="鍚夋灄鐪佹枃鍖栧拰鏃呮父鍘?>鍚夋灄鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://wlt.hlj.gov.cn/" title="榛戦緳姹熺渷鏂囧寲鍜屾梾娓稿巺">榛戦緳姹熺渷鏂囧寲鍜屾梾娓稿巺</option>
+              
+             <option value="http://whlyj.sh.gov.cn/" title="涓婃捣甯傛枃鍖栧拰鏃呮父灞€">涓婃捣甯傛枃鍖栧拰鏃呮父灞€</option>
+              
+             <option value="https://wlt.jiangsu.gov.cn/" title="姹熻嫃鐪佹枃鍖栧拰鏃呮父鍘?>姹熻嫃鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://ct.zj.gov.cn/" title="娴欐睙鐪佹枃鍖栧箍鐢靛拰鏃呮父鍘?>娴欐睙鐪佹枃鍖栧箍鐢靛拰鏃呮父鍘?/option>
+              
+             <option value="https://ct.ah.gov.cn/" title="瀹夊窘鐪佹枃鍖栧拰鏃呮父鍘?>瀹夊窘鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://wlt.fujian.gov.cn/" title="绂忓缓鐪佹枃鍖栧拰鏃呮父鍘?>绂忓缓鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://dct.jiangxi.gov.cn/" title="姹熻タ鐪佹枃鍖栧拰鏃呮父鍘?>姹熻タ鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://whhly.shandong.gov.cn/" title="灞变笢鐪佹枃鍖栧拰鏃呮父鍘?>灞变笢鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://hct.henan.gov.cn/" title="娌冲崡鐪佹枃鍖栧拰鏃呮父鍘?>娌冲崡鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://wlt.hubei.gov.cn/" title="婀栧寳鐪佹枃鍖栧拰鏃呮父鍘?>婀栧寳鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://whhlyt.hunan.gov.cn/" title="婀栧崡鐪佹枃鍖栧拰鏃呮父鍘?>婀栧崡鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://whly.gd.gov.cn/" title="骞夸笢鐪佹枃鍖栧拰鏃呮父鍘?>骞夸笢鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://wlt.gxzf.gov.cn/" title="骞胯タ澹棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?>骞胯タ澹棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://lwt.hainan.gov.cn/" title="娴峰崡鐪佹梾娓稿拰鏂囧寲骞跨數浣撹偛鍘?>娴峰崡鐪佹梾娓稿拰鏂囧寲骞跨數浣撹偛鍘?/option>
+              
+             <option value="https://whlyw.cq.gov.cn/" title="閲嶅簡甯傛枃鍖栧拰鏃呮父鍙戝睍濮斿憳浼?>閲嶅簡甯傛枃鍖栧拰鏃呮父鍙戝睍濮斿憳浼?/option>
+              
+             <option value="https://wlt.sc.gov.cn/" title="鍥涘窛鐪佹枃鍖栧拰鏃呮父鍘?>鍥涘窛鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://whhly.guizhou.gov.cn/" title="璐靛窞鐪佹枃鍖栧拰鏃呮父鍘?>璐靛窞鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://dct.yn.gov.cn/" title="浜戝崡鐪佹枃鍖栧拰鏃呮父鍘?>浜戝崡鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://wlt.xizang.gov.cn/" title="瑗胯棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?>瑗胯棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://whhlyt.shaanxi.gov.cn/" title="闄曡タ鐪佹枃鍖栧拰鏃呮父鍘?>闄曡タ鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://wlt.gansu.gov.cn/" title="鐢樿們鐪佹枃鍖栧拰鏃呮父鍘?>鐢樿們鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="https://whlyt.qinghai.gov.cn/" title="闈掓捣鐪佹枃鍖栧拰鏃呮父鍘?>闈掓捣鐪佹枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://whhlyt.nx.gov.cn/" title="瀹佸鍥炴棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?>瀹佸鍥炴棌鑷不鍖烘枃鍖栧拰鏃呮父鍘?/option>
+              
+             <option value="http://wlt.xinjiang.gov.cn/" title="鏂扮枂缁村惥灏旇嚜娌诲尯鏂囧寲鍜屾梾娓稿巺">鏂扮枂缁村惥灏旇嚜娌诲尯鏂囧寲鍜屾梾娓稿巺</option>
+              
+             <option value="http://wtgl.xjbt.gov.cn/" title="鏂扮枂鐢熶骇寤鸿鍏靛洟鏂囧寲浣撹偛骞跨數鍜屾梾娓稿眬">鏂扮枂鐢熶骇寤鸿鍏靛洟鏂囧寲浣撹偛骞跨數鍜屾梾娓稿眬</option>
+              
+          </select>
+                    </li>
+
+                    <li>
+                        <select onchange="MM_jumpMenu('parent',this,1)" style="width:125px;font-size: 13px;">
+            <option selected="selected">鐩村睘鍗曚綅缃戠珯</option>
+            
+    <option value="/" title="鏂囧寲鍜屾梾娓搁儴鏈哄叧鏈嶅姟涓績锛堟満鍏虫湇鍔″眬锛?>鏂囧寲鍜屾梾娓搁儴鏈哄叧鏈嶅姟涓績锛堟満鍏虫湇鍔″眬锛?/option>
+
+    <option value="/" title="鏂囧寲鍜屾梾娓搁儴淇℃伅涓績">鏂囧寲鍜屾梾娓搁儴淇℃伅涓績</option>
+
+    <option value="http://www.zgysyjy.org.cn/" title="涓浗鑹烘湳鐮旂┒闄?>涓浗鑹烘湳鐮旂┒闄?/option>
+
+    <option value="http://www.nlc.cn/" title="鍥藉鍥句功棣?>鍥藉鍥句功棣?/option>
+
+    <option value="http://www.dpm.org.cn/" title="鏁呭鍗氱墿闄?>鏁呭鍗氱墿闄?/option>
+
+    <option value="http://www.chnmuseum.cn/" title="涓浗鍥藉鍗氱墿棣?>涓浗鍥藉鍗氱墿棣?/option>
+
+    <option value="http://www.cacta.cn/" title="涓ぎ鏂囧寲鍜屾梾娓哥鐞嗗共閮ㄥ闄?>涓ぎ鏂囧寲鍜屾梾娓哥鐞嗗共閮ㄥ闄?/option>
+
+    <option value="http://www.ccmg.cn/" title="涓浗鏂囧寲浼犲獟闆嗗洟鏈夐檺鍏徃">涓浗鏂囧寲浼犲獟闆嗗洟鏈夐檺鍏徃</option>
+
+    <option value="https://www.cnpoc.cn/" title="鍥藉浜墽闄?>鍥藉浜墽闄?/option>
+
+    <option value="http://www.ntcc.com.cn/" title="涓浗鍥藉璇濆墽闄?>涓浗鍥藉璇濆墽闄?/option>
+
+    <option value="https://www.cnoddt.cn/" title="涓浗姝屽墽鑸炲墽闄?>涓浗姝屽墽鑸炲墽闄?/option>
+
+    <option value="http://www.dfyanyi.com/" title="涓浗涓滄柟婕旇壓闆嗗洟鏈夐檺鍏徃">涓浗涓滄柟婕旇壓闆嗗洟鏈夐檺鍏徃</option>
+
+    <option value="https://www.cnso.com.cn/" title="涓浗浜ゅ搷涔愬洟">涓浗浜ゅ搷涔愬洟</option>
+
+    <option value="http://www.cntc.org.cn/" title="涓浗鍎跨鑹烘湳鍓ч櫌">涓浗鍎跨鑹烘湳鍓ч櫌</option>
+
+    <option value="http://www.chinaopera.com.cn/" title="涓ぎ姝屽墽闄?>涓ぎ姝屽墽闄?/option>
+
+    <option value="http://www.nbc.cn/" title="涓ぎ鑺暰鑸炲洟">涓ぎ鑺暰鑸炲洟</option>
+
+    <option value="https://www.cnto.net.cn" title="涓ぎ姘戞棌涔愬洟">涓ぎ姘戞棌涔愬洟</option>
+
+    <option value="https://www.ccmat.net.cn/" title="涓浗鐓ょ熆鏂囧伐鍥?>涓浗鐓ょ熆鏂囧伐鍥?/option>
+
+    <option value="https://www.namoc.cn/" title="涓浗缇庢湳棣?>涓浗缇庢湳棣?/option>
+
+    <option value="http://www.cnap.org.cn/" title="涓浗鍥藉鐢婚櫌">涓浗鍥藉鐢婚櫌</option>
+
+    <option value="https://www.gmfyg.org.cn/" title="涓浗宸ヨ壓缇庢湳棣嗭紙涓浗闈炵墿璐ㄦ枃鍖栭仐浜ч锛?>涓浗宸ヨ壓缇庢湳棣嗭紙涓浗闈炵墿璐ㄦ枃鍖栭仐浜ч锛?/option>
+
+    <option value="http://www.cdcgc.com.cn/" title="涓浗鏁板瓧鏂囧寲闆嗗洟鏈夐檺鍏徃">涓浗鏁板瓧鏂囧寲闆嗗洟鏈夐檺鍏徃</option>
+
+    <option value="http://www.acgnet.cn/" title="涓浗鍔ㄦ极闆嗗洟鏈夐檺鍏徃">涓浗鍔ㄦ极闆嗗洟鏈夐檺鍏徃</option>
+
+    <option value="https://www.pgm.org.cn/" title="鏂囧寲鍜屾梾娓搁儴鎭帇搴滃崥鐗╅">鏂囧寲鍜屾梾娓搁儴鎭帇搴滃崥鐗╅</option>
+
+    <option value="http://www.hrcmct.cn/" title="鏂囧寲鍜屾梾娓搁儴浜烘墠涓績">鏂囧寲鍜屾梾娓搁儴浜烘墠涓績</option>
+
+    <option value="http://www.whbltzx.cn/" title="鏂囧寲鍜屾梾娓搁儴绂婚€€浼戜汉鍛樻湇鍔′腑蹇?>鏂囧寲鍜屾梾娓搁儴绂婚€€浼戜汉鍛樻湇鍔′腑蹇?/option>
+
+    <option value="http://www.mcasc.com.cn/" title="鏂囧寲鍜屾梾娓搁儴鑹烘湳鍙戝睍涓績">鏂囧寲鍜屾梾娓搁儴鑹烘湳鍙戝睍涓績</option>
+
+    <option value="http://www.qinghistory.cn/" title="鏂囧寲鍜屾梾娓搁儴娓呭彶绾備慨涓庣爺绌朵腑蹇?>鏂囧寲鍜屾梾娓搁儴娓呭彶绾備慨涓庣爺绌朵腑蹇?/option>
+
+    <option value="http://www.cice.org.cn/" title="涓鏂囧寲浜ゆ祦涓績">涓鏂囧寲浜ゆ祦涓績</option>
+
+    <option value="http://www.cefla.org.cn" title="鏂囧寲鍜屾梾娓搁儴姘戞棌姘戦棿鏂囪壓鍙戝睍涓績">鏂囧寲鍜屾梾娓搁儴姘戞棌姘戦棿鏂囪壓鍙戝睍涓績</option>
+
+    <option value="https://www.casti.org.cn/" title="涓浗鑹烘湳绉戞妧鐮旂┒鎵€">涓浗鑹烘湳绉戞妧鐮旂┒鎵€</option>
+
+    <option value="https://www.culturedc.cn/" title="鏂囧寲鍜屾梾娓搁儴鍏ㄥ浗鍏叡鏂囧寲鍙戝睍涓績">鏂囧寲鍜屾梾娓搁儴鍏ㄥ浗鍏叡鏂囧寲鍙戝睍涓績</option>
+
+    <option value="http://www.cnaf.cn/" title="鍥藉鑹烘湳鍩洪噾绠＄悊涓績">鍥藉鑹烘湳鍩洪噾绠＄悊涓績</option>
+
+    <option value="http://www.cice.org.cn/" title="鏂囧寲鍜屾梾娓搁儴娴峰鏂囧寲璁炬柦寤鸿绠＄悊涓績">鏂囧寲鍜屾梾娓搁儴娴峰鏂囧寲璁炬柦寤鸿绠＄悊涓績</option>
+
+    <option value="http://www.ctnews.com.cn/" title="銆婁腑鍥芥梾娓告姤銆嬬ぞ鏈夐檺鍏徃">銆婁腑鍥芥梾娓告姤銆嬬ぞ鏈夐檺鍏徃</option>
+
+    <option value="http://www.cttp.net.cn/" title="涓浗鏃呮父鍑虹増绀?>涓浗鏃呮父鍑虹増绀?/option>
+
+    <option value="http://www.ctaweb.org.cn/" title="涓浗鏃呮父鐮旂┒闄紙鏁版嵁涓績锛?>涓浗鏃呮父鐮旂┒闄紙鏁版嵁涓績锛?/option>
+
+    <option value="/" title="鏂囧寲鍜屾梾娓搁儴鏃呮父璐ㄩ噺鐩戠潱绠＄悊鎵€">鏂囧寲鍜屾梾娓搁儴鏃呮父璐ㄩ噺鐩戠潱绠＄悊鎵€</option>
+
+    <option value="http://www.meilanfang.com.cn/" title="姊呭叞鑺崇邯蹇甸">姊呭叞鑺崇邯蹇甸</option>
+
+          </select>
+                    </li>
+
+                    <li>
+                        <select onchange="MM_jumpMenu('parent',this,1)" style="width:160px;font-size: 13px;">
+            <option selected="selected">鏂囧寲鍜屾梾娓搁儴涓撻缃戠珯</option>
+              
+             <option value="http://www.ccdy.cn/" title="涓浗鏂囧寲浼犲獟缃?>涓浗鏂囧寲浼犲獟缃?/option>
+              
+             <option value="https://www.cactatv.cn/" title="鍏ㄥ浗鏂囧寲鍜屾梾娓稿共閮ㄧ綉缁滃闄?>鍏ㄥ浗鏂囧寲鍜屾梾娓稿共閮ㄧ綉缁滃闄?/option>
+              
+          </select>
+                    </li>
+                    <!-- <li>-->
+                   <script type="text/javascript">
+                      function MM_jumpMenu(targ,selObj,restore){ 
+                      //alert(selObj.options[selObj.selectedIndex].value);
+                      if(selObj.options[selObj.selectedIndex].value !="/"){ 
+                         window.open(selObj.options[selObj.selectedIndex].value);
+                      }
+                               
+                         if (restore) selObj.selectedIndex=0;
+                      }
+        </script>
+
+                    <li>
+                        <select onchange="MM_jumpMenu('parent',this,1)" style="width:125px;font-size: 13px;">
+            <option selected="selected">鐩稿叧閾炬帴</option>
+ 
+    <option value="http://www.wenming.cn" title="涓浗鏂囨槑缃?>涓浗鏂囨槑缃?/option>
+
+    <option value="http://culture.people.com.cn" title="浜烘皯缃?-鏂囧寲棰戦亾">浜烘皯缃?-鏂囧寲棰戦亾</option>
+
+    <option value="http://zygjjg.12388.gov.cn/" title="涓ぎ鍥藉鏈哄叧涓炬姤缃戠珯">涓ぎ鍥藉鏈哄叧涓炬姤缃戠珯</option>
+
+    <option value="https://www.redcross.org.cn/" title="涓浗绾㈠崄瀛椾細">涓浗绾㈠崄瀛椾細</option>
+
+    <option value="http://www.ce.cn" title="涓浗缁忔祹缃?>涓浗缁忔祹缃?/option>
+
+    <option value="https://www.mmzy.org.cn/" title="涓浗姘戜富鍚岀洘">涓浗姘戜富鍚岀洘</option>
+
+    <option value="http://www.cnr.cn" title="涓浗骞挎挱缃?>涓浗骞挎挱缃?/option>
+
+    <option value="http://www.china.com.cn/" title="涓浗浜掕仈缃戞柊闂讳腑蹇?涓浗缃?">涓浗浜掕仈缃戞柊闂讳腑蹇?涓浗缃?</option>
+
+    <option value="http://www.chncia.org/" title="涓浗鏂囧寲浜т笟鍗忎細">涓浗鏂囧寲浜т笟鍗忎細</option>
+
+           
+          </select>
+                    </li>
+                </ul>
+            </div>
+            <!-- 鍙嬫儏閾炬帴end-->
+        </div>
+    </div>
+    <!--鍐呭鍖哄煙缁撴潫-->
+    <!--鐗堟潈寮€濮?->
+    <iframe src="/footqr/index.html" width="100%" height="134" scrolling="no" frameborder="0" style="min-width:1000px !important;"></iframe>
+    <!--鐗堟潈缁撴潫-->
+    <!--宸︿晶浜岀淮鐮?->
+
+  </div>  
+
+
+<!--鏃犻殰纰嶅紑濮?->
+<!--script src="https://auth.mangren.com/boots/mct.gov.cn/esdToolsInit.js" charset="UTF-8"></script>-->
+<a id="toolbarSwitch" href="javascript:void(0);"></a>
+<!--鏃犻殰纰嶇粨鏉?->
+</body>
+
+</html>

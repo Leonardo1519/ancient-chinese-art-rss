@@ -1,0 +1,1842 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="author" content="http://www.fractal-technology.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="keywords" content="涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉闈為仐" />
+	<meta name="description" content="涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅鏃ㄥ湪鍒╃敤鏁板瓧鍖栨妧鏈拰缃戠粶骞冲彴灞曠ず銆佷紶鎾腑鍥藉拰涓栫晫闈炵墿璐ㄦ枃鍖栭仐浜х殑涓撲笟鐭ヨ瘑锛屽睍绀烘垜鍥芥繁鍘氫赴瀵岀殑闈炵墿璐ㄦ枃鍖栭仐浜ц祫婧愶紝鎻愪緵闈炵墿璐ㄦ枃鍖栭仐浜т繚鎶ゅ伐浣滅殑淇℃伅浜ゆ祦锛屽嚌鑱氶潪鐗╄川鏂囧寲閬椾骇淇濇姢瀹炶返鐨勮蹇靛拰鐞嗚鍏辫瘑锛屽厖鍒嗚皟鍔ㄥ拰鍒╃敤鍏ㄧぞ浼氱殑瀛︽湳銆佺粡娴庛€佽垎璁鸿祫婧愬強绀句細鍏紬鐨勫弬涓庯紝浠ヤ績杩涗腑鍥介潪鐗╄川鏂囧寲閬椾骇淇濇姢宸ヤ綔鐨勫叏闈㈠拰鍋ュ悍寮€灞曘€? />
+<!-- <title>涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅ - 涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉闈為仐</title>
+ -->
+<title>涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅</title>
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/jquery.fullPage.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/video-js.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/global.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/flex.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/page.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/themes/css/lyc.css">
+<link rel="stylesheet" href="/Public/static/themes/css/jjl.css">
+<script src="/Public/static/themes/js/plugs/jquery.min.js"></script>
+<script src="/Public/static/themes/js/plugs/social-share.min.js"></script>
+<script src="/Public/static/themes/js/plugs/jquery.fullPage.min.js"></script>
+<script src="/Public/static/themes/js/plugs/jquery.placeholder.min.js"></script>
+<script src="/Public/static/themes/js/plugs/jquery.ba-throttle-debounce.min.js"></script>
+<script src="/Public/static/themes/js/plugs/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/Public/static/themes/js/plugs/imagesloaded.pkgd.min_v3.2.0.js"></script>
+<script src="/Public/static/themes/js/plugs/masonry.pkgd.min.js"></script>
+<script src="/Public/static/themes/js/plugs/TweenMax.min.js"></script>
+<script src="/Public/static/themes/js/plugs/video.js"></script>
+<script src="/Public/static/themes/js/plugs/slick.js"></script>
+<script src="/Public/static/themes/js/plugs/xRoll.js"></script>
+<script src="/Public/static/themes/js/global.js"></script>
+<script src="/Public/static/themes/js/plugs/audio.js"></script>
+<script src="/Public/static/themes/laydate/laydate.js"></script>
+<script type="text/javascript" src="https://cdn1.foundertype.com/webfont/js/ftfont-init.js"></script>
+<!--[if lt IE 9]>
+<script src="/Public/static/themes/js/plugs/html5shiv.min.js"></script>
+<script src="/Public/static/themes/js/plugs/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+	$(function(){
+		$('.kf_search').focus(function(){
+			var placeholder = $(this).attr('placeholder');
+			var title_key = $(this).attr('title_key') ? $(this).attr('title_key') : '鍏抽敭璇?;
+			if( placeholder == title_key || placeholder == 'search...' ){
+				$(this).attr('placeholder', '');
+			}else{
+				var val = $(this).val();
+				if (val == title_key || val == 'search...') {
+					$(this).val('');
+				}
+
+			}
+		});
+
+		$('.kf_search').blur(function(){
+			var val = $(this).val();
+			if( val == '' ){
+				if ( $(this).hasClass('kkword') ) {
+					$(this).val('search...');
+				}else{
+					var title_key = $(this).attr('title_key') ? $(this).attr('title_key') : '鍏抽敭璇?;
+					$(this).attr('placeholder', title_key);
+				}
+
+			}
+		});
+	});
+</script>
+</head>
+<body class="fp-viewing-3">
+<a href=/raylink_0></a>
+
+                <script>
+        $(function(){
+            $('.x-header .widget-area-edit-title,.x-header .widget-area-notice').remove();
+            $('.sidebar .widget-area-edit-bg,.sidebar .widget-area-edit-title').remove();
+            $('.x-footer .widget-area-edit-bg,.x-footer .widget-area-edit-title').remove();
+            $('.rightNav .widget-area-edit-bg,.rightNav .widget-area-edit-title').remove();
+            $('.x-footer div,.x-footer span').removeClass('widget-area').find('.widget-area-edit,.widget-area-notice').remove();
+            $('.sidebar div,.x-footer span').removeClass('widget-area').find('.widget-area-edit,.widget-area-notice').remove();
+        });
+
+        </script>
+
+        <style>
+        .x-header .widget-area-edit{display:none!important;}
+        </style>
+                <style>
+        .empty-data{ width:100%; font-size:25px; padding-top:8%; padding-bottom:8%; text-align: center;}
+        a{color:inherit;}
+        </style>
+                <div class="sidebar x-show">
+            <div><div class="sb-item">
+    <a  href="/news_2"  >
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/01/s5bdabd3fa22ca.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">閫氱煡<br />
+鍏憡</div></div>
+    </div>
+    </a>
+</div>
+<div class="sb-item">
+    <a  href="/shenbaozhinan"  >
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/01/s5bdabd8ad3ba5.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">鐢虫姤<br />
+鎸囧崡</div></div>
+    </div>
+</a>
+</div>
+<div class="sb-item">
+    <a  href="/tuji_list.html"  >
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/01/s5bdabda3e0b89.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">鍥鹃泦</div></div>
+    </div>
+</a>
+</div>
+<div class="sb-item">
+    <a  href="/video"  >
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/01/s5bdabdbca4f5a.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">褰遍煶</div></div>
+    </div>
+    </a>
+</div>
+<div class="sb-item  sb-wx">
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/14/s5bebd173616a5.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">寰俊<br />
+鍏紬鍙?/div></div>
+        <div class="pop"><img src="/Uploads/Picture/2018/11/17/s5bef8f3c6f3d6.png" alt="" class="img"></div>
+    </div>
+</div>
+<div class="sb-item js-gotop topping">
+    <a   href="javascript:;" >
+    <div class="box">
+        <div class="ico"><img src="/Uploads/Picture/2018/11/01/s5bdabe1324e28.png" alt=""></div>
+        <div class="txt middle"><div class="middle-cont">鍥炲埌<br />
+椤堕儴</div></div>
+    </div>
+    </a>
+</div></div>        </div>
+<div class="fullpage home_visibi">
+    <style>
+#myalert{ display:none; }
+.recruit .block1{ height: auto}
+.layer{background:url(/Public/static/themes/image/con_mask.png);;position:fixed;left:0;right: 0;/*top:43px;*/bottom: 0;width:100%;height:100%;z-index: 1000000;}
+.layer .myalert{padding:30px;background:#fff;width:240px;position:absolute;margin-top:-100px;top:50%;left:50%;margin-left:-120px;text-align:center; z-index: 100000;display: block;height: 123px;}
+.layer .guan{background:url(/Public/static/themes/image/clos.png) no-repeat center; display:block;width:15px;height:15px;position:absolute;top:10px;right:10px;}
+.layer .text{padding-bottom:15px;font-size:16px;color:#474747;}
+.layer .button{background:none;border:1px solid #bbbbbb;width:91px;height:29px;font:14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;color: #707070;}
+</style>
+<div id="myalert" class="layer">
+    <div class="myalert">
+        <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
+        <div class="text">璇疯緭鍏ュ叧閿瓧锛?/div>
+        <a><button class="button" id="my_ok" style="cursor:pointer ;opacity: 1;transform: translateY(0px);">纭畾</button></a>
+    </div>
+</div>
+<script>
+function my_alert( title, url) {
+    $('#myalert').show();
+    $('#myalert .myalert div').html(title);
+    if(url){
+        $('#my_ok').click(function(){
+            window.location.href=url;
+        });
+    }else{
+        $('#my_ok').click(function(){
+            $('#myalert').hide();
+        });
+    }
+}
+function myalert_hide(){
+    $('#myalert').hide();
+}
+</script>
+    <div class="section home1">
+    <div class="x-header  ">
+  <div class="menu-head">
+    <div class="logo" edit_params="width%3D50%26height%3D50%26backgroundColor%3D1%26unlimit%3D1%26title1Show%3D1%26title1Max%3D20%26title2Show%3D1%26title2Max%3D20%26showLink%3D1"><a  href="/" target="_blank" rel="noopener"  >
+<img src="/Uploads/Picture/2018/11/20/s5bf3825b320ab.png" class="img" alt="" title=""/>
+</a>
+<a  href="/">
+<span class="txt"><span class="g_txt">涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉</span> <span class="dot">路</span> <span class="g_txt">涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅</span></span>
+</a></div>    <div class="menu-btn m-show"><span class="line"></span></div>
+  </div>
+  <div class="tools p-show">
+    <div class="search-trigger">
+      <div class="search-box">
+        <div class="search-txt"><input placeholder="search..." class="kkword kf_search" type="text"></div><button class="search-btn submit_base" type="submit">&#xe851;</button>
+      </div>
+    </div>
+
+      <style>
+          .share-item .wechat-qrcode, .share-item .code {padding-top: 10px;}
+
+          @media screen and (max-width: 750px) {
+              .share-item .wechat-qrcode, .share-item .code {padding-top: 0px;display: -ms-flexbox;display: flex;-webkit-box-align: center; align-items: center;-webkit-box-pack: center;
+                  -moz-justify-content: center;
+                  -webkit-justify-content: center;
+                  justify-content: center;}
+              .share-box .icon-wchat.show .wechat-qrcode {visibility: visible;opacity: 1; -webkit-transform: none;transform: none;}
+
+          }
+      </style>
+      <script>
+          $(function() {
+              $(".share-box .icon-wchat").on('click', function() {
+                  $(this).toggleClass("show");
+              });
+              $(".menu-btn").on('click', function() {
+                  $(".share-box .icon-wchat").removeClass("show");
+              });
+          });
+      </script>
+      <div class="share-box social-share" data-initialized="true">
+          <a href="#" class="social-share-icon share-item icon-wchat icon-wechat"></a>
+          <a href="#" class="social-share-icon share-item icon-sinawb icon-weibo"></a>
+      </div>
+
+      <div class="calendar-box" edit_params="width%3D50%26height%3D26%26unlimit%3D1%26noalert%3D1%26width2%3D50%26height2%3D26%26unlimit2%3D1%26noalert2%3D1%26title1Show%3D1%26title1Max%3D10%26backgroundColor%3D1%26zoom%3D0.2%26zoom2%3D0.2%26is_home%3D1">2025-12-12&nbsp;&nbsp;
+鏄熸湡浜?nbsp;&nbsp;
+鍐滃巻鍗佹湀寤夸笁&nbsp;&nbsp;&nbsp;澶ч洩<!--<img class="w" src="/Public/static/themes/image/temp/w.gif" alt="">-->
+<img class="w w_kf" src="/Uploads/Picture/2019/12/06/s5dea31952ea66.png" alt="澶ч洩" title="澶ч洩">
+</div>  </div>
+  <div class="nav-mod">
+    <div class="search-box m-show">
+      <div class="search-txt"><div class="i"></div><input type="text" placeholder="search..." class="kkword1 kf_search"></div>
+      <button class="search-btn submit_base1" type="submit">鎼滅储</button>
+    </div>
+    <ul class="nav-lv nav-lv1 clear">
+
+      <li  class="nav-item cur"  >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/">棣栭〉</a>
+                </div>
+                 </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/jigou">鏈烘瀯</a>
+                </div>
+                 </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/zhengce">鏀跨瓥</a>
+                </div>
+                 </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/zixun">璧勮</a>
+        <span class="arr"></span>        </div>
+         <div class="nav-lv nav-lv2">
+             <ul class="nav-grp">
+               <li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/news" >鏂伴椈鍔ㄦ€?/a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/news_1" >涓撻鎶ラ亾</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/news_2" >閫氱煡鍏憡</a></div></li>             </ul>
+           </div>        </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/project.html">娓呭崟</a>
+        <span class="arr"></span>        </div>
+         <div class="nav-lv nav-lv2">
+             <ul class="nav-grp">
+               <li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/project#target1" >鍥藉绾ч潪鐗╄川鏂囧寲閬椾骇浠ｈ〃鎬ч」鐩悕褰?/a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/representative#target1" >鍥藉绾ч潪鐗╄川鏂囧寲閬椾骇浠ｈ〃鎬ч」鐩唬琛ㄦ€т紶鎵夸汉</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/shiyanshi#target1" >鍥藉绾ф枃鍖栫敓鎬佷繚鎶ゅ尯</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/shifanjidi#target1" >鍥藉绾ч潪鐗╄川鏂囧寲閬椾骇鐢熶骇鎬т繚鎶ょず鑼冨熀鍦?/a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/directory_list#target1" >鑱斿悎鍥芥暀绉戞枃缁勭粐闈炵墿璐ㄦ枃鍖栭仐浜у悕褰曪紙鍚嶅唽锛?/a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/chinadirectory.html#target1" >涓浗鍏ラ€夎仈鍚堝浗鏁欑鏂囩粍缁囧悕褰曪紙鍚嶅唽锛夐」鐩?/a></div></li>             </ul>
+           </div>        </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/ziyuan">璧勬簮</a>
+        <span class="arr"></span>        </div>
+         <div class="nav-lv nav-lv2">
+             <ul class="nav-grp">
+               <li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/zhanlan" >灞曡</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/video" >褰遍煶</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/tuji_list.html" >鍥鹃泦</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="http://www.ihchina.cn/H5_list.html" >H5璧忔瀽</a></div></li>             </ul>
+           </div>        </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/xueshu">瀛︽湳</a>
+        <span class="arr"></span>        </div>
+         <div class="nav-lv nav-lv2">
+             <ul class="nav-grp">
+               <li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/luntan" >璁哄潧</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/diaoyan" >璋冪爺</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/fangtan" >璁胯皥</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/xuekejianshe" >瀛︾寤鸿</a></div></li>             </ul>
+           </div>        </li><li   class="nav-item" >
+        <div class="nav-tit">
+        <a class="nav-link"  href="/shenbaozhinan.html">鐧剧</a>
+        <span class="arr"></span>        </div>
+         <div class="nav-lv nav-lv2">
+             <ul class="nav-grp">
+               <li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/shenbaozhinan" >鐢虫姤鎸囧崡</a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="/zhishichuang" >鐭ヨ瘑绐?/a></div></li><li class="nav-item"><div class="nav-tit"><a class="nav-link" href="javascript:void(0);" >鏈嶅姟骞冲彴</a></div></li>             </ul>
+           </div>        </li>    </ul>
+
+      <div class="share-box social-share m-show" data-initialized="true">
+          <a href="#" class="social-share-icon share-item icon-wchat icon-wechat"></a>
+          <a href="#" class="social-share-icon share-item icon-sinawb icon-weibo"></a>
+      </div>
+
+  </div>
+</div>
+<script>
+  $(function(){
+    $(".submit_base").click(function () {
+      var kkword = $(".kkword").val().replace(/ /g,"$@*");
+      if(kkword == '' || kkword == "search..."){
+        my_alert("璇疯緭鍏ユ悳绱㈠唴瀹?);return false;
+      }
+      window.location = "/search_result/keyword/"+kkword;
+    });
+    $(".submit_base1").click(function () {
+      var kkword = $(".kkword1").val().replace(/ /g,"$@*");
+      if(kkword == '' || kkword == "search..."){
+        my_alert("璇疯緭鍏ユ悳绱㈠唴瀹?);return false;
+      }
+      window.location = "/search_result/keyword/"+kkword;
+    });
+
+    if($(window).width() <=750) {
+        $(".x-header").keyup(function(e){
+          if(e.keyCode === 13){
+            $(".submit_base1").click();
+
+          }
+        });
+      }else{
+      $(".x-header").keyup(function(e){
+        if(e.keyCode === 13){
+          $(".submit_base").click();
+
+        }
+      });
+    }
+    $(".x-container .result1").keyup(function(e){
+      if(e.keyCode === 13){
+        $("#submit").click();
+      }
+    });
+  });
+</script>
+    <style>
+        .banner_class{height:100% !important;}
+        .banner_class .widget-area-edit{width:1px !important;}
+        .banner_class .widget-area-edit-btn{top:150px !important;}
+    </style>
+    <div class="banner_class" edit_params="width%3D1920%26height%3D960%26wap_width%3D750%26wap_height%3D1334%26zoom%3D3%26opacityShow%3D1%26tabs%3D10%26showLink%3D1"><div class="slick-mod banner">
+    
+            <div class="slick-item">
+                            <a class="slick-link p-show" style="background-image: url(/Uploads/Picture/2025/04/28/s680f29c042af8.jpg);" href="/news_details/29815.html" target="_blank" rel="noopener"  ></a>
+                <a class="slick-link m-show" style="background-image: url(/Uploads/Picture/2025/04/28/s680f29cf66651.jpg);" href="/news_details/29815.html" target="_blank" rel="noopener"  ></a>        </div>        <div class="slick-item">
+                            <a class="slick-link p-show" style="background-image: url(/Uploads/Picture/2025/04/28/s680eeb9c99ab4.jpg);" href="https://www.ctmsa-cnaa.com/#/" target="_blank" rel="noopener"  ></a>
+                <a class="slick-link m-show" style="background-image: url(/Uploads/Picture/2025/04/28/s680eeba8cb4af.jpg);" href="https://www.ctmsa-cnaa.com/#/" target="_blank" rel="noopener"  ></a>        </div>        <div class="slick-item">
+                            <a class="slick-link p-show" style="background-image: url(/Uploads/Picture/2025/01/17/s6789c705e45cd.jpg);" href="/news_details/29429.html" target="_blank" rel="noopener"  ></a>
+                <a class="slick-link m-show" style="background-image: url(/Uploads/Picture/2025/01/17/s6789c71159f93.jpg);" href="/news_details/29429.html" target="_blank" rel="noopener"  ></a>        </div>        <div class="slick-item">
+                            <a class="slick-link p-show" style="background-image: url(/Uploads/Picture/2025/04/27/s680d9d16be561.jpg);" href="/news_2_details/29808.html" target="_blank" rel="noopener"  ></a>
+                <a class="slick-link m-show" style="background-image: url(/Uploads/Picture/2025/04/27/s680d9d246252a.jpg);" href="/news_2_details/29808.html" target="_blank" rel="noopener"  ></a>        </div>        <div class="slick-item">
+            <div class="p-show">
+                    <!--<video muted="" preload="none"  playsinline="">
+                        <source src="/Uploads/Media/2025/08/26/m68ad62b0bc570.mp4" type="video/mp4" />
+                    </video>-->
+                    <video muted=""  src="/Uploads/Media/2025/08/26/m68ad62b0bc570.mp4" type="video/mp4" style="width: 100%;height: 100%;object-fit: cover;"></video>
+                    <a href="/video_detail/26236.html" target="_blank" rel="noopener"></a>
+                </div>
+                <div class="m-show">
+                    <!--<video muted="" preload="none"  playsinline="">
+                        <source src="/Uploads/Media/2025/08/26/m68ad63163f40e.mp4" type="video/mp4" />
+                    </video>-->
+                    <!--<video muted="" src="/Uploads/Media/2025/08/26/m68ad63163f40e.mp4" type="video/mp4" style="width: 100%;height: 100%;object-fit: cover;"></video>-->
+                    <video  muted webkit-playsinline="" playsinline="" x5-video-player-type="h5" controlsList="nodownload">
+                        <source src="/Uploads/Media/2025/08/26/m68ad63163f40e.mp4" type="video/mp4">
+                    </video>
+                    <a href="/video_detail/26236.html" target="_blank" rel="noopener" ></a>
+                </div>
+                        </div>        <div class="slick-item">
+                            <a class="slick-link p-show" style="background-image: url(/Uploads/Picture/2024/10/29/s67209847863af.jpg);" href="/zhengce_details/28064" target="_blank" rel="noopener"  ></a>
+                <a class="slick-link m-show" style="background-image: url(/Uploads/Picture/2024/10/29/s67209853331e0.jpg);" href="/zhengce_details/28064" target="_blank" rel="noopener"  ></a>        </div></div>
+<div class="nav"></div></div></div>
+
+        <div class="section home2">
+	<div class="slot">
+		<div class="slot-track">
+			<div class="slot-item s1"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s2"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s3"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s4"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s5"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s6"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s7"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s8"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s9"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s10"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s11"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s12"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s13"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s14"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s15"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s16"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s17"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s18"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s19"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s20"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s21"></div>
+		</div>
+	</div>
+	<div class="slot">
+		<div class="slot-track">
+			<div class="slot-item s22"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s23"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s24"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s25"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s26"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s27"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s28"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s29"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s30"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s31"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s32"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s33"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s34"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s35"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s36"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s37"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s38"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s39"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s40"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s41"></div>
+		</div>
+		<div class="slot-track">
+			<div class="slot-item s42"></div>
+		</div>
+	</div>
+
+	<div class="title middle"><div class="title-txt middle-cont"><div>鍥藉绾ч潪鐗╄川鏂囧寲閬椾骇浠ｈ〃鎬ч」鐩悕褰?/div></div></div>
+	<div class="book">
+				<div class="book-item b1">
+				<a class="link" href="/project.html?tid=1#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/11/14/s5beb9247da49c.png" alt="" title=""></div>
+						<div class="p">銆?姘戦棿鏂囧 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b2">
+				<a class="link" href="/project.html?tid=2#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3fe7402c29.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺闊充箰 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b3">
+				<a class="link" href="/project.html?tid=3#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3febe562a2.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺鑸炶箞 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b4">
+				<a class="link" href="/project.html?tid=4#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3fedf4c187.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺鎴忓墽 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b5">
+				<a class="link" href="/project.html?tid=5#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3fef5cd130.png" alt="" title=""></div>
+						<div class="p">銆?鏇茶壓 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b6">
+				<a class="link" href="/project.html?tid=6#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3ff1e8ce35.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b7">
+				<a class="link" href="/project.html?tid=7#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3ff35cc42c.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺缇庢湳 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b8">
+				<a class="link" href="/project.html?tid=8#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3ff4c5330e.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺鎶€鑹?銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b9">
+				<a class="link" href="/project.html?tid=9#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3ff60e7149.png" alt="" title=""></div>
+						<div class="p">銆?浼犵粺鍖昏嵂 銆?/div>
+					</div>
+				</a>
+				</div><div class="book-item b10">
+				<a class="link" href="/project.html?tid=10#sy_target1">
+					<div class="box">
+						<div class="icon"><img src="/Uploads/Picture/2018/10/27/s5bd3ff751828b.png" alt="" title=""></div>
+						<div class="p">銆?姘戜織 銆?/div>
+					</div>
+				</a>
+				</div>		
+	</div>
+</div>
+
+<div class="section home3">
+	<style>
+		.home3 .widget-area-edit-btn{
+			top:100px!important;
+		}
+	</style>
+	<div class="bg" edit_params="width%3D1920%26height%3D960%26unlimit%3D1"><div class="bg" style="background-image: url(/Uploads/Picture/2024/12/05/s675181ccf078c.jpg);"><div class="mask"></div></div></div>	<div class="slot-box">
+		<div class="slot">
+			<div class="slot-track">
+				<div class="slot-item s1"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s2"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s3"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s4"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s5"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s6"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s7"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s8"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s9"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s10"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s11"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s12"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s13"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s14"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s15"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s16"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s17"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s18"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s19"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s20"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s21"></div>
+			</div>
+		</div>
+		<div class="slot">
+			<div class="slot-track">
+				<div class="slot-item s22"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s23"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s24"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s25"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s26"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s27"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s28"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s29"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s30"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s31"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s32"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s33"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s34"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s35"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s36"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s37"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s38"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s39"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s40"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s41"></div>
+			</div>
+			<div class="slot-track">
+				<div class="slot-item s42"></div>
+			</div>
+		</div>
+	</div>
+	<div class="cont">
+		<div class="h30">
+			<div>涓浗鍏ラ€夎仈鍚堝浗鏁欑鏂囩粍缁囬潪鐗╄川鏂囧寲閬椾骇鍚嶅綍锛堝悕鍐岋級椤圭洰</div>		</div>
+
+		<div class="h24"><p>
+	<span style="font-size:24px;">鍏辫<span style="font-size:32px;">44</span>椤?/span> 
+</p></div>		<div class='t_more w16'>
+			<div><a href="/chinadirectory.html"><strong>鏌ョ湅鏇村</strong></a></div>		</div>
+	</div>
+</div>
+
+<div class="section home4">
+	<div class="row">
+		<div class="col">
+			<div class="box">
+				<div class="title">
+					<div class='h30'>
+						<div>鏂伴椈鍔ㄦ€?/div>					</div>
+					<div class='t_more'>
+						<div><a href="/news">鏇村</a></div>					</div>
+				</div>
+				<div edit_params="category_id%3D9%26tabs%3D1%26width%3D440%26height%3D248%26pagesize%3D1"><div class="img" style="background-image: url(/Uploads/Picture/2024/12/12/s675a97aab0555.jpg);">
+    <a  title="鈥滄槬鑺傗€斺€斾腑鍥戒汉搴嗙浼犵粺鏂板勾鐨勭ぞ浼氬疄璺碘€濆垪鍏ヤ汉绫婚潪鐗╄川鏂囧寲閬椾骇浠ｈ〃浣滃悕褰? class="link" href="/news_details/29429.html" target="_blank" rel="noopener"  >
+        <div class="h16" title="鈥滄槬鑺傗€斺€斾腑鍥戒汉搴嗙浼犵粺鏂板勾鐨勭ぞ浼氬疄璺碘€濆垪鍏ヤ汉绫婚潪鐗╄川鏂囧寲閬椾骇浠ｈ〃浣滃悕褰?>鈥滄槬鑺傗€斺€斾腑鍥戒汉搴嗙浼犵粺鏂板勾鐨勭ぞ浼氬疄璺碘€濆垪鍏ヤ汉绫?..</div>
+    </a>
+</div></div>				<div class="ul1" edit_params="category_id%3D9%26pagesize%3D5">    <div class="li"><div class="date">2025.03.18</div><div class="h16"><a title="涔犺繎骞筹細姘戞棌鐨勭壒鑹诧紝寰堝彜鏈翠篃寰堟椂灏? href="/news_details/29815.html" target="_blank" rel="noopener">涔犺繎骞筹細姘戞棌鐨勭壒鑹诧紝寰堝彜鏈翠篃寰堟椂灏?/a></div></div>    <div class="li"><div class="date">2025.12.01</div><div class="h16"><a title="2025鈥滄禉姹熷ソ鑵旇皟鈥濅紭绉€鍓х洰姹囨紨鍚箷" href="/news2_details/31363.html" target="_blank" rel="noopener">2025鈥滄禉姹熷ソ鑵旇皟鈥濅紭绉€鍓х洰姹囨紨鍚箷</a></div></div>    <div class="li"><div class="date">2025.12.01</div><div class="h16"><a title="閫熻涓ㄩ潪閬楀崐鏈堟姤绗?67鏈? href="/news_details/31362.html" target="_blank" rel="noopener">閫熻涓ㄩ潪閬楀崐鏈堟姤绗?67鏈?/a></div></div>    <div class="li"><div class="date">2025.11.24</div><div class="h16"><a title="鈥滀簯鍗楃渷闈為仐绯荤粺鎬т繚鎶ゅ拰鍙寔缁彂灞曞煿璁伐浣滃潑鈥?鍦ㄤ簯鍗楃渷澶х悊鐧芥棌鑷不宸炰妇鍔? href="/news2_details/31360.html" target="_blank" rel="noopener">鈥滀簯鍗楃渷闈為仐绯荤粺鎬т繚鎶ゅ拰鍙寔缁彂灞曞煿璁伐浣滃潑鈥?鍦ㄤ簯鍗楃渷澶х悊...</a></div></div>    <div class="li"><div class="date">2025.11.24</div><div class="h16"><a title="鍗佸洓浜斺€濇湡闂存垜鍥介潪閬椾繚鎶ゆ垚鏋滃彂甯? href="/news_details/31359.html" target="_blank" rel="noopener">鍗佸洓浜斺€濇湡闂存垜鍥介潪閬椾繚鎶ゆ垚鏋滃彂甯?/a></div></div></div>			</div>
+		</div>
+
+		<div class="col">
+			<div class="box">
+				<div class="title">
+					<div class='h30'>
+						<div>璁哄潧</div>					</div>
+					<div class='t_more'>
+						<div><a href="/luntan.html">鏇村</a></div>					</div>
+				</div>
+				<div class="ul2" edit_params="category_id%3D25%26pagesize%3D3">    <div class="li">
+        <div class="h16"><a title="鏉ㄧ孩 闂兜锛氭垜鍥介潪鐗╄川鏂囧寲閬椾骇棰嗗煙鏍囧噯鍖栧伐浣滅幇鐘朵笌闅剧偣" href="/luntan_details/31232.html" target="_blank" rel="noopener"   >鏉ㄧ孩 闂兜锛氭垜鍥介潪鐗╄川鏂囧寲閬椾骇棰嗗煙鏍囧噯鍖栧伐浣滅幇...</a></div>
+        <div class="p">
+                        鏍囧噯鍖栧伐浣滄槸闈炵墿璐ㄦ枃鍖栭仐浜т繚鎶ゆ帾鏂借鑼冩湁搴忓紑灞曠殑杞€у伐鍏凤紝涔熸槸浣撶幇闈為仐淇濇姢绉戝鎬с€佺郴缁熸€х殑淇濋殰鎵嬫銆傛垜鍥介潪鐗╄川...        </div>
+        <div class="date" title="1754361000">2025.08.05</div>
+    </div>    <div class="li">
+        <div class="h16"><a title="鍑濊仛鍏辫瘑 瑙勮寖琛屽姩鈥斺€旀枃鍖栬涓氭爣鍑嗐€婇潪鐗╄川鏂囧寲閬椾骇鏁板瓧鍖栦繚鎶?鏁板瓧璧勬簮閲囬泦鍜岃憲褰曘€嬬殑閫昏緫銆佺粨鏋勪笌鍔熻兘" href="/luntan_details/31231.html" target="_blank" rel="noopener"   >鍑濊仛鍏辫瘑 瑙勮寖琛屽姩鈥斺€旀枃鍖栬涓氭爣鍑嗐€婇潪鐗╄川鏂囧寲...</a></div>
+        <div class="p">
+                        銆婇潪鐗╄川鏂囧寲閬椾骇鏁板瓧鍖栦繚鎶ゆ暟瀛楄祫婧愰噰闆嗗拰钁楀綍銆嬫槸鎴戝浗闈炵墿璐ㄦ枃鍖栭仐浜ч鍩熺殑棣栦釜绯诲垪琛屼笟鏍囧噯锛屽畠鐨勬壒鍑嗗彂甯冿紝瀵归潪閬?..        </div>
+        <div class="date" title="1754015400">2025.08.01</div>
+    </div>    <div class="li">
+        <div class="h16"><a title="闄堝哺鐟涳細浠庘€滅爺鍩光€濆嚭鍙戞帰瀵婚潪閬椾繚鎶ゆ尟鍏存柊璺緞" href="/luntan_details/31096.html" target="_blank" rel="noopener"   >闄堝哺鐟涳細浠庘€滅爺鍩光€濆嚭鍙戞帰瀵婚潪閬椾繚鎶ゆ尟鍏存柊璺緞</a></div>
+        <div class="p">
+                        鍩轰簬娓呭崕澶у缇庢湳瀛﹂櫌闈為仐鐮斿煿宸ヤ綔瀹炶返锛屽洖椤锯€滀腑鍥介潪鐗╄川鏂囧寲閬椾骇浼犳壙浜虹爺淇煿璁鍒掆€濆疄鏂藉崄骞存潵鐨勪富瑕佺粡楠屼笌鎴愭灉...        </div>
+        <div class="date" title="1749019800">2025.06.04</div>
+    </div></div>			</div>
+		</div>
+
+		<div class="col">
+			<div class="box">
+				<div class="title">
+					<div class='h30'>
+						<div>涓撻鎶ラ亾</div>					</div>
+					<div class='t_more'>
+						<div><a href="/news_1.html">鏇村</a></div>					</div>
+				</div>
+				<div class="ul3" edit_params="category_id%3D12%26pagesize%3D3">    <div class="li">
+        <div class="h16"><a title="瀛楅噷璇嗛仐涓ㄨ繖浜涘叧浜庝紶缁熼煶涔愮被鐨勯潪閬楅」鐩皬鐭ヨ瘑锛屼綘浜嗚В鍚楋紵" href="/news_1_details/31335.html" target="_blank" rel="noopener">瀛楅噷璇嗛仐涓ㄨ繖浜涘叧浜庝紶缁熼煶涔愮被鐨勯潪閬楅」鐩皬鐭ヨ瘑...</a></div>
+        <div class="date">2025.11.20</div>
+    </div>    <div class="li">
+        <div class="h16"><a title="鏂扮枂闈為仐棣嗛噷浜偣澶? href="/news_1_details/31333.html" target="_blank" rel="noopener">鏂扮枂闈為仐棣嗛噷浜偣澶?/a></div>
+        <div class="date">2025.11.19</div>
+    </div>    <div class="li">
+        <div class="h16"><a title="鈥嬩粬浠鍙よ€佹妧鑹哄睍缈呴珮椋? href="/news_1_details/31327.html" target="_blank" rel="noopener">鈥嬩粬浠鍙よ€佹妧鑹哄睍缈呴珮椋?/a></div>
+        <div class="date">2025.11.12</div>
+    </div></div>				<div edit_params="category_id%3D12%26tabs%3D1%26width%3D440%26height%3D248%26pagesize%3D1"><div class="img" style="background-image: url(/Uploads/Picture/2021/04/19/s607d0ab6d1f71.png);">
+    <a  title="浠婂ぉ锛屾垜浠濡備綍淇濇姢浜屽崄鍥涜妭姘? class="link" href="/news_1_details/21873.html" target="_blank" rel="noopener"  >
+        <div class="h16" title="浠婂ぉ锛屾垜浠濡備綍淇濇姢浜屽崄鍥涜妭姘?>浠婂ぉ锛屾垜浠濡備綍淇濇姢浜屽崄鍥涜妭姘?/div>
+    </a>
+</div></div>			</div>
+		</div>
+	</div>
+</div>
+
+
+	<div class="section home5">
+		<style>
+			.home5 .widget-area-edit-btn{
+				top:100px!important;
+			}
+		</style>
+		<div edit_params="width%3D1920%26height%3D960%26unlimit%3D1%26bg_img_name%3Dhome5"><style>
+    .home5{
+        background-image: url("/Uploads/Picture/2019/10/11/s5da048b1840e2.jpg");
+    }
+</style>
+ 
+</div>		<div class="h30"><span class="s">
+			<div>闈炵墿璐ㄦ枃鍖栭仐浜у湴鍥?/div>		</span></div>
+		<div class="mapW">
+			<div class="map">
+				<div class="area">
+					<div class="map-point p1">
+							<div class="city">榛戦緳姹熺渷</div>
+							<div class="pop">
+																								<span class="s pop_s" key="230000" >榛戦緳姹熺渷</span>
+							</div>
+						</div><div class="map-point p2">
+							<div class="city">鍚夋灄鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="220000" >鍚夋灄鐪?/span>
+							</div>
+						</div><div class="map-point p3">
+							<div class="city">杈藉畞鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="210000" >杈藉畞鐪?/span>
+							</div>
+						</div><div class="map-point p4">
+							<div class="city">鍖椾含甯?/div>
+							<div class="pop">
+								<span class="s pop_s" key="990121">涓洿鍗曚綅</span>																<span class="s pop_s" key="110000" >鍖椾含甯?/span>
+							</div>
+						</div><div class="map-point p5">
+							<div class="city">澶╂触甯?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="120000" >澶╂触甯?/span>
+							</div>
+						</div><div class="map-point p6">
+							<div class="city">娌冲寳鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="130000" >娌冲寳鐪?/span>
+							</div>
+						</div><div class="map-point p7">
+							<div class="city">灞变笢鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="370000" >灞变笢鐪?/span>
+							</div>
+						</div><div class="map-point p8">
+							<div class="city">姹熻嫃鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="320000" >姹熻嫃鐪?/span>
+							</div>
+						</div><div class="map-point p9">
+							<div class="city">涓婃捣甯?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="310000" >涓婃捣甯?/span>
+							</div>
+						</div><div class="map-point p10">
+							<div class="city">娴欐睙鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="330000" >娴欐睙鐪?/span>
+							</div>
+						</div><div class="map-point p11">
+							<div class="city">绂忓缓鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="350000" >绂忓缓鐪?/span>
+							</div>
+						</div><div class="map-point p12">
+							<div class="city">鍙版咕鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="990385" >鍙版咕鐪?/span>
+							</div>
+						</div><div class="map-point p13">
+							<div class="city">棣欐腐</div>
+							<div class="pop">
+																								<span class="s pop_s" key="810000" >棣欐腐</span>
+							</div>
+						</div><div class="map-point p14">
+							<div class="city">婢抽棬</div>
+							<div class="pop">
+																								<span class="s pop_s" key="820000" >婢抽棬</span>
+							</div>
+						</div><div class="map-point p15">
+							<div class="city">娴峰崡鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="460000" >娴峰崡鐪?/span>
+							</div>
+						</div><div class="map-point p16">
+							<div class="city">瀹夊窘鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="340000" >瀹夊窘鐪?/span>
+							</div>
+						</div><div class="map-point p17">
+							<div class="city">姹熻タ鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="360000" >姹熻タ鐪?/span>
+							</div>
+						</div><div class="map-point p18">
+							<div class="city">骞夸笢鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="440000" >骞夸笢鐪?/span>
+							</div>
+						</div><div class="map-point p19">
+							<div class="city">灞辫タ鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="140000" >灞辫タ鐪?/span>
+							</div>
+						</div><div class="map-point p20">
+							<div class="city">娌冲崡鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="410000" >娌冲崡鐪?/span>
+							</div>
+						</div><div class="map-point p21">
+							<div class="city">婀栧寳鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="420000" >婀栧寳鐪?/span>
+							</div>
+						</div><div class="map-point p22">
+							<div class="city">婀栧崡鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="430000" >婀栧崡鐪?/span>
+							</div>
+						</div><div class="map-point p23">
+							<div class="city">骞胯タ澹棌鑷不鍖?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="450000" >骞胯タ澹棌鑷不鍖?/span>
+							</div>
+						</div><div class="map-point p24">
+							<div class="city">闄曡タ鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="610000" >闄曡タ鐪?/span>
+							</div>
+						</div><div class="map-point p25">
+							<div class="city">閲嶅簡甯?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="500000" >閲嶅簡甯?/span>
+							</div>
+						</div><div class="map-point p26">
+							<div class="city">璐靛窞鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="520000" >璐靛窞鐪?/span>
+							</div>
+						</div><div class="map-point p27">
+							<div class="city">鍐呰挋鍙よ嚜娌诲尯</div>
+							<div class="pop">
+																								<span class="s pop_s" key="150000" >鍐呰挋鍙よ嚜娌诲尯</span>
+							</div>
+						</div><div class="map-point p28">
+							<div class="city">鐢樿們鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="620000" >鐢樿們鐪?/span>
+							</div>
+						</div><div class="map-point p29">
+							<div class="city">鍥涘窛鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="510000" >鍥涘窛鐪?/span>
+							</div>
+						</div><div class="map-point p30">
+							<div class="city">浜戝崡鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="530000" >浜戝崡鐪?/span>
+							</div>
+						</div><div class="map-point p31">
+							<div class="city">闈掓捣鐪?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="630000" >闈掓捣鐪?/span>
+							</div>
+						</div><div class="map-point p32">
+							<div class="city">鏂扮枂缁村惥灏旇嚜娌诲尯</div>
+							<div class="pop">
+																<span class="s pop_s" key="990122">鏂扮枂鐢熶骇寤鸿鍏靛洟</span>								<span class="s pop_s" key="650000" >鏂扮枂缁村惥灏旇嚜娌诲尯</span>
+							</div>
+						</div><div class="map-point p33">
+							<div class="city">瑗胯棌鑷不鍖?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="540000" >瑗胯棌鑷不鍖?/span>
+							</div>
+						</div><div class="map-point p34">
+							<div class="city">瀹佸鍥炴棌鑷不鍖?/div>
+							<div class="pop">
+																								<span class="s pop_s" key="640000" >瀹佸鍥炴棌鑷不鍖?/span>
+							</div>
+						</div>					<div class="no">
+						<div>瀹″浘鍙凤細GS锛?019锛?443鍙?/div>					</div>
+				</div>
+			</div>
+			
+						<div class="map-cont">
+				<div class="map-item tab-mod">
+					<div class="h24 pro_name">銆?鍏ㄥ浗 銆?/div>
+					
+					<div class="tab-bar">
+						<div class="tab-track">
+							<div class="tab-term" data-key="p">鍥藉绾т唬琛ㄦ€ч」鐩?/div>
+							<div class="tab-term" data-key="r">鍥藉绾т唬琛ㄦ€т紶鎵夸汉</div>
+							<!--<div class="tab-term" style="pointer-events: none;">鐪佺骇椤圭洰</div>-->
+							<!--<div class="tab-term" style="pointer-events: none;">鐪佺骇浼犳壙浜?/div>-->
+						</div>
+					</div>
+					
+					<div class="tab-cont map_num">
+						<!-- 鍥藉绾ч」鐩?-->
+						<div class="tab-item">
+							<div class="table" style="max-width:none;width: auto;">
+								<div class='td'><a class="link" href="/project.html?tid=1#sy_target1" style="display:block;"><div class="num">251</div><div class="p">姘戦棿鏂囧</div></a></div><div class='td'><a class="link" href="/project.html?tid=2#sy_target1" style="display:block;"><div class="num">431</div><div class="p">浼犵粺闊充箰</div></a></div><div class='td'><a class="link" href="/project.html?tid=3#sy_target1" style="display:block;"><div class="num">356</div><div class="p">浼犵粺鑸炶箞</div></a></div><div class='td'><a class="link" href="/project.html?tid=4#sy_target1" style="display:block;"><div class="num">473</div><div class="p">浼犵粺鎴忓墽</div></a></div><div class='td'><a class="link" href="/project.html?tid=5#sy_target1" style="display:block;"><div class="num">213</div><div class="p">鏇茶壓</div></a></div><div class='td'><a class="link" href="/project.html?tid=6#sy_target1" style="display:block;"><div class="num">166</div><div class="p">浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧</div></a></div><div class='td'><a class="link" href="/project.html?tid=7#sy_target1" style="display:block;"><div class="num">417</div><div class="p">浼犵粺缇庢湳</div></a></div><div class='td'><a class="link" href="/project.html?tid=8#sy_target1" style="display:block;"><div class="num">629</div><div class="p">浼犵粺鎶€鑹?/div></a></div><div class='td'><a class="link" href="/project.html?tid=9#sy_target1" style="display:block;"><div class="num">182</div><div class="p">浼犵粺鍖昏嵂</div></a></div><div class='td'><a class="link" href="/project.html?tid=10#sy_target1" style="display:block;"><div class="num">492</div><div class="p">姘戜織</div></a></div>							</div>
+
+							<!--									<div class="p_mor"></div>-->
+							<div class="p_mor">璇存槑锛氭暟鎹潵鑷浗鍔￠櫌鍙婂浗瀹舵枃鍖栧拰鏃呮父琛屾斂涓荤閮ㄩ棬鍏紑淇℃伅锛屽彴婀剧渷鏆傛棤鏁版嵁锛屾暟鎹粺璁℃埅鑷?025骞?3鏈?3鏃?銆?/div>
+														<div class="total">鎬昏锛?span class="b">3610</span>椤?/div>
+						</div>
+						<!-- 鍥藉绾т紶鎵夸汉 -->
+						<div class="tab-item">
+							<div class="table" style="max-width:none;width: auto;">
+								<div class='td '><a class="link" href="/representative.html?tid=1#target1"  style="display:block;"><div class="num">164</div><div class="p">姘戦棿鏂囧</div></a></div><div class='td '><a class="link" href="/representative.html?tid=2#target1"  style="display:block;"><div class="num">475</div><div class="p">浼犵粺闊充箰</div></a></div><div class='td '><a class="link" href="/representative.html?tid=3#target1"  style="display:block;"><div class="num">380</div><div class="p">浼犵粺鑸炶箞</div></a></div><div class='td '><a class="link" href="/representative.html?tid=4#target1"  style="display:block;"><div class="num">949</div><div class="p">浼犵粺鎴忓墽</div></a></div><div class='td '><a class="link" href="/representative.html?tid=5#target1"  style="display:block;"><div class="num">254</div><div class="p">鏇茶壓</div></a></div><div class='td '><a class="link" href="/representative.html?tid=6#target1"  style="display:block;"><div class="num">132</div><div class="p">浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧</div></a></div><div class='td '><a class="link" href="/representative.html?tid=7#target1"  style="display:block;"><div class="num">517</div><div class="p">浼犵粺缇庢湳</div></a></div><div class='td '><a class="link" href="/representative.html?tid=8#target1"  style="display:block;"><div class="num">713</div><div class="p">浼犵粺鎶€鑹?/div></a></div><div class='td '><a class="link" href="/representative.html?tid=9#target1"  style="display:block;"><div class="num">183</div><div class="p">浼犵粺鍖昏嵂</div></a></div><div class='td '><a class="link" href="/representative.html?tid=10#target1"  style="display:block;"><div class="num">231</div><div class="p">姘戜織</div></a></div>							</div>
+							<!--									<div class="p_mor"></div>-->
+							<div class="p_mor">璇存槑锛氭暟鎹潵鑷浗鍔￠櫌鍙婂浗瀹舵枃鍖栧拰鏃呮父琛屾斂涓荤閮ㄩ棬鍏紑淇℃伅锛屽彴婀剧渷鏆傛棤鏁版嵁锛屾暟鎹粺璁℃埅鑷?025骞?3鏈?3鏃?銆?/div>
+							<div class="total">鎬昏锛?span class="b">3998</span>浜?/div>
+						</div>
+						<!-- 鐪佺骇椤圭洰 -->
+						<div class="tab-item">
+							<div class="table" style="max-width:none;width: auto;">
+								<div class='td'><div class="num">0</div><div class="p">姘戦棿鏂囧</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺闊充箰</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鑸炶箞</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鎴忓墽</div></div><div class='td'><div class="num">0</div><div class="p">鏇茶壓</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺缇庢湳</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鎶€鑹?/div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鍖昏嵂</div></div><div class='td'><div class="num">0</div><div class="p">姘戜織</div></div>							</div>
+														<!--									<div class="p_mor"></div>-->
+							<div class="p_mor">璇存槑锛氭暟鎹潵鑷浗鍔￠櫌鍙婂浗瀹舵枃鍖栧拰鏃呮父琛屾斂涓荤閮ㄩ棬鍏紑淇℃伅锛屽彴婀剧渷鏆傛棤鏁版嵁锛屾暟鎹粺璁℃埅鑷?025骞?3鏈?3鏃?銆?/div>
+							<div class="total">鎬昏锛?span class="b">0</span>椤?/div>
+						</div>
+						<!-- 鐪佺骇浼犳壙浜?-->
+						<div class="tab-item">
+							<div class="table" style="max-width:none;width: auto;">
+								<div class='td'><div class="num">0</div><div class="p">姘戦棿鏂囧</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺闊充箰</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鑸炶箞</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鎴忓墽</div></div><div class='td'><div class="num">0</div><div class="p">鏇茶壓</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺缇庢湳</div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鎶€鑹?/div></div><div class='td'><div class="num">0</div><div class="p">浼犵粺鍖昏嵂</div></div><div class='td'><div class="num">0</div><div class="p">姘戜織</div></div>							</div>
+														<!--									<div class="p_mor"></div>-->
+							<div class="p_mor">璇存槑锛氭暟鎹潵鑷浗鍔￠櫌鍙婂浗瀹舵枃鍖栧拰鏃呮父琛屾斂涓荤閮ㄩ棬鍏紑淇℃伅锛屽彴婀剧渷鏆傛棤鏁版嵁锛屾暟鎹粺璁℃埅鑷?025骞?3鏈?3鏃?銆?/div>
+							<div class="total">鎬昏锛?span class="b">0</span>浜?/div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(function() {
+					$('.home5 .tab-term').on('click',function() {
+						var index = $(this).index();
+						$(document).find('.home5 .tab-cont .tab-item').eq(index).addClass('act').siblings().removeClass('act');
+					});
+
+					$(".pop_s").click(function(){
+					//$(".pop_s").click(function(){
+						var key = $(this).attr('key');
+						var pro_name = $(this).html();
+						$('.map-cont .map-item .pro_name').html('銆?'+pro_name+' 銆?);
+						var act = $('.home5 .map-cont .cur').attr('data-key');
+						console.log(act);
+						if(key){
+							var  data = {
+								province :key,
+								act :act,
+
+							};
+							
+							$.post("/Site/Index/get_map_html.html",data,function (res) {
+								
+								if(res){
+									// $('.map_num').html('<div class="tab-item act"><div class="table"><div class="td"><div class="num">07</div><div class="p">姘戦棿鏂囧</div></div><div class="td"><div class="num">03</div><div class="p">浼犵粺闊充箰</div></div><div class="td"><div class="num">08</div><div class="p">浼犵粺鑸炶箞</div></div><div class="td"><div class="num">10</div><div class="p">浼犵粺鎴忓墽</div></div><div class="td"><div class="num">08</div><div class="p">浼犵粺缇庢湳</div></div><div class="td"><div class="num">06</div><div class="p">浼犵粺鎶€鑹?/div></div><div class="td h"><div class="num">06</div><div class="p">浼犵粺浣撹偛銆佹父鑹轰笌鏉傛妧</div></div><div class="td h s"><div class="num">35</div><div class="p">浼犵粺鍖昏嵂</div></div><div class="td l"><div class="num">06</div><div class="p">姘戜織</div></div><div class="td l"><div class="num">14</div><div class="p">鏇茶壓</div></div></div><div class="total">鎬昏锛?span class="b">103</span>椤?/div></div>');
+									$('.map_num').html(res.html);
+
+								}else{
+									
+								}
+							});
+						}
+					});
+				});
+
+				
+			</script>
+		</div>
+	</div>
+<div class="section home6 tab-mod">
+	<style>
+		.home6 .widget-area-edit{
+			left: 100px;
+			top:100px!important;
+		}
+	</style>
+	<div class="tab-cont" edit_params="width%3D960%26height%3D960%26unlimit%3D1%26zoom%3D4%26tabs%3D6"><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/03/15/s5c8b0c06cdd1d.jpg);"></div><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/06/20/s5d0ae2caabc3c.jpg);"></div><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/06/19/s5d09de0f0e2c1.jpg);"></div><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/03/15/s5c8b0c84ddbdd.jpg);"></div><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/02/20/s5c6d05d8e0d67.jpg);"></div><div class="tab-item" style="background-image: url(/Uploads/Picture/2019/02/20/s5c6d05e3cab99.jpg);"></div></div>
+	<div edit_params="category_id%3D44%26pagesize%3D6">
+<div class="tab-bar">
+	<div class="title middle">
+		<div class="title-txt middle-cont">
+			<div>浜虹墿</div>		</div>
+	</div>
+
+	<div class="tab-track justify">
+		<div class="tab-term t1" ><div class="h16"><a href="/character_detail/8578.html" target="_blank" rel="noopener" title="寮犳爲钀嶏細鍒濆績涓嶆敼锛屾垙澶т簬澶?>寮犳爲钀嶏細鍒濆績涓嶆敼锛屾垙澶т簬澶?/a></div></div>&nbsp;<div class="tab-term t2" ><div class="h16"><a href="/character_detail/18817.html" target="_blank" rel="noopener" title="鍒樺叞鑺筹細浠庤壓60鍛ㄥ勾鍥炵湼">鍒樺叞鑺筹細浠庤壓60鍛ㄥ勾鍥炵湼</a></div></div>&nbsp;<div class="tab-term t3" ><div class="h16"><a href="/character_detail/18671.html" target="_blank" rel="noopener" title="鍒橀瓉绔嬶細琛岃蛋鐢伴噹 闂織杩介">鍒橀瓉绔嬶細琛岃蛋鐢伴噹 闂織杩介</a></div></div>&nbsp;<div class="tab-term t4" ><div class="h16"><a href="/character_detail/8649.html" target="_blank" rel="noopener" title="濮氭儬鑺細璧拌繘濞佸凹鏂弻骞村睍鐨勪腑鍥借嫃缁ｅぇ甯?>濮氭儬鑺細璧拌繘濞佸凹鏂弻骞村睍鐨勪腑鍥借嫃缁ｅぇ甯?/a></div></div>&nbsp;<div class="tab-term t5" ><div class="h16"><a href="/character_detail/8661.html" target="_blank" rel="noopener" title="灏氶暱鑽ｏ細鈥滆€佹垙楠ㄢ€濈殑鍒涙柊涔嬭矾">灏氶暱鑽ｏ細鈥滆€佹垙楠ㄢ€濈殑鍒涙柊涔嬭矾</a></div></div>&nbsp;<div class="tab-term t6" ><div class="h16"><a href="/character_detail/8724.html" target="_blank" rel="noopener" title="鍒橀敗璇氾細蹇冩棤鏃侀獩鐨勬皯闂存枃瀛﹀畧鏈涜€?>鍒橀敗璇氾細蹇冩棤鏃侀獩鐨勬皯闂存枃瀛﹀畧鏈涜€?/a></div></div>&nbsp;	</div>
+
+	<div class="p-more middle">
+		<a href="/character.html" class="link middle-cont">鏌ョ湅鏇村</a>
+	</div>
+</div></div></div>
+
+<div class="section home7" id="home7">
+	<style>
+		.list .widget-area-edit-btn{
+			top: 150px!important;
+		}
+		.right .widget-area-edit-btn{
+			top: 150px!important;
+		}
+		.home7 .widget-area-edit-btn{
+			bottom: auto !important;
+			top: 230px!important;
+		}
+		/*.home7 .img .widget-area-edit-btn{
+			left: 150px!important;
+			top: 100px!important;
+
+		}*/
+		.home7 .i1 .widget-area-edit-btn{
+			left: 120px!important;
+			top: 80px!important;
+
+		}
+
+		.home7 .i2 .widget-area-edit-btn{
+			left: 280px!important;
+			top: 180px!important;
+
+		}
+	</style>
+	<div edit_params="width%3D1920%26height%3D960%26zoom%3D3%26unlimit%3D1%26noalert%3D1"><style>
+    #home7{
+        background-image: url("/Uploads/Picture/2018/11/14/s5bebbfc0524a4.jpg");
+    }
+</style></div>	<div class="img i1" edit_params="width%3D990%26height%3D472%26zoom%3D3%26showAlt%3D1"><img src="/Uploads/Picture/2018/11/14/s5bebc0f39fb2e.png" alt="" title=""/></div>	<div class="img i2" edit_params="width%3D1222%26height%3D540%26zoom%3D3%26showAlt%3D1"><img src="/Uploads/Picture/2019/02/14/s5c65358abd83f.png" alt="" title=""/></div>	<div class="cont c1">
+			<div class="h30">涓浗闈炵墿璐ㄦ枃鍖栭仐浜т紶鎵夸汉鐮斾慨鍩硅璁″垝</div>
+		<div class="p">
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 鑷?015骞粹€滀腑鍥介潪鐗╄川鏂囧寲閬椾骇浼犳壙浜虹兢鐮斾慨鐮斾範鍩硅璁″垝鈥濆疄鏂戒互鏉ワ紝瀹屾垚浜嗏€滃崄涓変簲鈥濆煿璁紶鎵夸汉缇?0涓囦汉娆＄殑鐩爣浠诲姟锛屽舰鎴愪簡杈冧负鏄庣‘鐨勬暀瀛︿綋绯汇€佸伐浣滆鑼冨拰绠＄悊鏂瑰紡锛屾湁鏁堣皟鍔ㄤ簡闄㈡牎鍙備笌闈炵墿璐ㄦ枃鍖栭仐浜э紙浠ヤ笅绠€绉扳€滈潪閬椻€濓級淇濇姢宸ヤ綔锛屼负闈為仐淇濇姢寮曞叆浜嗛噸瑕佸姏閲忥紱鎵╁ぇ浜嗛潪閬椾紶鎵夸汉鎵嶉槦浼嶏紝淇冭繘浜嗛潪閬椾繚鎶ょ悊蹇电殑绀句細浼犳挱锛涙彁楂樹簡浼犵粺宸ヨ壓璁捐鍒朵綔姘村钩锛屾敼鍠勪簡涓€鎵归」鐩繚鎶や紶鎵挎儏鍐碉紱鎷撳睍浜嗛潪閬椾繚鎶や紶鎵跨殑鎵嬫鍜屾柟寮忥紝鎺ㄥ姩浜嗕竴鎵圭ず鑼冩€ч」鐩拰鎺㈢储鎬ч」鐩€傚悓鏃讹紝鍦ㄦ尟鍏翠紶缁熷伐鑹恒€佷績杩涙洸鑹轰紶鎵垮彂灞曘€佸姪鍔涜劚璐敾鍧氱瓑鏂归潰鍙戞尌浜嗙Н鏋佷綔鐢紝绀句細褰卞搷鍔涗笉鏂寮恒€傗€滀腑鍥介潪鐗╄川鏂囧寲閬椾骇浼犳壙浜虹兢鐮斾慨鐮斾範鍩硅璁″垝鈥濆凡缁忔垚涓洪潪閬椾繚鎶や簨涓氱殑涓€椤瑰熀纭€鎬с€佹垬鐣ユ€у伐浣溿€?/div>		</div>
+		<div class='t_more w16'>
+			<div><a href="/train.html">鏌ョ湅鏇村</a></div>		</div>
+	</div>
+	<div class="cont c2">
+			<div class="h30">浼犵粺宸ヨ壓鎸叴璁″垝</div>		<div class="p">
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 涓鸿惤瀹炲厷鐨勫崄鍏眾浜斾腑鍏ㄤ細鍏充簬鈥滄瀯寤轰腑鍗庝紭绉€浼犵粺鏂囧寲浼犳壙浣撶郴锛屽姞寮烘枃鍖栭仐浜т繚鎶わ紝鎸叴浼犵粺宸ヨ壓鈥濆拰銆婁腑鍗庝汉姘戝叡鍜屽浗鍥芥皯缁忔祹鍜岀ぞ浼氬彂灞曠鍗佷笁涓簲骞磋鍒掔翰瑕併€嬪叧浜庘€滃埗瀹氬疄鏂戒腑鍥戒紶缁熷伐鑹烘尟鍏磋鍒掆€濈殑瑕佹眰锛屼績杩涗腑鍥戒紶缁熷伐鑹虹殑浼犳壙涓庢尟鍏达紝鏂囧寲閮ㄣ€佸伐涓氬拰淇℃伅鍖栭儴銆佽储鏀块儴鑱斿悎鍒跺畾浜嗐€婁腑鍥戒紶缁熷伐鑹烘尟鍏磋鍒掋€嬶紝浜?017骞?鏈堟寮忓嚭鍙般€?/div>		</div>
+		<div class='t_more w16'>
+			<div><a href="/rejuvenation.html">鏌ョ湅鏇村</a></div>		</div>
+	</div>
+</div>
+
+<div class="section home8">
+	<style>
+		.list .widget-area-edit-btn{
+			top: 150px!important;
+		}
+		.right .widget-area-edit-btn{
+			top: 150px!important;
+		}
+	</style>
+	<div class="right">
+		<!--<div class="right-item home8_img_1" edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D10%26title2Show%3D1%26title2Max%3D6%26showLink%3D1"><div class="h30"><div class="title-txt">鏂囧寲鍜岃嚜鐒堕仐浜ф棩</div><div class="dot"></div>
+    <a  href="/special2022.html" target="_blank" rel="noopener" class="link">鏌ョ湅鏇村</a></div><div class="title"></div>
+
+<style>
+    .l4{
+        background-image: url("/Uploads/Picture/2019/03/04/s5c7cbeef90808.jpg")!important;
+    }
+</style></div>		<div class="right-item home8_img_2" edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D10%26title2Show%3D1%26title2Max%3D6%26showLink%3D1"><div class="h30"><div class="title-txt">褰遍煶</div><div class="dot"></div>
+    <a  href="/video.html" target="_blank" rel="noopener" class="link">鏌ョ湅鏇村 </a></div><div class="title"></div>
+
+<style>
+    .l5{
+        background-image: url("/Uploads/Picture/2019/02/25/s5c73943fb9948.jpg")!important;
+    }
+</style></div>-->
+		<div class="list-item l0">
+			<div edit_params="width%3D320%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D10%26title2Show%3D1%26title2Max%3D6%26showLink%3D1"><div class="cont"><div class="title-txt">灞曡</div>
+    <div class="dot"></div><a href="/zhanlan.html"   class="link">鏌ョ湅鏇村</a></div>
+
+<style>
+    .l0{
+        background-image: url("/Uploads/Picture/2018/11/14/s5bebc4c89e3a4.jpg")!important;
+    }
+</style></div>		</div>
+	</div>
+	<div class="list">
+
+		<div class="list-item l1">
+			<div edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D22%26showLink%3D1"><div class="h30"><a  href="/page_special.html" target="_blank" rel="noopener" >瀹ｇ焊浼犵粺鍒朵綔鎶€鑹?/a></div>
+<style>
+    .l1{
+        background-image: url("/Uploads/Picture/2019/03/15/s5c8b3dc0b350c.jpg")!important;
+    }
+</style></div>		</div>
+		<div class="list-item l2">
+			<div edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D22%26showLink%3D1"><div class="h30"><a  href="/solar_terms.html" target="_blank" rel="noopener"  >浜屽崄鍥涜妭姘?/a></div>
+<style>
+    .l2{
+        background-image: url("/Uploads/Picture/2019/03/04/s5c7cbf5a6bb76.jpg")!important;
+    }
+</style></div>		</div>
+		<div class="list-item l3">
+			<div edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D22%26showLink%3D1"><div class="h30"><a  href="/tjq_home.html" target="_blank" rel="noopener"  >澶瀬鎷?/a></div>
+<style>
+    .l3{
+        background-image: url("/Uploads/Picture/2018/11/17/s5bef8d54e6ab1.jpg")!important;
+    }
+</style></div>		</div>
+		<div class="list-item l4">
+			<div class="home8_img_1" edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D22%26title2Show%3D1%26title2Max%3D6%26showLink%3D1"><div class="h30"><div class="title-txt">鏂囧寲鍜岃嚜鐒堕仐浜ф棩</div><div class="dot"></div>
+    <a  href="/special2022.html" target="_blank" rel="noopener" class="link">鏌ョ湅鏇村</a></div><div class="title"></div>
+
+<style>
+    .l4{
+        background-image: url("/Uploads/Picture/2019/03/04/s5c7cbeef90808.jpg")!important;
+    }
+</style></div>		</div>
+		<div class="list-item l5">
+			<div class="home8_img_2" edit_params="width%3D640%26height%3D960%26zoom%3D3%26title1Show%3D1%26title1Max%3D22%26title2Show%3D1%26title2Max%3D6%26showLink%3D1"><div class="h30"><div class="title-txt">褰遍煶</div><div class="dot"></div>
+    <a  href="/video.html" target="_blank" rel="noopener" class="link">鏌ョ湅鏇村 </a></div><div class="title"></div>
+
+<style>
+    .l5{
+        background-image: url("/Uploads/Picture/2019/02/25/s5c73943fb9948.jpg")!important;
+    }
+</style></div>		</div>
+	</div>
+</div>
+
+    <div class="section fp-auto-height">
+    <div class="x-footer">
+        <div class="other-site">
+            <div class="x-wrap">
+                <div class="left">
+                    <div class="h22"><div>鍙嬫儏閾炬帴</div></div>
+                    <div edit_params="title1Show%3D1%26title1Max%3D28%26showLink%3D1"><div class="ul">
+    <div class="li"><a  href="https://www.mct.gov.cn/" target='_blank' rel="noopener"  >涓崕浜烘皯鍏卞拰鍥芥枃鍖栧拰鏃呮父閮?/a></div><div class="li"><a  href="http://www.ncha.gov.cn/" target='_blank' rel="noopener"  >鍥藉鏂囩墿灞€</a></div><div class="li"><a  href="https://en.unesco.org/" target='_blank' rel="noopener"  >鑱斿悎鍥芥暀鑲层€佺瀛︿笌鏂囧寲缁勭粐</a></div><div class="li"><a  href="http://www.crihap.cn/" target='_blank' rel="noopener"  >鑱斿悎鍥芥暀绉戞枃缁勭粐浜氬お鍦板尯闈炵墿璐ㄦ枃鍖栭仐浜у浗闄呭煿璁腑蹇?/a></div><div class="li"><a  href="https://www.irci.jp/" target='_blank' rel="noopener"  >鑱斿悎鍥芥暀绉戞枃缁勭粐浜氬お鍦板尯闈炵墿璐ㄦ枃鍖栭仐浜у浗闄呯爺绌朵腑蹇?/a></div><div class="li"><a  href="http://www2.ichcap.org/" target='_blank' rel="noopener"  >鑱斿悎鍥芥暀绉戞枃缁勭粐浜氬お鍦板尯闈炵墿璐ㄦ枃鍖栭仐浜у浗闄呬俊鎭拰缃戠粶涓績</a></div><div class="li"><a  href="https://www.zgysyjy.org.cn/" target='_blank' rel="noopener"  >涓浗鑹烘湳鐮旂┒闄?/a></div><div class="li"><a  href="http://lib.zgysyjy.org.cn/" target='_blank' rel="noopener"  >涓浗鑹烘湳鐮旂┒闄㈣壓鏈笌鏂囩尞棣?/a></div><div class="li"><a  href="http://www.gmfyg.org.cn/" target='_blank' rel="noopener"  >涓浗宸ヨ壓缇庢湳棣嗐€佷腑鍥介潪鐗╄川鏂囧寲閬椾骇棣?/a></div><div class="li"><a  href="http://www.chinafolklore.org/" target='_blank' rel="noopener"  >涓浗姘戜織瀛︾綉</a></div></div></div>                </div>
+
+                <div class="right">
+                    <div class="h22"><div>鍦版柟闈炵墿璐ㄦ枃鍖栭仐浜х綉</div></div>
+                    <div edit_params="title1Show%3D1%26title1Max%3D4%26showLink%3D1"><div class="ul">
+    <div class="li"><a  href="http://whlyj.beijing.gov.cn/" target='_blank' rel="noopener"  >鍖椾含</a></div><div class="li"><a  href="http://www.ichtianjin.com/" target='_blank' rel="noopener"  >澶╂触</a></div><div class="li"><a  href="https://hebculture.cn" target='_blank' rel="noopener"  >娌冲寳</a></div><div class="li"><a  href="http://wlt.shanxi.gov.cn/" target='_blank' rel="noopener"  >灞辫タ</a></div><div class="li"><a  href="http://www.nmgfeiyi.cn/" target='_blank' rel="noopener"  >鍐呰挋鍙?/a></div><div class="li"><a  href="http://whly.ln.gov.cn/" target='_blank' rel="noopener"  >杈藉畞</a></div><div class="li"><a  href="http://whhlyt.jl.gov.cn/" target='_blank' rel="noopener"  >鍚夋灄</a></div><div class="li"><a  href="http://wlt.hlj.gov.cn/" target='_blank' rel="noopener"  >榛戦緳姹?/a></div><div class="li"><a  href="http://www.ichshanghai.cn/" target='_blank' rel="noopener"  >涓婃捣</a></div><div class="li"><a  href="https://www.jsfybh.cn/" target='_blank' rel="noopener"  >姹熻嫃</a></div><div class="li"><a  href="https://www.zjich.cn/" target='_blank' rel="noopener"  >娴欐睙</a></div><div class="li"><a  href="http://www.anhuify.net" target='_blank' rel="noopener"  >瀹夊窘</a></div><div class="li"><a  href="https://www.fjysg.net/" target='_blank' rel="noopener"  >绂忓缓</a></div><div class="li"><a  href="http://dct.jiangxi.gov.cn/" target='_blank' rel="noopener"  >姹熻タ</a></div><div class="li"><a  href="http://www.sdfeiyi.org/" target='_blank' rel="noopener"  >灞变笢</a></div><div class="li"><a  href="https://hct.henan.gov.cn/" target='_blank' rel="noopener"  >娌冲崡</a></div><div class="li"><a  href="http://wlt.hubei.gov.cn/hbsfwzwhycw/" target='_blank' rel="noopener"  >婀栧寳</a></div><div class="li"><a  href="http://whhlyt.hunan.gov.cn/" target='_blank' rel="noopener"  >婀栧崡</a></div><div class="li"><a  href="http://www.gdsqyg.com/agdfyzg/index" target='_blank' rel="noopener"  >骞夸笢</a></div><div class="li"><a  href="http://www.gxfybhw.cn/" target='_blank' rel="noopener"  >骞胯タ</a></div><div class="li"><a  href="http://lwt.hainan.gov.cn/" target='_blank' rel="noopener"  >娴峰崡</a></div><div class="li"><a  href="http://whlyw.cq.gov.cn/" target='_blank' rel="noopener"  >閲嶅簡</a></div><div class="li"><a  href="https://ichsc.tsichuan.com/#/home" target='_blank' rel="noopener"  >鍥涘窛</a></div><div class="li"><a  href="http://www.gzfwz.org.cn/" target='_blank' rel="noopener"  >璐靛窞</a></div><div class="li"><a  href="http://www.ynich.cn/" target='_blank' rel="noopener"  >浜戝崡</a></div><div class="li"><a  href="http://www.chinatibetnews.com/fy/" target='_blank' rel="noopener"  >瑗胯棌</a></div><div class="li"><a  href="http://whhlyt.shaanxi.gov.cn/" target='_blank' rel="noopener"  >闄曡タ</a></div><div class="li"><a  href="http://wlt.gansu.gov.cn/" target='_blank' rel="noopener"  >鐢樿們</a></div><div class="li"><a  href="http://whlyt.qinghai.gov.cn/" target='_blank' rel="noopener"  >闈掓捣</a></div><div class="li"><a  href="http://whhlyt.nx.gov.cn/" target='_blank' rel="noopener"  >瀹佸</a></div><div class="li"><a  href="http://wlt.xinjiang.gov.cn/" target='_blank' rel="noopener"  >鏂扮枂</a></div></div></div>                </div>
+            </div>
+        </div>
+        <div class="about-site ">
+    <div class="x-wrap">
+        <div edit_params="title1Show%3D1%26title1Max%3D20%26showLink%3D1%26tabs%3D5"><div class="link">
+    <div class="link-item"><a  href="/sitemap.html" target='_blank' rel="noopener"  >缃戠珯鍦板浘</a></div><div class="link-item"><a  href="/about_us/279.html" target='_blank' rel="noopener"  >鍏充簬鎴戜滑</a></div><div class="link-item"><a  href="/contact.html" target='_blank' rel="noopener"  >鑱旂郴鎴戜滑</a></div><div class="link-item"><a  href="/about/206.html" target='_blank' rel="noopener"  >鐗堟潈涓庡厤璐ｅ０鏄?/a></div></div></div>        <div class="cont" edit_params="title1Show%3D1%26title1Max%3D20%26showLink%3D1%26title2Max%3D30%26title2Show%3D1%26showLink2%3D1%26title3Show%3D1%26title3Max%3D80"><span class="s"><a   href="javascript:void(0);" >涓荤锛氫腑鍗庝汉姘戝叡鍜屽浗鏂囧寲鍜屾梾娓搁儴</a></span>
+<span class="s"><a   href="javascript:void(0);" >涓诲姙锛氫腑鍥借壓鏈爺绌堕櫌 路 涓浗闈炵墿璐ㄦ枃鍖栭仐浜т繚鎶や腑蹇?/a></span>
+<br>
+<span class="s">Copyright漏2018 涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅  All Rights Reserved  <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浜琁CP澶?7504941鍙?3</a>  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502042400" target="_blank" rel="noopener"><img src="/Public/static/themes/image/gaj.png">浜叕缃戝畨澶?11010502042400</a></span>
+<p class="ftbj">
+    <span class="s"><a href="http://www.fractal-technology.com" target="_blank" rel="noopener">缃戠珯寤鸿锛氬寳浜垎褰㈢鎶€</a></span>
+    <span class="s">鏂规娓呭埢鏈偊瀹嬬畝浣撳瓧浣撶敱鏂规鐢靛瓙鍏嶈垂鍏泭鎺堟潈</span></p>
+<p class="red">寤鸿浣跨敤360鏋侀€熴€丆hrome銆丗irefox娴忚鍣紝鏈€浣冲垎杈ㄧ巼1920脳1080</p></div>    </div>
+</div>
+
+<div class="slot">
+    <div class="slot-track">
+        <div class="slot-item s1"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s2"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s3"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s4"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s5"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s6"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s7"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s8"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s9"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s10"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s11"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s12"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s13"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s14"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s15"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s16"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s17"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s18"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s19"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s20"></div>
+    </div>
+    <div class="slot-track">
+        <div class="slot-item s21"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+<script>
+    "use strict";
+    var home1Flag = false;
+    $(function(){
+        if(!device().isMobile){
+            $('.fullpage').fullpage({
+                anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9'],
+                verticalCentered: false,
+                afterRender: function(x){
+					$('.home_visibi').css('visibility', 'visible');
+                    $('.home_visibi').css('opacity', 1);
+                },
+                afterLoad: function(anchorLink, index){
+
+                    if(index > 1){
+                        $('.sidebar').fadeIn();
+                        $(".hotspot").addClass("x-show");
+                    }else{
+                        $('.sidebar').fadeOut();
+                        $(".hotspot").removeClass("x-show");
+                        /*if(home1Flag){
+                            if($(".home1").hasClass("active")){
+                                if ($(window).width() < 768) {
+                                    if($(".home1 .slick-active .m-show").find("video").size()>0){
+                                        $(".home1 .slick-active .m-show").find("video")[0].play();
+                                    }else{
+                                        $(".home1 .slick-mod").slick("slickPlay");
+                                    }
+                                } else {
+                                    if($(".home1 .slick-active .p-show").find("video").size()>0){
+                                        $(".home1 .slick-active .p-show").find("video")[0].play();
+                                    }else{
+                                        $(".home1 .slick-mod").slick("slickPlay");
+                                    }
+                                }
+                            }
+                        }*/
+                    }
+
+                    (function(){
+                        var tm = new TimelineMax();
+                        var book = $('.home2 .book-item');
+
+                        var onoff = true;
+
+                        if(index == 2){
+                            if(onoff){
+                                onoff = false;
+
+                                tm.staggerFromTo(book, 1, {
+                                    autoAlpha: 0,
+                                    cycle: {
+                                        y: ['50%', '-50%']
+                                    },
+                                    delay: 0.2
+                                }, {
+                                    autoAlpha: 1,
+                                    cycle: {
+                                        y: ['0%', '0%']
+                                    },
+                                    delay: 0.2
+                                }, 0.2);
+                            }else{
+                                tm.restart();
+                            }
+                        }else{
+                            TweenMax.killChildTweensOf($('.home2'));
+                            book.removeAttr('style');
+                        }
+                    })();
+
+                    (function(){
+                        var tm1 = new TimelineMax();
+                        var tm2 = new TimelineMax();
+                        var slot = $('.home3 .slot-item');
+                        var slot1 = slot.slice(0, slot.length / 2);
+                        var slot2 = slot.slice(slot.length / 2);
+
+                        var onoff = true;
+
+                        if(index == 3){
+                            if(onoff){
+                                onoff = false;
+                                tm1.staggerFrom(slot1, 2, {
+                                    bottom: '100%',
+                                    cycle: {
+                                        ease:function(i) {
+                                            return Back.easeOut.config(Math.random() * 3);
+                                        }
+                                    }
+                                });
+                                tm2.staggerFrom(slot2, 2, { top: '100%',
+                                    cycle: {
+                                        ease:function(i) {
+                                            return Back.easeOut.config(Math.random() * 3);
+                                        }
+                                    }
+                                });
+                            }else{
+                                tm1.restart();
+                                tm2.restart();
+                            }
+                        }else{
+                            TweenMax.killChildTweensOf($('.home3'));
+                            slot.removeAttr('style');
+                        }
+                    })();
+
+                    (function(){
+                        var tm = new TimelineMax();
+                        var term = $('.home6 .tab-term');
+                        var onoff = true;
+
+                        if(index == 6){
+                            if(onoff){
+                                onoff = false;
+                                tm.staggerFromTo(term, 2, {
+                                    autoAlpha: 0,
+                                    cycle: {
+                                        y: ['50%', '-50%'],
+                                        ease:function(i) {
+                                            return Back.easeOut.config(Math.random() * 3);
+                                        }
+                                    },
+                                    delay: 0.3
+                                }, {
+                                    autoAlpha: 1,
+                                    cycle: {
+                                        y: ['0%', '0%'],
+                                        ease:function(i) {
+                                            return Back.easeOut.config(Math.random() * 3);
+                                        }
+                                    },
+                                    delay: 0.3
+                                });
+                            }else{
+                                tm.restart();
+                            }
+                        }else{
+                            TweenMax.killChildTweensOf($('.home6'));
+                            term.removeAttr('style');
+                        }
+                    })();
+
+                    (function(){
+                        var tm = new TimelineMax();
+                        var img = $('.home7 .img');
+
+                        var onoff = true;
+
+                        if(index == 7){
+                            if(onoff){
+                                onoff = false;
+                                tm.staggerFromTo(img, 1, {
+                                    autoAlpha: 0,
+                                    cycle: {
+                                        y: ['-100%', '100%']
+                                    },
+                                    delay: 0.1
+                                }, {
+                                    autoAlpha: 1,
+                                    cycle: {
+                                        y: ['0%', '0%']
+                                    },
+                                    delay: 0.1
+                                }, 0.2);
+                            }else{
+                                tm.restart();
+                            }
+                        }else{
+                            TweenMax.killChildTweensOf($('.home7'));
+                            img.removeAttr('style');
+                        }
+                    })();
+                },
+                onLeave:function(index, nextIndex,direction){
+                    if(nextIndex == $(".fullpage .section").length){
+                        $(".hotspot").css({
+                            'bottom':$(".x-footer").height()
+                        })
+                    }else{
+                        $(".hotspot").css({
+                            'bottom':0
+                        })
+                    }
+                }
+            });
+
+            $('.sb-item:last').on('click', function(){
+                $.fn.fullpage.moveTo(1, 0);
+            });
+        }else{
+            $('.home1').css('height', $(window).height() + 'px');
+        }
+
+        /*$('.home1 .slick-mod').slick({
+            autoplay: true,
+            arrows: false,
+            dots: true
+        });*/
+
+        $('.home6 .tab-term').on('mouseenter', function(){
+            $(this).triggerHandler('click');
+        });
+
+        //TODO:棣栭〉绗叚灞忎汉鐗? 涓鸿В鍐冲浘鐗囧姞杞戒笉鍑烘潵鍔犵殑锛岃В鍐冲悗鍒犻櫎鍗冲彲
+        $('.home6 .tab-term').hover(function() {
+            var index = $(this).index();
+            $('.home6 .tab-item').eq(index).addClass('act').siblings().removeClass('act');
+        });
+
+        $('.home8 .list .list-item').on('mouseenter', function(){
+            var $this = $(this);
+            var $sib = $this.siblings().slice(1);
+
+            if(!$this.hasClass('cur')){
+                $this.addClass('cur');
+                $sib.addClass('sib');
+            }
+        });
+
+        $('.home8 .list .list-item').on('mouseleave', function(){
+            var $this = $(this);
+            var $sib = $this.siblings().slice(1);
+
+            if($this.hasClass('cur')){
+                $this.removeClass('cur');
+                $sib.removeClass('sib');
+            }
+        });
+
+        $('.home8 .right-item').on('mouseenter', function(){
+            var $this = $(this);
+            var $sib = $this.siblings();
+
+            if(!$this.hasClass('cur')){
+                $this.addClass('cur');
+                $sib.addClass('sib');
+            }
+        });
+
+        $('.home8 .right-item').on('mouseleave', function(){
+            var $this = $(this);
+            var $sib = $this.siblings();
+
+            if($this.hasClass('cur')){
+                $this.removeClass('cur');
+                $sib.removeClass('sib');
+            }
+        });
+
+        if($(window).width() <= 750){
+            $('.sidebar').show();
+
+            $(window).scroll(function(){
+                if($(".home2").offset().top - $(window).scrollTop() < 0){
+                    $(".hotspot").addClass("x-show");
+                }else{
+                    $(".hotspot").removeClass("x-show");
+                }
+            })
+        }
+    });
+
+</script>
+<script>
+    $(function() {
+        if ($(window).width() < 768) {
+            $(".home1 .slick-mod").on("init", function(event, slick) {
+                //home1Flag = true;
+                if ($(".home1 .slick-mod .slick-current .m-show").find("video").size() > 0) {
+                    $(".home1 .slick-mod .slick-current .m-show").find("video")[0].play();
+                    $(".home1 .slick-mod .slick-current .m-show").find("video").bind("ended", function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    });
+                } else {
+                    setTimeout(function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    }, 100)
+                }
+            })
+        }else{
+            $(".home1 .slick-mod").on("init", function(event, slick) {
+                //home1Flag = true;
+                if ($(".home1 .slick-mod .slick-current .p-show").find("video").size() > 0) {
+                    $(".home1 .slick-mod .slick-current .p-show").find("video")[0].play();
+                    $(".home1 .slick-mod .slick-current .p-show").find("video").bind("ended", function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    });
+                } else {
+                    setTimeout(function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    }, 100)
+                }
+            })
+        }
+
+        $(".home1 .slick-mod").slick({
+            autoplay: false,
+            autoplaySpeed: 3000,
+            speed: 1500,
+            fade:true,
+            dots: true,
+            arrows: false,
+            cssEase: "cubic-bezier(0.5,0,0.3,1)",
+            pauseOnHover: false,
+            appendDots: ".home1 .nav"
+        });
+        $(".home1 .slick-mod").on("afterChange", function(event, slick, currentSlide) {
+            if ($(window).width() < 768) {
+                if ($(".home1 .slick-mod .slick-current .m-show").find("video").size() > 0) {
+                    $(".home1 .slick-mod video").each(function() {
+                        var $vd = $(this).get(0);
+                        $vd.pause();
+                    })
+                    $(".home1 .slick-mod .slick-current .m-show").find("video")[0].play();
+                    $(".home1 .slick-mod").slick("slickPause");
+                    $(".home1 .slick-mod .slick-current .m-show").find("video").bind("ended", function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                        setTimeout(function() {
+                            $(".home1 .slick-mod").slick("slickNext");
+                        }, 100)
+                    });
+                } else {
+                    $(".home1 .slick-mod video").each(function() {
+                        var $vd = $(this).get(0);
+                        $vd.pause();
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    })
+                }
+            } else {
+                if ($(".home1 .slick-mod .slick-current .p-show").find("video").size() > 0) {
+                    $(".home1 .slick-mod video").each(function() {
+                        var $vd = $(this).get(0);
+                        $vd.pause();
+                    })
+                    $(".home1 .slick-mod .slick-current .p-show").find("video")[0].play();
+                    $(".home1 .slick-mod").slick("slickPause");
+                    $(".home1 .slick-mod .slick-current .p-show").find("video").bind("ended", function() {
+                        $(".home1 .slick-mod").slick("slickPlay");
+                        setTimeout(function() {
+                            $(".home1 .slick-mod").slick("slickNext");
+                        }, 100)
+                    });
+                } else {
+                    $(".home1 .slick-mod video").each(function() {
+                        var $vd = $(this).get(0);
+                        $vd.pause();
+                        $(".home1 .slick-mod").slick("slickPlay");
+                    })
+                }
+            }
+        });
+    })
+</script>
+</div>
+
+<div class="hotspot">
+    <div class="units">
+
+        <style>
+            .hotspot .widget-common-text {
+                min-width: 100px;
+            }
+        </style>
+        <div class="tit1 h30">鐑偣鎺ㄨ崘</div>        <style>
+            .newsDiv .widget-area-edit-title {
+                z-index: 100 !important;
+            }
+        </style>
+        <div class="newsDiv" edit_params="title1Show%3D1%26title1Max%3D35%26showLink%3D1%26tabs%3D10">
+<div class="swiper mySwiper h18">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><a href="/special_2025_chunjie" target="_blank" rel="noopener" >娆㈡鍠滃枩杩囧ぇ骞粹€斺€旇泧骞存槬鑺備笓棰?/a></div><div class="swiper-slide"><a href="/solar_terms.html" target="_blank" rel="noopener" >浜屽崄鍥涜妭姘?/a></div><div class="swiper-slide"><a href="/page_special.html" target="_blank" rel="noopener" >瀹ｇ焊浼犵粺鍒朵綔鎶€鑹?/a></div><div class="swiper-slide"><a href="/tjq_home.html" target="_blank" rel="noopener" >澶瀬鎷?/a></div>  </div>
+</div>
+<script src="/Public/static/themes/js/swiper-bundle.min.js"></script>
+
+<script>
+  $(function () {
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "1",
+      spaceBetween: 0,
+      loop:true,
+      pagination:false,
+      autoplay: {
+        delay: 5000,//5绉掑垏鎹竴娆?
+      },
+      speed:600,
+      breakpoints: {
+        1360: {  //褰撳睆骞曞搴﹀ぇ浜庣瓑浜?360
+          spaceBetween: 20,
+          slidesPerView: "auto",
+        },
+        1420: {  //褰撳睆骞曞搴﹀ぇ浜庣瓑浜?420
+          spaceBetween: 40,
+          slidesPerView: "auto",
+        },
+        1680: {  //褰撳睆骞曞搴﹀ぇ浜庣瓑浜?680
+          spaceBetween: 70,
+          slidesPerView: "auto",
+        }
+      }
+    });
+    $(".hotspot .units .btns .btn2").on("click",function(){
+      $(".hotspot").addClass("noShow");
+    })
+  });
+</script></div>        <style>
+            .home_hotspot_button button {
+                left: 160px !important;
+            }
+            .home_hotspot_button .widget-area-edit {
+                width: 0 !important;
+            }
+        </style>
+        <div class="btns h16 home_hotspot_button" edit_params="title1Show%3D1%26biaoti1%3D%E6%A0%87%E9%A2%98%26title1Max%3D4%26showLink%3D1%26link_biaoti%3D%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80"><a href="javascript:;" class="btn2"></a></div>    </div>
+</div>
+<script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+        <script>
+        $(function(){
+            wx.config({
+                debug: false, // 寮€鍚皟璇曟ā寮?璋冪敤鐨勬墍鏈塧pi鐨勮繑鍥炲€间細鍦ㄥ鎴风alert鍑烘潵锛岃嫢瑕佹煡鐪嬩紶鍏ョ殑鍙傛暟锛屽彲浠ュ湪pc绔墦寮€锛屽弬鏁颁俊鎭細閫氳繃log鎵撳嚭锛屼粎鍦╬c绔椂鎵嶄細鎵撳嵃銆?
+                appId: "wx5577f01a4c41ec62", // 蹇呭～锛屽叕浼楀彿鐨勫敮涓€鏍囪瘑
+                timestamp: "1765530088", // 蹇呭～锛岀敓鎴愮鍚嶇殑鏃堕棿鎴?
+                nonceStr: "7T7KLCHdxx563zh8", // 蹇呭～锛岀敓鎴愮鍚嶇殑闅忔満涓?
+                signature: "0da3f4242ab2c57a5158e9d2b62bd2c94f5ef08c",// 蹇呭～锛岀鍚?
+                jsApiList: [
+                    'updateTimelineShareData',
+                    'updateAppMessageShareData',
+                    
+                ] // 蹇呭～锛岄渶瑕佷娇鐢ㄧ殑JS鎺ュ彛鍒楄〃锛屾墍鏈塉S鎺ュ彛鍒楄〃瑙侀檮褰?
+            });
+            wx.error(function(res){
+                console.log("閿欒淇℃伅");
+                console.log(res);
+                console.log("閿欒淇℃伅");
+            });
+            wx.ready(function(){
+                var url      = location.href.split('#')[0];
+                var domain   = document.domain;
+                var url_type = location.protocol;
+                var img_url  = url_type + "//"+domain;
+                var img      = img_url +"/Public/static/images/fakeimgs/icon1.png";
+                wx.checkJsApi({
+                    jsApiList: ['updateTimelineShareData','updateAppMessageShareData'], // 闇€瑕佹娴嬬殑JS鎺ュ彛鍒楄〃锛屾墍鏈塉S鎺ュ彛鍒楄〃瑙侀檮褰?,
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+
+                //鍒嗕韩
+                wx.updateAppMessageShareData({
+                    title: "涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅", // 鍒嗕韩鏍囬
+                    desc: "涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅",
+                    link: url,
+                    imgUrl: img, // 鍒嗕韩鍥炬爣
+                    success: function () {
+
+                    }
+                });
+                wx.updateTimelineShareData({
+                    title: "涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅", // 鍒嗕韩鏍囬
+                    desc: "涓浗闈炵墿璐ㄦ枃鍖栭仐浜х綉路涓浗闈炵墿璐ㄦ枃鍖栭仐浜ф暟瀛楀崥鐗╅",
+                    link: url,
+                    imgUrl: img, // 鍒嗕韩鍥炬爣
+
+                    trigger: function (res) {
+
+                    },
+                    success: function () {
+
+                    },
+                    cancel: function () {
+                    }
+                });
+                //share(title, desc, link);
+            });
+            //鍒嗕韩
+
+        })
+    </script>
+</body>
+</html>
+<script>
+    var fontCfg = { p:'RcBXTdTZfrUdQUpm', fonts: [ { fontName: 'FZQKBYSJW' , fontFamily: ['fzqkbysjw'] } ] };
+    var myFont = new FTFont(fontCfg);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48f745cc9872cc90f47b2b33eaa85e45";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af2ca88e2c7a0d358a5a1130270ea7cf";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e6bb642ef6aa358c8b7d9673479f38c7";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
