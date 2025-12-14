@@ -217,9 +217,20 @@ body {
 }
 
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  column-count: 3;
+  column-gap: 16px;
+}
+
+@media (max-width: 1200px) {
+  .card-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .card-grid {
+    column-count: 1;
+  }
 }
 
 .card {
@@ -235,6 +246,8 @@ body {
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   position: relative;
   overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 16px;
 }
 
 .card:hover {
@@ -345,12 +358,10 @@ body {
   background: var(--gradient-primary);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 12px 24px rgba(22, 119, 255, 0.22);
 }
 
 .btn.primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 28px rgba(22, 119, 255, 0.28);
 }
 
 .btn.ghost {
@@ -368,7 +379,6 @@ body {
   background: #ff4d4f;
   border-color: #ff4d4f;
   color: #fff;
-  box-shadow: 0 8px 18px rgba(255, 77, 79, 0.25);
 }
 
 .btn.small {
@@ -589,13 +599,13 @@ body {
   position: fixed;
   right: 18px;
   top: 76px;
-  bottom: 88px;
   width: 420px;
   background: var(--card);
   border: 1px solid rgba(228, 232, 245, 0.9);
   border-radius: 20px;
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
   padding: 20px;
+  max-height: calc(100vh - 140px);
   overflow: auto;
   z-index: 10;
 }
@@ -689,7 +699,6 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 18px 45px rgba(22, 119, 255, 0.35);
   cursor: pointer;
   opacity: 0;
   transform: translateY(12px);
@@ -705,7 +714,7 @@ body {
 }
 
 .back-to-top:hover {
-  box-shadow: 0 22px 55px rgba(22, 119, 255, 0.45);
+  opacity: 0.95;
 }
 
 .back-to-top.show {
@@ -922,6 +931,7 @@ body {
     right: 12px;
     left: 12px;
     width: auto;
+    max-height: calc(100vh - 96px);
   }
 }
 

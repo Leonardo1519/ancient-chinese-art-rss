@@ -144,7 +144,6 @@ body {
   color: #fff;
   background: var(--gradient, linear-gradient(135deg, #1677ff, #4096ff));
   cursor: pointer;
-  box-shadow: 0 15px 30px rgba(22, 119, 255, 0.3);
 }
 
 .popup-button:hover {
