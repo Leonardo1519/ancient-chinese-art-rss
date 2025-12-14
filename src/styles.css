@@ -47,25 +47,22 @@ body {
   justify-content: space-between;
   padding: 26px 32px;
   background: var(--card);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid transparent;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  position: relative;
-  overflow: hidden;
-}
-
-.topbar::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(22, 119, 255, 0.18), transparent 45%);
-  pointer-events: none;
 }
 
 .brand {
   display: flex;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 58px;
 }
 
 .brand-logo {
@@ -73,14 +70,12 @@ body {
   height: 58px;
   border-radius: 18px;
   object-fit: cover;
-  border: 1px solid rgba(22, 119, 255, 0.2);
-  box-shadow: 0 12px 24px rgba(22, 119, 255, 0.25);
 }
 
 .title {
   font-size: 24px;
   font-weight: 700;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
 }
 
 .subtitle {
