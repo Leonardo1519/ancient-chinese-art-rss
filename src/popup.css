@@ -67,8 +67,8 @@ body {
 }
 
 .popup-field-offset {
-  margin-top: 12px;
-  padding-top: 6px;
+  margin-top: 4px;
+  padding-top: 0;
 }
 
 .popup-field select {

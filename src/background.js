@@ -18,6 +18,16 @@ const ALARM_NAME = 'autoFetch';
 const MIN_INTERVAL_MINUTES = 10;
 const MAX_BADGE = 999;
 
+const htmlEntityParser = typeof DOMParser !== 'undefined' ? new DOMParser() : null;
+const NAMED_HTML_ENTITIES = {
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  apos: "'",
+  nbsp: ' '
+};
+
 chrome.runtime.onInstalled.addListener(async () => {
   const initState = await ensureDefaults();
   await scheduleAutoUpdate(initState.settings.updateIntervalHours);
@@ -250,8 +260,45 @@ function trimSummary(text) {
   return clean.length > 180 ? `${clean.slice(0, 180)}...` : clean;
 }
 
+function decodeHtmlEntities(text = '') {
+  if (!text) return '';
+  if (htmlEntityParser) {
+    try {
+      const doc = htmlEntityParser.parseFromString(
+        `<!DOCTYPE html><body>${text}</body>`,
+        'text/html'
+      );
+      if (doc?.body?.textContent !== undefined) {
+        return doc.body.textContent;
+      }
+    } catch (_error) {
+      // ignore and fallback to manual decoding
+    }
+  }
+  return text.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (match, entity) => {
+    if (entity[0] === '#') {
+      const isHex = entity[1]?.toLowerCase() === 'x';
+      const value = isHex
+        ? parseInt(entity.slice(2), 16)
+        : parseInt(entity.slice(1), 10);
+      return Number.isNaN(value) ? match : String.fromCodePoint(value);
+    }
+    const mapped = NAMED_HTML_ENTITIES[entity.toLowerCase()];
+    return typeof mapped === 'string' ? mapped : match;
+  });
+}
+
 function stripTags(text = '') {
-  return text.replace(/<[^>]*>/g, '');
+  if (!text) return '';
+  const decoded = decodeHtmlEntities(text);
+  return decoded
+    .replace(/<!\[CDATA\[/gi, '')
+    .replace(/\]\]>/g, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .trim();
 }
 
 function text(node, selector) {
