@@ -1,3 +1,5 @@
+const BACK_TO_TOP_THRESHOLD = 420;
+
 const state = {
   articles: [],
   sources: [],
@@ -25,6 +27,7 @@ let searchTimer;
 let favoriteSearchTimer;
 let suppressLoadingOverlay = false;
 let activeTagMenuArticleId = null;
+let editingSource = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   bindEvents();
@@ -79,6 +82,11 @@ function bindEvents() {
   if (favoriteUnreadCheckbox) {
     favoriteUnreadCheckbox.addEventListener('change', handleFavoriteUnreadChange);
   }
+  const backToTopBtn = qs('#back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', handleBackToTopClick);
+  }
+  window.addEventListener('scroll', handlePageScroll);
   document.addEventListener('click', handleGlobalClick);
   document.addEventListener('scroll', closeTagMenu, true);
   document.addEventListener('keydown', handleKeydown);
@@ -87,6 +95,17 @@ function bindEvents() {
     closeTagMenu();
     switchView('settings');
   });
+  const editSourceModal = qs('#edit-source-modal');
+  if (editSourceModal) {
+    editSourceModal.addEventListener('click', (event) => {
+      if (event.target === editSourceModal) {
+        closeEditSourceModal();
+      }
+    });
+  }
+  qs('#edit-source-close')?.addEventListener('click', closeEditSourceModal);
+  qs('#edit-source-cancel')?.addEventListener('click', closeEditSourceModal);
+  qs('#edit-source-form')?.addEventListener('submit', handleEditSourceSubmit);
 }
 
 async function loadState() {
@@ -106,6 +125,7 @@ async function loadState() {
     renderSources();
     renderSettings();
     updateLastUpdated();
+    updateBackToTopVisibility();
   } catch (error) {
     showToast('加载失败，请重试');
     console.error(error);
@@ -311,12 +331,14 @@ function renderList(data, listSelector, emptySelector) {
     card.className = 'card';
     card.dataset.id = item.id;
     const tagsSection = buildTagSection(item);
+    const sourceSection = buildSourceSection(item);
     card.innerHTML = `
       <div class="card-header">
         <div class="card-title">${item.title}</div>
       </div>
       <div class="card-summary">${item.summary || '暂无摘要'}</div>
       ${tagsSection}
+      ${sourceSection}
       <div class="card-footer">
         <span>${formatDate(item.publishedAt)}</span>
         <div class="actions">
@@ -326,7 +348,6 @@ function renderList(data, listSelector, emptySelector) {
           >
             ${item.isRead ? '已读' : '未读'}
           </span>
-          <span class="badge badge-source">${item.sourceName || '未知来源'}</span>
           <button class="btn ghost favorite-btn">${item.isFavorite ? '★ 收藏' : '☆ 收藏'}</button>
         </div>
       </div>
@@ -430,6 +451,7 @@ function handleGlobalClick(event) {
 function handleKeydown(event) {
   if (event.key === 'Escape') {
     closeTagMenu();
+    closeEditSourceModal();
   }
 }
 
@@ -483,6 +505,11 @@ function buildTagSection(article) {
     .join('');
   if (!chips) return '';
   return `<div class="card-tags">${chips}</div>`;
+}
+
+function buildSourceSection(article) {
+  const name = article.sourceName || '未知来源';
+  return `<div class="card-source"><span class="badge badge-source">${name}</span></div>`;
 }
 
 async function openDetail(articleId) {
@@ -583,39 +610,83 @@ function renderSources() {
   });
 }
 
-async function handleEditSource(source) {
-  const nameInput = prompt('请输入新的源名称', source.name || '');
-  if (nameInput === null) return;
-  const nextName = nameInput.trim();
-  const linkInput = prompt(
-    '请输入新的 RSS 链接',
-    source.feedUrl || source.pageUrl || ''
-  );
-  if (linkInput === null) return;
-  const nextFeedUrl = linkInput.trim();
+function handleEditSource(source) {
+  if (!source) return;
+  editingSource = source;
+  openEditSourceModal(source);
+}
+
+function openEditSourceModal(source) {
+  const modal = qs('#edit-source-modal');
+  const form = qs('#edit-source-form');
+  if (!modal || !form) return;
+  const nameInput = qs('#edit-source-name');
+  const feedInput = qs('#edit-source-url');
+  const pageInput = qs('#edit-source-page');
+  if (nameInput) {
+    nameInput.value = source.name || '';
+  }
+  if (feedInput) {
+    feedInput.value = source.feedUrl || source.pageUrl || '';
+  }
+  if (pageInput) {
+    pageInput.value = source.pageUrl || '';
+  }
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  requestAnimationFrame(() => {
+    nameInput?.focus();
+    nameInput?.select();
+  });
+}
+
+function closeEditSourceModal() {
+  const modal = qs('#edit-source-modal');
+  if (!modal) return;
+  if (!modal.classList.contains('hidden')) {
+    modal.classList.add('hidden');
+  }
+  modal.setAttribute('aria-hidden', 'true');
+  qs('#edit-source-form')?.reset();
+  editingSource = null;
+}
+
+async function handleEditSourceSubmit(event) {
+  event.preventDefault();
+  if (!editingSource) {
+    showToast('未找到要编辑的 RSS 源');
+    return;
+  }
+  const formElement = event.target;
+  const formData = new FormData(formElement);
+  const nextName = (formData.get('name') || '').trim();
+  const nextFeedUrl = (formData.get('feedUrl') || '').trim();
+  const providedPageUrl = (formData.get('pageUrl') || '').trim();
   if (!nextName || !nextFeedUrl) {
     showToast('名称和 RSS 链接均不能为空');
     return;
   }
   const payload = { name: nextName, feedUrl: nextFeedUrl };
-  if (!source.pageUrl) {
+  if (providedPageUrl) {
+    payload.pageUrl = providedPageUrl;
+  } else if (!editingSource.pageUrl) {
     payload.pageUrl = nextFeedUrl;
   }
   try {
     const res = await sendMessage({
       type: 'updateSource',
-      id: source.id,
+      id: editingSource.id,
       payload
     });
     if (res?.sources) {
       state.sources = res.sources;
     } else {
       state.sources = state.sources.map((item) =>
-        item.id === source.id ? { ...item, ...payload } : item
+        item.id === editingSource.id ? { ...item, ...payload } : item
       );
     }
     state.articles = state.articles.map((article) =>
-      article.sourceId === source.id
+      article.sourceId === editingSource.id
         ? { ...article, sourceName: nextName }
         : article
     );
@@ -625,6 +696,7 @@ async function handleEditSource(source) {
     renderFavoriteFilters();
     renderFavorites();
     showToast('RSS 源已更新');
+    closeEditSourceModal();
   } catch (error) {
     console.error(error);
     showToast('更新源失败');
@@ -857,6 +929,7 @@ function switchView(view) {
   if (view === 'favorites') {
     renderFavorites();
   }
+  updateBackToTopVisibility();
 }
 
 function updateFiltersVisibility() {
@@ -864,6 +937,31 @@ function updateFiltersVisibility() {
   if (!filtersEl) return;
   const shouldHide = currentView !== 'home';
   filtersEl.classList.toggle('hidden', shouldHide);
+}
+
+function handlePageScroll() {
+  updateBackToTopVisibility();
+}
+
+function handleBackToTopClick() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+function updateBackToTopVisibility() {
+  const button = qs('#back-to-top');
+  if (!button) return;
+  const shouldShow = shouldShowBackToTop();
+  button.classList.toggle('show', shouldShow);
+}
+
+function shouldShowBackToTop() {
+  if (currentView !== 'home' && currentView !== 'favorites') {
+    return false;
+  }
+  return window.scrollY > BACK_TO_TOP_THRESHOLD;
 }
 
 function updateLastUpdated() {

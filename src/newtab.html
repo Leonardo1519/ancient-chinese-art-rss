@@ -71,37 +71,50 @@
         </section>
 
         <section id="view-sources" class="view">
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">RSS 源管理</div>
-                <div class="panel-subtitle">
-                  预置源已添加，可自由增删并可自动探测 RSS 链接
+          <div class="sources-panels">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">RSS 源管理</div>
+                  <div class="panel-subtitle">
+                    预置源已添加，可自由增删并可自动探测 RSS 链接
+                  </div>
                 </div>
               </div>
+              <div id="source-list" class="source-list"></div>
             </div>
-            <div id="source-list" class="source-list"></div>
-            <form id="add-source-form" class="form">
-              <div class="form-title">添加自定义源</div>
-              <input
-                name="name"
-                class="input"
-                placeholder="源名称（必填）"
-                required
-              />
-              <input
-                name="feedUrl"
-                class="input"
-                placeholder="RSS 链接（必填）"
-                required
-              />
-              <input
-                name="pageUrl"
-                class="input"
-                placeholder="源主页（可选）"
-              />
-              <button type="submit" class="btn primary">添加源</button>
-            </form>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">添加自定义源</div>
+                  <div class="panel-subtitle">填写后保存，即可参与统一更新</div>
+                </div>
+              </div>
+              <form id="add-source-form" class="form">
+                <input
+                  name="name"
+                  class="input"
+                  placeholder="源名称（必填）"
+                  required
+                />
+                <input
+                  name="feedUrl"
+                  class="input"
+                  placeholder="RSS 链接（必填）"
+                  required
+                />
+                <input
+                  name="pageUrl"
+                  class="input"
+                  placeholder="源主页（可选）"
+                />
+                <p class="input-hint">
+                  源主页是该 RSS 提供方的官网/主页 URL，可辅助探测 RSS，若 RSS 链接丢失或变动，将利用源主页生成可点击的阅读链接，建议填写。
+                </p>
+                <button type="submit" class="btn primary">添加源</button>
+              </form>
+            </div>
           </div>
         </section>
 
@@ -187,6 +200,12 @@
         <button data-view="settings">设置</button>
       </nav>
 
+      <button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 5.5c-.32 0-.63.13-.86.36l-6.5 6.5a1.25 1.25 0 0 0 1.77 1.77L11 8.94V18.5a1.25 1.25 0 1 0 2.5 0V8.94l4.59 4.19a1.25 1.25 0 0 0 1.77-1.77l-6.5-6.5c-.23-.23-.54-.36-.86-.36z"/>
+        </svg>
+      </button>
+
       <div id="tag-context-menu" class="tag-menu hidden">
         <div class="tag-menu-header">
           <div class="tag-menu-title">为资讯打标签</div>
@@ -197,6 +216,61 @@
         <div id="tag-menu-list" class="tag-menu-list"></div>
         <div class="tag-menu-footer">
           <button id="tag-menu-manage" class="btn ghost small">去设置页管理</button>
+        </div>
+      </div>
+
+      <div
+        id="edit-source-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="edit-source-title"
+      >
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <div>
+              <div id="edit-source-title" class="modal-title">编辑 RSS 源</div>
+              <div class="modal-subtitle">同时更新名称与链接</div>
+            </div>
+            <button
+              type="button"
+              id="edit-source-close"
+              class="modal-close"
+              aria-label="关闭编辑窗口"
+            >
+              ×
+            </button>
+          </div>
+          <form id="edit-source-form" class="modal-form">
+            <label class="modal-label" for="edit-source-name">源名称</label>
+            <input
+              id="edit-source-name"
+              name="name"
+              class="input"
+              placeholder="请输入源名称"
+              required
+            />
+            <label class="modal-label" for="edit-source-url">RSS 链接</label>
+            <input
+              id="edit-source-url"
+              name="feedUrl"
+              class="input"
+              placeholder="请输入 RSS 链接"
+              required
+            />
+            <label class="modal-label" for="edit-source-page">源主页（可选）</label>
+            <input
+              id="edit-source-page"
+              name="pageUrl"
+              class="input"
+              placeholder="用于辅助生成阅读链接"
+            />
+            <div class="modal-actions">
+              <button type="button" class="btn ghost" id="edit-source-cancel">取消</button>
+              <button type="submit" class="btn primary">保存</button>
+            </div>
+          </form>
         </div>
       </div>
 
