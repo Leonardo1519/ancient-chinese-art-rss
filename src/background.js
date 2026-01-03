@@ -15,8 +15,11 @@ import {
 } from './shared/storage.js';
 
 const ALARM_NAME = 'autoFetch';
+const CLEANUP_ALARM_NAME = 'autoCleanup';
 const MIN_INTERVAL_MINUTES = 10;
 const MAX_BADGE = 999;
+const CLEANUP_INTERVAL_DAYS = 2;
+const ARTICLE_MAX_AGE_DAYS = 2;
 
 const htmlEntityParser = typeof DOMParser !== 'undefined' ? new DOMParser() : null;
 const NAMED_HTML_ENTITIES = {
@@ -31,18 +34,27 @@ const NAMED_HTML_ENTITIES = {
 chrome.runtime.onInstalled.addListener(async () => {
   const initState = await ensureDefaults();
   await scheduleAutoUpdate(initState.settings.updateIntervalHours);
+  await scheduleAutoCleanup();
   await fetchAndStore({ reason: 'install', notify: false });
 });
 
 chrome.runtime.onStartup.addListener(async () => {
   const initState = await ensureDefaults();
   await scheduleAutoUpdate(initState.settings.updateIntervalHours);
+  await scheduleAutoCleanup();
+  // 启动时检查是否需要清理
+  await cleanupOldArticles();
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === ALARM_NAME) {
     fetchAndStore({ reason: 'alarm', notify: true }).catch((err) =>
       console.warn('auto fetch failed', err)
+    );
+  }
+  if (alarm.name === CLEANUP_ALARM_NAME) {
+    cleanupOldArticles().catch((err) =>
+      console.warn('auto cleanup failed', err)
     );
   }
 });
@@ -558,6 +570,62 @@ async function scheduleAutoUpdate(hours = DEFAULT_SETTINGS.updateIntervalHours) 
   const minutes = Math.max(MIN_INTERVAL_MINUTES, Number(hours) * 60);
   await chrome.alarms.clear(ALARM_NAME);
   await chrome.alarms.create(ALARM_NAME, { periodInMinutes: minutes });
+}
+
+async function scheduleAutoCleanup() {
+  // 每天检查一次是否需要清理
+  const cleanupMinutes = 24 * 60; // 24小时
+  await chrome.alarms.clear(CLEANUP_ALARM_NAME);
+  await chrome.alarms.create(CLEANUP_ALARM_NAME, { periodInMinutes: cleanupMinutes });
+}
+
+async function cleanupOldArticles() {
+  const data = await new Promise((resolve) =>
+    chrome.storage.local.get([STORAGE_KEYS.ARTICLES, STORAGE_KEYS.LAST_CLEANUP, STORAGE_KEYS.SETTINGS], resolve)
+  );
+  
+  const articles = data[STORAGE_KEYS.ARTICLES] ?? [];
+  const lastCleanup = data[STORAGE_KEYS.LAST_CLEANUP] ?? 0;
+  const settings = data[STORAGE_KEYS.SETTINGS] ?? DEFAULT_SETTINGS;
+  const now = Date.now();
+  
+  // 计算两天的毫秒数
+  const cleanupIntervalMs = CLEANUP_INTERVAL_DAYS * 24 * 60 * 60 * 1000;
+  const articleMaxAgeMs = ARTICLE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+  
+  // 如果距离上次清理不足两天，跳过
+  if (now - lastCleanup < cleanupIntervalMs) {
+    return { ok: true, skipped: true, reason: '距离上次清理不足两天' };
+  }
+  
+  // 过滤文章：保留收藏的、以及两天内的文章
+  const cutoffTime = now - articleMaxAgeMs;
+  const filteredArticles = articles.filter((article) => {
+    // 收藏的文章永远保留
+    if (article.isFavorite) return true;
+    // 两天内的文章保留（不管已读未读）
+    if (article.publishedAt >= cutoffTime || article.createdAt >= cutoffTime) return true;
+    // 超过两天的文章删除
+    return false;
+  });
+  
+  const removedCount = articles.length - filteredArticles.length;
+  
+  if (removedCount > 0) {
+    await saveArticles(filteredArticles);
+    console.log(`自动清理完成，删除了 ${removedCount} 篇超过两天的旧文章`);
+  }
+  
+  // 更新上次清理时间
+  await new Promise((resolve) =>
+    chrome.storage.local.set({ [STORAGE_KEYS.LAST_CLEANUP]: now }, resolve)
+  );
+  
+  // 更新badge
+  const unread = filteredArticles.filter((item) => !item.isRead).length;
+  await updateBadge(unread, settings);
+  
+  return { ok: true, removed: removedCount, remaining: filteredArticles.length };
 }
 
 function parseXmlSafe(text) {

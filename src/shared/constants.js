@@ -3,7 +3,8 @@ export const STORAGE_KEYS = {
   SOURCES: 'rssSources',
   SETTINGS: 'settings',
   LAST_FETCHED: 'lastFetchedAt',
-  TAGS: 'articleTags'
+  TAGS: 'articleTags',
+  LAST_CLEANUP: 'lastCleanupAt'
 };
 
 export const DEFAULT_SOURCES = [
